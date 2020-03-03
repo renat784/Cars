@@ -77,6 +77,9 @@
             }
 
 
+        a:hover {
+            text-decoration: none;
+        }
 
         .nav-item a,
         .verticalList ul li a,
@@ -96,7 +99,6 @@
             }
 
 
-
         h6 {
             color: white;
         }
@@ -108,8 +110,6 @@
         .colorSecondary {
             background-color: #532380;
         }
-
-
 
 
         div#feedBack {
@@ -145,7 +145,6 @@
                 }
 
 
-
         .verticalList ul {
             list-style-type: none;
             padding: 0;
@@ -158,6 +157,18 @@
                 padding: 0;
             }
 
+        /*contact.aspx*/
+        h3 {
+            color: #532380;
+            font-weight: bold;
+        }
+
+
+        #grayBox {
+            background-color: #F2F2F2;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
 
     </style>
 
