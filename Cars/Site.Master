@@ -1,0 +1,408 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Cars.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+
+        /*media smartphone Portrait orientation*/
+        @media (max-width: 576px) {
+            #smallFooter li {
+                display: block !important;
+                text-align: center;
+                padding: 0;
+                margin: 0;
+            }
+
+            #smallFooter li span {
+                margin-left: 0 !important;
+            }
+
+            .verticalList {
+                margin-bottom: 20px !important;
+                text-align: center;
+            }
+
+
+            #iconsList {
+                text-align: center !important;
+            }
+
+            #iconsList li a i {
+                font-size: 15px !important;
+            }
+
+            #btnLogIn {
+                margin: 10px;
+            }
+
+            #dashBoard {
+                margin: 15px 0px 15px 10px;
+            }
+
+            #dashBoard a span {
+                display: inline !important;
+                color: white;
+            }
+        }
+        /*media ends*/
+
+
+
+        .navbar {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+
+        .nav-item a {
+            display: block;
+            padding: 10px 15px;
+        }
+
+            .nav-item a:hover {
+                background-color: #513979;
+            }
+
+
+
+        .nav-item a,
+        .verticalList ul li a,
+        #smallFooter li a,
+        #iconsList li a {
+            font-size: 14px;
+            color: rgba(255, 255, 255, .75);
+            text-decoration: none;
+        }
+
+            .nav-item a:hover,
+            .verticalList ul li a:hover,
+            #smallFooter li a:hover,
+            #iconsList li a:hover {
+                color: white;
+                text-decoration: none;
+            }
+
+
+
+        h6 {
+            color: white;
+        }
+
+        .colorPrimary {
+            background-color: #250858;
+        }
+
+        .colorSecondary {
+            background-color: #532380;
+        }
+
+
+
+
+        div#feedBack {
+            position: fixed;
+            right: -40px;
+            top: 50%;
+            background-color: #532380;
+            color: white;
+            border-radius: 5px;
+            padding: 2px 15px;
+            transform: rotate(-90deg);
+            z-index: 1;
+        }
+
+            div#feedBack:hover {
+                cursor: pointer;
+            }
+
+
+        #smallFooter, #iconsList {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            #smallFooter li, #iconsList li {
+                display: inline;
+                margin: 0 15px;
+            }
+
+                #smallFooter li:last-child {
+                    margin-top: 15px !important;
+                }
+
+
+
+        .verticalList ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .verticalList ul li {
+                display: block;
+                margin: 0;
+                padding: 0;
+            }
+
+
+    </style>
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div id="feedBack" onclick="alert('hi')">
+            <strong>Feedback</strong>
+        </div>
+
+        <div class="navbar  navbar-expand-lg navbar-dark fixed-top colorPrimary">
+            <a class="navbar-brand" runat="server" href="~/">
+                <img src="https://www.cars.com/cldstatic/header/0.2.3/logo.png" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="container">
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto ">
+                        <li class="nav-item">
+                            <a runat="server" href="~/shopping" title="Shop for new, used, and certified cars and trucks">Cars for Sale</a>
+                        </li>
+                        <li class="nav-item">
+                            <a runat="server" href="~/sell" title="Sell your car online">Sell Your Car</a>
+                        </li>
+                        <li class="nav-item">
+                            <a runat="server" href="~/auto-repair" title="Estimates on car repairs or find a service shop near you">Service & Repair</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a runat="server" href="~/research" title="Specifications and reviews on car models">Research</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a runat="server" href="~/news" title="Latest news and videos from the Cars.com editorial team">Videos & Rewiews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a runat="server" href="~/contact" title="Ask a question or submit feedback">Contact Us</a>
+                        </li>
+
+                    </ul>
+
+                    <div class="px-lg-3" id="btnLogIn">
+                        <asp:Button CssClass="btn btn-outline-light" ToolTip="Log In or Sign Up " runat="server" Text="Sign Up" />
+                    </div>
+                    <div id="dashBoard">
+                        <a runat="server" href="~/Contact" style="color: white">
+                            <i class="fa fa-user-circle-o" style="font-size: 25px;" title="My Dashboard" aria-hidden="true"></i>
+                            <span style="display: none">My Dashboard</span>
+                        </a>
+                    </div>
+
+
+
+
+
+
+                    <%-- <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right ml-lg-3">
+                                <li>
+                                    <a runat="server" href="~/Account/Register">Register</a>
+                                </li>
+                                <li class="ml-lg-3">
+                                    <a runat="server" href="~/Account/Login">Log in</a>
+                                </li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li class="ml-lg-3">
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>--%>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content mt-4">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+        </div>
+
+        <footer>
+            <%--big footer--%>
+            <div class="colorSecondary py-4">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-12 pl-lg-5 verticalList">
+                        <h6>Our Company</h6>
+                        <ul>
+                            <li>
+                                <a href="#">About Cars.com</a>
+                            </li>
+                            <li>
+                                <a href="#">Investor Relations</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact Cars.com</a>
+                            </li>
+                            <li>
+                                <a href="#">Mobile Apps</a>
+                            </li>
+                            <li>
+                                <a href="#">Site Map</a>
+                            </li>
+                            <li>
+                                <a href="#">Careers</a>
+                            </li>
+                            <li>
+                                <a href="#">Fraud Awareness</a>
+                            </li>
+                            <li>
+                                <a href="#">Licensing & Reprints</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-sm-12 verticalList">
+                        <h6>Buying & Selling</h6>
+                        <ul>
+                            <li>
+                                <a href="#">Find a Car</a>
+                            </li>
+                            <li>
+                                <a href="#">Certified Pre-Owned</a>
+                            </li>
+                            <li>
+                                <a href="#">Sell Your Car</a>
+                            </li>
+                            <li>
+                                <a href="#">Car Book Values</a>
+                            </li>
+                            <li>
+                                <a href="#">Car Dealers</a>
+                            </li>
+                            <li>
+                                <a href="#">Compare Car Prices</a>
+                            </li>
+                            <li>
+                                <a href="#">Listings by City</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-12 verticalList">
+                        <h6>Our Partners</h6>
+                        <ul>
+                            <li>
+                                <a href="#">Auto.com</a>
+                            </li>
+                            <li>
+                                <a href="#">NewCars.com</a>
+                            </li>
+                            <li>
+                                <a href="#">RepairPal.com</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-12">
+                        <ul id="iconsList">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-twitter" style="font-size: 20px;" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-facebook" style="font-size: 20px;" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-youtube-play" style="font-size: 20px;" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-instagram" style="font-size: 20px;" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-linkedin" style="font-size: 20px;" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <%--little footer--%>
+            <div class="colorPrimary py-2">
+
+
+                <ul id="smallFooter">
+                    <li>
+                        <a href="#">Terms of Service</a>
+                    </li>
+                    <li>
+                        <a href="#">Privacy Statement</a>
+                    </li>
+                    <li>
+                        <a href="#">California Privacy Notice</a>
+                    </li>
+                    <li>
+                        <a href="#">Ad Choices</a>
+                    </li>
+                    <li>
+                        <a href="#">[+] Feedback</a>
+                    </li>
+                    <li>
+                        <span style="color: rgba(255, 255, 255, .75); margin-left: 200px">&copy; <%: DateTime.Now.Year %> Cars.com. All rights reserved.
+                        </span>
+                    </li>
+                </ul>
+
+
+            </div>
+        </footer>
+    </form>
+</body>
+</html>
