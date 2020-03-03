@@ -1,6 +1,5 @@
 ﻿/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 50px;
     padding-bottom: 20px;
 }
 
@@ -25,9 +24,171 @@ body {
     .jumbotron {
         margin-top: 20px;
     }
+
     .body-content {
         padding: 0;
     }
 }
 
 
+/*media smartphone Portrait orientation*/
+@media (max-width: 576px) {
+    #logoImg {
+        margin-left: 15px !important;
+    }
+
+    #smallFooter li {
+        display: block !important;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+        #smallFooter li span {
+            margin-left: 0 !important;
+        }
+
+    .verticalList {
+        margin-bottom: 20px !important;
+        text-align: center;
+    }
+
+
+    #iconsList {
+        text-align: center !important;
+    }
+
+        #iconsList li a i {
+            font-size: 15px !important;
+        }
+
+    #btnLogIn {
+        margin: 10px;
+    }
+
+    #dashBoard {
+        margin: 15px 0px 15px 10px;
+    }
+
+        #dashBoard a span {
+            display: inline !important;
+            color: white;
+        }
+}
+/*media ends*/
+
+
+
+#logoImg {
+    height: 35px;
+    margin-left: 50px;
+}
+
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+.nav-item a {
+    display: block;
+    padding: 10px 15px;
+}
+
+    .nav-item a:hover {
+        background-color: #513979;
+    }
+
+
+a:hover {
+    text-decoration: none;
+}
+
+.nav-item a,
+.verticalList ul li a,
+#smallFooter li a,
+#iconsList li a {
+    font-size: 14px;
+    color: rgba(255, 255, 255, .75);
+    text-decoration: none;
+}
+
+    .nav-item a:hover,
+    .verticalList ul li a:hover,
+    #smallFooter li a:hover,
+    #iconsList li a:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+
+h6 {
+    color: white;
+}
+
+.colorPrimary {
+    background-color: #250858;
+}
+
+.colorSecondary {
+    background-color: #532380;
+}
+
+
+div#feedBack {
+    position: fixed;
+    right: -40px;
+    top: 50%;
+    background-color: #532380;
+    color: white;
+    border-radius: 5px;
+    padding: 2px 15px;
+    transform: rotate(-90deg);
+    z-index: 1;
+}
+
+    div#feedBack:hover {
+        cursor: pointer;
+    }
+
+
+#smallFooter, #iconsList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+    #smallFooter li, #iconsList li {
+        display: inline;
+        margin: 0 15px;
+    }
+
+        #smallFooter li:last-child {
+            margin-top: 15px !important;
+        }
+
+
+.verticalList ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .verticalList ul li {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+/*contact.aspx*/
+h3 {
+    color: #532380;
+    font-weight: bold;
+}
+
+
+#grayBox {
+    background-color: #F2F2F2;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

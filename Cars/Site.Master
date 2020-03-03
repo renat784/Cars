@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - Cars</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -14,167 +14,9 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style>
-
-        /*media smartphone Portrait orientation*/
-        @media (max-width: 576px) {
-            #smallFooter li {
-                display: block !important;
-                text-align: center;
-                padding: 0;
-                margin: 0;
-            }
-
-            #smallFooter li span {
-                margin-left: 0 !important;
-            }
-
-            .verticalList {
-                margin-bottom: 20px !important;
-                text-align: center;
-            }
-
-
-            #iconsList {
-                text-align: center !important;
-            }
-
-            #iconsList li a i {
-                font-size: 15px !important;
-            }
-
-            #btnLogIn {
-                margin: 10px;
-            }
-
-            #dashBoard {
-                margin: 15px 0px 15px 10px;
-            }
-
-            #dashBoard a span {
-                display: inline !important;
-                color: white;
-            }
-        }
-        /*media ends*/
-
-
-
-        .navbar {
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-
-
-        .nav-item a {
-            display: block;
-            padding: 10px 15px;
-        }
-
-            .nav-item a:hover {
-                background-color: #513979;
-            }
-
-
-        a:hover {
-            text-decoration: none;
-        }
-
-        .nav-item a,
-        .verticalList ul li a,
-        #smallFooter li a,
-        #iconsList li a {
-            font-size: 14px;
-            color: rgba(255, 255, 255, .75);
-            text-decoration: none;
-        }
-
-            .nav-item a:hover,
-            .verticalList ul li a:hover,
-            #smallFooter li a:hover,
-            #iconsList li a:hover {
-                color: white;
-                text-decoration: none;
-            }
-
-
-        h6 {
-            color: white;
-        }
-
-        .colorPrimary {
-            background-color: #250858;
-        }
-
-        .colorSecondary {
-            background-color: #532380;
-        }
-
-
-        div#feedBack {
-            position: fixed;
-            right: -40px;
-            top: 50%;
-            background-color: #532380;
-            color: white;
-            border-radius: 5px;
-            padding: 2px 15px;
-            transform: rotate(-90deg);
-            z-index: 1;
-        }
-
-            div#feedBack:hover {
-                cursor: pointer;
-            }
-
-
-        #smallFooter, #iconsList {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-            #smallFooter li, #iconsList li {
-                display: inline;
-                margin: 0 15px;
-            }
-
-                #smallFooter li:last-child {
-                    margin-top: 15px !important;
-                }
-
-
-        .verticalList ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-            .verticalList ul li {
-                display: block;
-                margin: 0;
-                padding: 0;
-            }
-
-        /*contact.aspx*/
-        h3 {
-            color: #532380;
-            font-weight: bold;
-        }
-
-
-        #grayBox {
-            background-color: #F2F2F2;
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
-
-    </style>
-
 </head>
 <body>
-    <form runat="server">
+    <form runat="server" >
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -199,9 +41,9 @@
             <strong>Feedback</strong>
         </div>
 
-        <div class="navbar  navbar-expand-lg navbar-dark fixed-top colorPrimary">
+        <div class="navbar  navbar-expand-lg navbar-dark colorPrimary">
             <a class="navbar-brand" runat="server" href="~/">
-                <img src="https://www.cars.com/cldstatic/header/0.2.3/logo.png" />
+                <img id="logoImg" src="Images/carLogo.png"  />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -272,7 +114,7 @@
                 </div>
             </div>
         </div>
-        <div class="container body-content mt-4">
+        <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

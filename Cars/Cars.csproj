@@ -181,6 +181,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Account\Web.config" />
+    <Content Include="Images\carLogo.png" />
+    <Content Include="Images\sellCar.jpg" />
+    <Content Include="matchmaker.aspx" />
     <Content Include="news.aspx" />
     <Content Include="research.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -452,6 +455,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="matchmaker.aspx.cs">
+      <DependentUpon>matchmaker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="matchmaker.aspx.designer.cs">
+      <DependentUpon>matchmaker.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="news.aspx.cs">
