@@ -182,6 +182,7 @@
     <Content Include="Global.asax" />
     <Content Include="Account\Web.config" />
     <Content Include="Images\carLogo.png" />
+    <Content Include="Images\cooler.png" />
     <Content Include="Images\sellCar.jpg" />
     <Content Include="matchmaker.aspx" />
     <Content Include="news.aspx" />
