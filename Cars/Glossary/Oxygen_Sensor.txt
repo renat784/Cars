@@ -1,0 +1,7 @@
+<p>
+As the name suggests, oxygen sensors in a car’s exhaust system sniff for oxygen, the presence of which indicates incomplete combustion and unchecked pollution. This can trigger the check engine light.
+</p>
+
+<p>
+While oxygen sensors can faithfully diagnose improper engine operation, failed sensors are themselves among the most common causes of check engine light illumination.
+</p>

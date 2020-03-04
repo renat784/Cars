@@ -181,6 +181,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Account\Web.config" />
+    <Content Include="Glossary\ABS.png" />
+    <Content Include="Glossary\ABS.txt" />
+    <Content Include="Glossary\Clutch_Cable.png" />
+    <Content Include="Glossary\Clutch_Cable.txt" />
+    <Content Include="Glossary\Fuel_System.png" />
+    <Content Include="Glossary\Fuel_System.txt" />
+    <Content Include="Glossary\Mass_Airflow_Sensor.png" />
+    <Content Include="Glossary\Mass_Airflow_Sensor.txt" />
+    <Content Include="Glossary\Oxygen_Sensor.png" />
+    <Content Include="Glossary\Oxygen_Sensor.txt" />
     <Content Include="Images\carLogo.png" />
     <Content Include="Images\cooler.png" />
     <Content Include="Images\sellCar.jpg" />
@@ -464,6 +474,8 @@
     <Compile Include="matchmaker.aspx.designer.cs">
       <DependentUpon>matchmaker.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\GlossaryItem.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="news.aspx.cs">
       <DependentUpon>news.aspx</DependentUpon>

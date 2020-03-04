@@ -27,25 +27,13 @@
 
     <div>
         <h4>Service Term to Know</h4>
-        <div style="background-color: #F2F2F2; margin: 15px 0">Coolant</div>
+        <div style="background-color: #F2F2F2; margin: 15px 0"><%= CleanTitle(item.Title) %></div>
         <div class="row">
             <div class="col-lg-6">
-                <img class="col-12" src="Images/cooler.png" />
+                <img class="col-12" src="Glossary/<%= item.ImageFileName %>"/>
             </div>
-            <div class="col-lg-6">
-                <p class="pt-lg-4">
-                    Coolant, technically called engine coolant, is the liquid that circulates through your engine
-                    and radiator to maintain the desired operating temperature. Often mistakenly called antifreeze,
-                    coolant is a mixture of water and antifreeze, which is a liquid that prevents not just freezing 
-                    but also boiling, either of which could cause the engine to overheat. (Coolant is not to be 
-                    confused with refrigerant, the pressurized gas that allows the air conditioning to keep the 
-                    cabin cool.)
-                </p>
-                <p>
-                    Engine coolant should be checked according to the manufacturer’s recommendation (check your 
-                    owner’s manual) to ensure there’s enough, and that it’s in good condition. A replacement 
-                    interval is also provided in the manual, and it varies with the make and model.
-                </p>
+            <div class="col-lg-6 pt-lg-4">
+                 <%= ShowText(item.TextFileName) %> 
             </div>
         </div>
     </div>

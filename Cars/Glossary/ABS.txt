@@ -1,0 +1,7 @@
+<p>
+Antilock braking system is an enhanced braking system that monitors individual wheel rotation and prevents the wheels from locking up while stopping. Locked wheels provide inefficient braking and sacrifice directional control, so ABS shortens stopping distances in most conditions and allows the driver to steer even when panic braking. The federal government began requiring ABS on all new cars starting with the 2012 model year. Pulsation in the brake pedal can startle the uninitiated, but it is a sign of the ABS properly doing its job.
+</p>
+
+<p>
+In structure, ABS is similar to a conventional braking system, but its components may need repair, starting with electronic wheel sensors at each wheel or at the differential, the computer brain called the control module, and a valve assembly and pump. 
+</p>

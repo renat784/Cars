@@ -1,0 +1,7 @@
+<p>
+A device in the throttle body, the mass airflow, or MAF, sensor helps the engine computer determine the proper air-fuel mixture by measuring the mass of the air flowing past it. Because a precise mixture is crucial to efficiency and clean combustion, the MAF sensor accounts for differences in air density, which varies with temperature and altitude.
+</p>
+
+<p>
+A failed MAF sensor is one of many events that will trigger a check engine light. It may also result in rough running, stalling or a drop in gas mileage.
+</p>
