@@ -134,6 +134,9 @@ h6 {
     background-color: #532380;
 }
 
+.colorThird {
+    background-color: #A400B4;
+}
 
 div#feedBack {
     position: fixed;
@@ -193,3 +196,29 @@ h3, h4 {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+/*news.aspx*/
+.latestStories img {
+    margin-bottom: 10px;
+    width: 100%
+}
+
+.latestStories div a {
+    font-weight: bold;
+    color: #A400B4;
+    font-size: 14px;
+}
+
+    .latestStories div a p {
+        font-size: 20px;
+        color: black;
+        margin-bottom: 0;
+    }
+
+    .latestStories div a:hover, div a p:hover {
+        color: #004B83;
+    }
+
+    .latestStories div a small {
+        color: gray;
+    }

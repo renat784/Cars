@@ -2,8 +2,177 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h1>News</h1>
-    <p>
-        Velit mollis odio sollicitudin lacinia aliquam posuere, sapien elementum lobortis tincidunt, turpis dui ornare nisl, sollicitudin interdum turpis nunc eget sem nulla eu ultricies orci praesent id augue nec lorem pretium congue sit amet ac nunc fusce iaculis lorem eu diam hendrerit at mattis purus dignissim vivamus mauris tellus, fringilla vel dapibus a, blandit quis erat vivamus elementum aliquam luctus etiam fringilla pretium sem vitae sodales mauris id nulla est praesent laoreet, metus vel auctor aliquam, eros purus vulputate leo, eget consequat neque quam id tellus duis ultricies tempor tortor, vitae dignissim ligula mattis nec in hac habitasse platea dictumst.
-    </p>
+    <h2 style="color: black; font-weight: bold">News</h2>
+    <div class="row">
+        <div class="col-lg-8">
+            <div id="bigImage">
+                <h3 style="color: black">Latest Stories</h3>
+                <div class="latestStories">
+                    <img src="../Content/News/bigImage.jpg" />
+                    <div>
+                        <a href="#">Auto Show</a>
+                        <a href="#">
+                            <p>
+                                Hyundai Prophecy Concept: Electric Car Future Foretold or Flashy False Prophet?
+                            </p>
+                        </a>
+                        <a href="#">
+                            <small>March 4, 2020</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-3">
+                    <div class="latestStories">
+                        <img src="../Content/News/porsche-911-carrera.jpg" />
+                        <div>
+                            <a href="#">Auto Show</a>
+                            <a href="#">
+                                <p>
+                                    2021 Porsche 911 Turbo S: 911’s Next  Top Model
+                                </p>
+                            </a>
+                            <a href="#">
+                                <small>March 4, 2020</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="latestStories">
+                        <img src="../Content/News/hundai.jpg" />
+                        <div>
+                            <a href="#">Safety</a>
+                            <a href="#">
+                                <p>
+                                    2013-2014 Hyundai Sonata: Recall Alert
+                                </p>
+                            </a>
+                            <a href="#">
+                                <small>March 4, 2020</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="latestStories">
+                        <img src="../Content/News/2019-lexus.jpg" />
+                        <div>
+                            <a href="#">Safety</a>
+                            <a href="#">
+                                <p>
+                                    2013-2019 Lexus and Toyota Cars: Recall Alert
+                                </p>
+                            </a>
+                            <a href="#">
+                                <small>March 4, 2020</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="latestStories">
+                        <img src="/Content/News/car-safety-features-motion.png" />
+                        <div>
+                            <a href="#">Safety</a>
+                            <a href="#">
+                                <p>
+                                    Which Cars Have Self-Driving Features for 2020?
+                                </p>
+                            </a>
+                            <a href="#">
+                                <small>March 4, 2020</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <h3 style="color: black">Featured Stories</h3>
+            <div class="latestStories mb-4">
+                <img src="/Content/News/audi_s4.jpg" />
+                <div>
+                    <a href="#">News</a>
+                    <a href="#">
+                        <p>
+                            2020 Audi S4 Review: Lost in the Shuffle or Ready to Hustle?
+                        </p>
+                    </a>
+                    <a href="#">
+                        <small>By Brian Wong on March 4, 2020</small>
+                    </a>
+                </div>
+            </div>
+            <div class="latestStories mb-4">
+                <div>
+                    <a href="#">Auto Show</a>
+                    <a href="#">
+                        <p>
+                            10 Biggest News Stories of the Week: 2020 Chevrolet Corvette Trounces Telluride
+                        </p>
+                    </a>
+                    <a href="#">
+                        <small>By Brian Wong on March 4, 2020</small>
+                    </a>
+                </div>
+            </div>
+            <div class="latestStories mb-4">
+                <div>
+                    <a href="#">News</a>
+                    <a href="#">
+                        <p>
+                            2021 Kia Seltos: 6 Things We Like and 3 Things We Don’t
+                        </p>
+                    </a>
+                    <a href="#">
+                        <small>By Brian Wong on March 4, 2020</small>
+                    </a>
+                </div>
+            </div>
+            <div class="latestStories mb-4">
+                <div>
+                    <a href="#">Auto Show</a>
+                    <a href="#">
+                        <p>
+                            2021 Mercedes-Benz E-Class: New Face, New Wagon
+                        </p>
+                    </a>
+                    <a href="#">
+                        <small>By Brian Wong on March 4, 2020</small>
+                    </a>
+                </div>
+            </div>
+            <div class="latestStories mb-4">
+                <div>
+                    <a href="#">News</a>
+                    <a href="#">
+                        <p>
+                            The Week in Tesla News: Rivian Gets OK for Colorado Sales, Fisker Ocean Info Flows and Tesla Takes Iowa State Fair(?)
+                        </p>
+                    </a>
+                    <a href="#">
+                        <small>By Brian Wong on March 4, 2020</small>
+                    </a>
+                </div>
+            </div>
+            <div class="latestStories mb-4">
+                <div>
+                    <a href="#">News</a>
+                    <a href="#">
+                        <p>
+                            What’s the Best 3-Row SUV for 2020?
+                        </p>
+                    </a>
+                    <a href="#">
+                        <small>By Brian Wong on March 4, 2020</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </asp:Content>

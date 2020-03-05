@@ -17,7 +17,7 @@ namespace Cars
         private List<GlossaryItem> list;
         public auto_repair()
         {
-            var _list = new List<GlossaryItem>
+            var _list = new List<GlossaryItem> 
             {
                 new GlossaryItem
                 {
