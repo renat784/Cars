@@ -151,8 +151,49 @@
 
 
 
-
-
+    <div>
+        <div class="text-center">
+            <p>Tools and Expert Advice</p>
+            <p>What you need from now until you buy, all in one place.</p>
+        </div>
+        <div class="row grayToolBox">
+            <div class="col-lg-2 offset-lg-1 ">
+                <a href="#">
+                    <img src="../Images/compareCars1.png"/>
+                    <p>Side-by-side Comparisons</p>
+                    <span>See popular or customize comparisons &gt;</span>
+                </a>
+            </div>
+            <div class="col-lg-2 ">
+                <a href="#">
+                    <img src="../Images/calc1.png"/>
+                    <p>Payment <br/>Calculators</p>
+                    <span>Estimate payments, and compare <br/>financing &gt;</span>
+                </a>
+            </div>
+            <div class="col-lg-2">
+                <a href="#">
+                    <img src="../Images/smartphone1.png"/>
+                    <p>Latest Video <br/>Reviews</p>
+                    <span>Take a tour of your favorite cars with our experts &gt;</span>
+                </a>
+            </div>
+            <div class="col-lg-2">
+                <a href="#">
+                    <img src="../Images/certified1.png"/>
+                    <p>Certified<br/> Pre-Owned</p>
+                    <span>Search, compare or research CPO programs &gt;</span>
+                </a>
+            </div>
+            <div class="col-lg-2">
+                <a href="#">
+                    <img src="../Images/newRdeisignCar1.png"/>
+                    <p>New and Redesigned Vehicles</p>
+                    <span>View brand-new models and redesigned vehicles &gt;</span>
+                </a>
+            </div>
+        </div>
+    </div>
 
 
 

@@ -138,6 +138,10 @@ h6 {
     background-color: #A400B4;
 }
 
+.colorGray {
+    background-color: #f2f2f2;
+}
+
 
 #quiz {
     background-color: #a400b4;
@@ -285,4 +289,81 @@ h3, h4 {
 
 .carRow div a:hover img {
     width: 105%;
+}
+
+
+.grayToolBox div {
+    
+    
+}
+
+    .grayToolBox div a {
+        display: block;
+        text-align: center;
+        background-color: #f2f2f2;
+    }
+
+        .grayToolBox div a p {
+            color: black;
+            margin: 15px 0;
+        }
+
+        .grayToolBox div a img {
+            display: block;
+            width: 75px;
+            margin: auto;
+            padding-top: 15px;
+        }
+
+.grayToolBox div a span {
+    display: block;
+    padding-bottom: 15px;
+}
+
+.blackTitle {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+.blackTitle2 {
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+}
+
+/*sell.aspx*/
+.notLogedIn {
+    padding: 15px 0;
+    text-align: center;
+    background-color: #f2f2f2
+}
+
+.niceButton {
+    color: #9400d3;
+    border-color: #9400d3;
+    padding: 5px 25px;
+}
+
+.niceButton:hover {
+    color: white;
+    border-color: #9400d3;
+    background-color: #9400d3;
+}
+
+.carAdvice {
+    background-color: #f2f2f2;
+    padding: 25px 0;
+}
+
+.carAdvice img{
+    display: block;
+    width: 100%;
+}
+
+.carAdvice span {
+    color: white;
+    display: block;
+    padding: 0 5px;
+    margin-top: -50px;
 }
