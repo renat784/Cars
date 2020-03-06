@@ -1,12 +1,42 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="news.aspx.cs" Inherits="Cars.news" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    
+   
 
-    <h2 style="color: black; font-weight: bold">News</h2>
+    <div class="row">
+        <div class="col-6">
+            <h2 style="color: black; font-weight: bold">News</h2>
+        </div>
+        <div class="col-lg-4 offset-lg-2 offset-sm-1 col-sm-5">
+            <input type="search" id="searchForm" placeholder="Search" class="form-control"/>
+        </div>
+    </div>
+    
+    <div class="my-4">
+        <div class="horizMenu">
+            <a href="#">Expert Rewievs</a>
+            <a href="#">Videos</a>
+            <a href="#">Awards</a>
+            <a href="#">Multi-Car comparison</a>
+            <a href="#">Auto Shows</a>
+            <a href="#">Car Seat Checks</a>
+            <a href="#">Jenni Driven</a>
+        </div>
+        <hr style="margin-top: 0"/>
+    </div>
+
     <div class="row">
         <div class="col-lg-8">
             <div id="bigImage">
-                <h3 style="color: black">Latest Stories</h3>
+                <div class="row">
+                    <div class="col-8">
+                        <h3 style="color: black">Latest Stories</h3>
+                    </div>
+                    <div class="col-4 text-right" style="margin-top: 30px;">
+                        <a href="#">See all</a>
+                    </div>
+                </div>
                 <div class="latestStories">
                     <img src="../Content/News/bigImage.jpg" />
                     <div>

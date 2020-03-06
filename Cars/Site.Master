@@ -112,9 +112,21 @@
                         </LoggedInTemplate>
                     </asp:LoginView>--%>
                 </div>
+                
             </div>
+
         </div>
-        <div class="container body-content">
+
+        <div id="quiz">
+            <a href="#">
+                <span class="badge badge-dark">new</span>
+                <span>Take our quiz & meet the car you will love</span>
+                <span>&gt;</span>
+            </a>
+        </div>
+    
+
+        <div class="container body-content my-5">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />

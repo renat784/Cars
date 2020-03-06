@@ -9,9 +9,17 @@ namespace Cars
 {
     public partial class news : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void SearchTextChanged(object sender, EventArgs e)
+        {
+            var textbox = sender as TextBox;
+            
+            
         }
     }
 }
