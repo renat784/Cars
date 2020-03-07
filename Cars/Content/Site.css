@@ -388,3 +388,28 @@ h3, h4 {
 .borderRad-0 {
     border-radius: 0;
 }
+
+
+/*shopping.aspx*/
+
+
+.navTab a.nav-link {
+    color: white;
+    border-radius: 0;
+    border-color: white;
+    
+}
+.navTab a.nav-link:hover {
+    background-color: white;
+    color: black;
+}
+
+.list {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.list li {
+    margin-top: 10px;
+    
+}
