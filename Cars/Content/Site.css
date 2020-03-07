@@ -16,7 +16,9 @@ body {
     white-space: normal;
 }
 
-
+label {
+    font-weight: bold;
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -371,6 +373,8 @@ h3, h4 {
 /*advanced_search.aspx*/
 .greenButton {
     padding: 5px 25px;
+    width: 100%;
+    height: 100%;
     background-color: #aed622;
     border-color: #aed622;
 }
@@ -379,3 +383,8 @@ h3, h4 {
         background-color: #a2c71f;
         border-color: #a2c71f;
     }
+
+
+.borderRad-0 {
+    border-radius: 0;
+}
