@@ -367,3 +367,15 @@ h3, h4 {
     padding: 0 5px;
     margin-top: -50px;
 }
+
+/*advanced_search.aspx*/
+.greenButton {
+    padding: 5px 25px;
+    background-color: #aed622;
+    border-color: #aed622;
+}
+
+    .greenButton:hover {
+        background-color: #a2c71f;
+        border-color: #a2c71f;
+    }
