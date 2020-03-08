@@ -124,9 +124,15 @@ a:hover {
     }
 
 
-h6 {
+.white {
     color: white;
 }
+
+.black {
+    color: black;
+}
+
+
 
 .colorPrimary {
     background-color: #250858;
@@ -142,6 +148,10 @@ h6 {
 
 .colorGray {
     background-color: #f2f2f2;
+}
+
+.colorGray_2 {
+    background-color: #e1e1e1;
 }
 
 
@@ -209,11 +219,7 @@ div#feedBack {
     }
 
 /*contact.aspx*/
-h3, h4 {
-    color: #532380;
-    font-weight: bold;
-    margin: 30px 0;
-}
+
 
 
 #grayBox {
@@ -240,7 +246,7 @@ h3, h4 {
         margin-bottom: 0;
     }
 
-    .latestStories div a:hover, div a p:hover {
+    .latestStories div a:hover {
         color: #004B83;
     }
 
