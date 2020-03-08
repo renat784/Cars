@@ -413,3 +413,17 @@ h3, h4 {
     margin-top: 10px;
     
 }
+
+.white-outline-button {
+    border-radius: 0;
+    border-color: white;
+    color: white;
+    font-size: 14px;
+    padding: 10px 30px;
+    width: 100%;
+}
+
+    .white-outline-button:hover {
+        background-color: #666;
+        border-color: white;
+    }

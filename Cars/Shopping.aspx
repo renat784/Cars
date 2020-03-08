@@ -95,6 +95,71 @@
         </div>
     </div>
 
+    <div class="mt-5">
+        <h2 class="text-center">Find New & Used Cars for Sale</h2>
+        <div class="colorGray">
+            <h5 class="text-center py-2">Popular Searches Near You</h5>
+            <div class="row pb-3">
+                <div class="col-lg-3 text-center" >
+                    <a href="#">
+                        <div style="background-color: white">
+                            <p style="color: black" class="font-weight-bold mb-0 pt-3">Used Ford F-150s</p>
+                            <p>
+                                <span >See all near you &gt;</span>
+                            </p>
+                            <div>
+                                <img style="width: 100%" src="Images/pickUp.png"/>
+                            </div>
+                        </div>
+                        
+                    </a>
+                </div>
+                <div class="col-lg-3 text-center" >
+                    <a href="#">
+                        <div style="background-color: white">
+                            <p style="color: black" class="font-weight-bold mb-0 pt-3">Used Jeep Wranglers</p>
+                            <p>
+                                <span >See all near you &gt;</span>
+                            </p>
+                            <div>
+                                <img style="width: 100%" src="Images/jeep.png"/>
+                            </div>
+                        </div>
+                        
+                    </a>
+                </div>
+                <div class="col-lg-3 text-center" >
+                    <a href="#">
+                        <div style="background-color: white">
+                            <p style="color: black" class="font-weight-bold mb-0 pt-3">Used Dodge Challenger </p>
+                            <p>
+                                <span >See all near you &gt;</span>
+                            </p>
+                            <div>
+                                <img style="width: 100%" src="Images/camaro.png"/>
+                            </div>
+                        </div>
+                        
+                    </a>
+                </div>
+                <div class="col-lg-3 text-center" >
+                    <a href="#">
+                        <div style="background-color: white">
+                            <p style="color: black" class="font-weight-bold mb-0 pt-3">Electric Cars</p>
+                            <p>
+                                <span >See all near you &gt;</span>
+                            </p>
+                            <div>
+                                <img style="width: 100%" src="Images/tesla.png"/>
+                            </div>
+                        </div>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div>
         <h4 style="text-align: center">Bodystyle Search</h4>
         <div class="row">
@@ -219,6 +284,41 @@
             </div>
         </div>
         <hr/>
+    </div>
+
+    <div class="row" 
+         style=" background: linear-gradient(
+          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.7) ), url(Images/big-Map.png);
+
+                color: white; padding: 30px 0;text-align: center">
+        <div class="col-lg-1 offset-lg-2">
+            <i class="fa fa-map-marker" style="font-size: 40px" aria-hidden="true"></i>
+        </div>
+        <div class="col-lg-5">
+            <h2>Find the Best Car Dealers</h2>    
+        </div>
+        <div class="col-lg-2">
+            <asp:Button CssClass="btn btn-outline-dark white-outline-button" runat="server" Text="Search Near You"/>
+        </div>
+        
+    </div>    
+
+    <div class="row" style="background-color: #5c707c; color: white;padding: 15px 0">
+        <div class="col-lg-5 offset-lg-1">
+            <h5 class="font-weight-bold">Used-Car Values</h5>
+            <p>Find out before you go to trade it in at the dealer or sell it yourself.</p>
+            <p>
+                <a style="color: white;text-decoration: underline" href="#">Check current book value &gt;</a>
+            </p>
+        </div>
+        <div class="col-lg-5" style="background-color: #5c707c;color: white">
+            <h5 class="font-weight-bold">Price Comparison Tool</h5>
+            <p>The Price Comparison Tool helps you find the most value for your money.</p>
+            <p>
+                <a href="#" style="color: white;text-decoration: underline">Learn more about deal badges &gt;</a>
+            </p>
+        </div>
     </div>
 
     <div class="text-center">
