@@ -1,6 +1,97 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="sell.aspx.cs" Inherits="Cars.Sell" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
+    <div class="row my-5">
+        <div class="col-lg-4 text-center">
+            <div class="card h-100" style="border: none">
+                <div class="card-img-top">
+                    <a href="#" class="circleIcon" style="background-color: #5c707c">
+                        <i class="fa fa-user-secret"  aria-hidden="true"></i>
+                        
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title" style="font-weight: normal">Sell To A Dealer with Quick Offer™</h3>
+                    <p class="card-text">Get offers from dealers and sell your car fast or view your current offers.</p>
+                    <div class="mt-4">
+                        <a href="#">Start Selling</a>
+                        <span>|</span>
+                        <a href="#">View Your Offers</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center">
+            <div class="card h-100" style="border: none">
+                <div class="card-img-top" >
+                    <a href="#" class="circleIcon" style=" background-color: #7b2b83;" >
+                        <i class="fa fa-usd" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title" style="font-weight: normal">Sell It <br/>Yourself</h3>
+                    <p class="card-text">List your car on Cars.com and hear from interested buyers.</p>
+                    <div class="mt-4">
+                        <a href="#">Create Your Listing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center">
+            <div class="card h-100" style="border: none">
+                <div class="card-img-top">
+                    <a href="#" class="circleIcon" style="background-color: #5c707c">
+                        <i class="fa fa-calculator" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title" style="font-weight: normal">Find Your Car's <br/>Value</h3>
+                    <p class="card-text">Get a used car estimate and find out what your car is worth.</p>
+                    <div class="mt-4">
+                        <a href="#">Get An Estimate</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+       <%-- <div class="col-lg-4 text-center">
+            
+            
+            <h3 style="font-weight: normal"></h3>
+            <p></p>
+            
+        </div>
+        <div class="col-lg-4 text-center">
+            <div class="my-3">
+                <a href="#" class="circleIcon">
+                    <i class="fa fa-user" style="font-size: 40px;" aria-hidden="true"></i>
+                </a>
+            </div>
+            
+            <h3 style="font-weight: normal">Sell It Yourself</h3>
+            <p>List your car on Cars.com and hear from interested buyers.</p>
+            <div class="mt-4">
+                <a href="#">Create Your Listing</a>
+                
+            </div>
+        </div>
+        <div class="col-lg-4 text-center">
+            <div class="my-3">
+                <a href="#" class="circleIcon">
+                    <i class="fa fa-user" style="font-size: 40px;" aria-hidden="true"></i>
+                </a>
+            </div>
+            
+            <h3 style="font-weight: normal">Find Your Car's Value</h3>
+            <p>Get a used car estimate and find out what your car is worth.</p>
+            <div class="mt-4">
+                <a href="#">Get An Estimate</a>
+            </div>
+        </div>--%>
+
+       
+    </div>
+
     <div class="notLogedIn">
         <h2 class="blackTitle">My Listings</h2>
         <p>You are not currently logged in. Log in to view and edit your listings.</p>

@@ -14,6 +14,17 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script>
+        $(function() {
+            page = location.pathname.substring(1);
+            if (page == 'contact' || page == 'auto-repair' || page == 'sell') {
+                $('#quiz').css('display', 'none');
+            }
+        })
+    </script>
+
 </head>
 <body>
     <form runat="server" >
@@ -75,8 +86,8 @@
 
                     </ul>
 
-                    <div class="px-lg-3" id="btnLogIn">
-                        <asp:Button CssClass="btn btn-outline-light" ToolTip="Log In or Sign Up " runat="server" Text="Sign Up" />
+                    <div class="px-lg-3 ">
+                        <input type="button" class="btn btn-outline-light btnSignIn" title="Log In or Sign Up" value="Sign Up"/>
                     </div>
                     <div id="dashBoard">
                         <a runat="server" href="~/Contact" style="color: white">
@@ -119,9 +130,8 @@
 
         <div id="quiz">
             <a href="#">
-                <span class="badge badge-dark">new</span>
-                <span>Take our quiz & meet the car you will love</span>
-                <span>&gt;</span>
+                <span class="badge badge-dark">NEW</span>
+                <span class="font-weight-bold">Take our quiz & meet the car you will love &gt;</span>
             </a>
         </div>
     
@@ -137,7 +147,7 @@
             <div class="colorSecondary py-4">
                 <div class="row">
                     <div class="col-lg-3 col-sm-12 pl-lg-5 verticalList">
-                        <h6>Our Company</h6>
+                        <h6 class="font-weight-bold white">Our Company</h6>
                         <ul>
                             <li>
                                 <a href="#">About Cars.com</a>
@@ -166,7 +176,7 @@
                         </ul>
                     </div>
                     <div class="col-lg-3 col-sm-12 verticalList">
-                        <h6>Buying & Selling</h6>
+                        <h6 class="font-weight-bold white">Buying & Selling</h6>
                         <ul>
                             <li>
                                 <a href="#">Find a Car</a>
@@ -194,7 +204,7 @@
                     </div>
 
                     <div class="col-lg-3 col-sm-12 verticalList">
-                        <h6>Our Partners</h6>
+                        <h6 class="font-weight-bold white">Our Partners</h6>
                         <ul>
                             <li>
                                 <a href="#">Auto.com</a>
@@ -260,7 +270,7 @@
                         <a href="#">[+] Feedback</a>
                     </li>
                     <li>
-                        <span style="color: rgba(255, 255, 255, .75); margin-left: 200px">&copy; <%: DateTime.Now.Year %> Cars.com. All rights reserved.
+                        <span class="small" style="color: rgba(255, 255, 255, .75); margin-left: 200px">&copy; <%: DateTime.Now.Year %> Cars.com. All rights reserved.
                         </span>
                     </li>
                 </ul>

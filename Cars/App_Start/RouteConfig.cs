@@ -13,6 +13,7 @@ namespace Cars
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
+            routes.MapPageRoute("default", "", "~/shopping.aspx");
         }
     }
 }

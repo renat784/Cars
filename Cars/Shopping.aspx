@@ -568,4 +568,23 @@
             </div>
         </div>
     </div>
+
+    <div class="mt-5 text-center">
+        <h3>Were you looking for more on these related topics?</h3>
+        <div class="mt-4">
+            <div>
+                <h5 class="mb-0">Knowing if Certified-Used Is for You</h5>
+                <p>CPO is a great option when buying used. <a href="#">Shop & learn CPO &gt;</a></p>
+            </div>
+            <div>
+                <h5 class="mb-0">Researching Models and Reviews</h5>
+                <p>Read specs and reviews, and compare. <a href="#">Research & learn &gt;</a></p>
+            </div>
+            <div>
+                <h5 class="mb-0">On a Tight Budget?</h5>
+                <p>Shop our list of affordable used cars near you. <a href="#">Cheap cars for sale &gt;</a></p>
+            </div>
+        </div>
+
+    </div>
 </asp:Content>
