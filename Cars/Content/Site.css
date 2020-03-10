@@ -20,6 +20,10 @@ label {
     font-weight: bold;
 }
 
+section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
 /* Responsive: Portrait tablets and up */
 /*@media screen and (min-width: 768px) {
     .jumbotron {
@@ -96,6 +100,7 @@ label {
 
 
 
+
 .whiteLink {
     color: white;
     font-size: 13px;
@@ -149,15 +154,27 @@ a:hover {
     }
 
 
-.white {
-    color: white;
-}
+
 
 .black {
     color: black;
 }
 
+.gray {
+    color: #767676;
+}
 
+.primary {
+    color: #250858;
+}
+
+.secondary {
+    color: #532380;
+}
+
+.third {
+    color: #A400B4;
+}
 
 .colorPrimary {
     background-color: #250858;
@@ -402,6 +419,8 @@ div#feedBack {
 
 .bigImage {
     height: 450px;
+    background-position-x: center;
+    background-position-y: center;
 }
 
 .divOnImage {
@@ -424,6 +443,17 @@ div#feedBack {
         color: white;
         border-color: #9400d3;
         background-color: #9400d3;
+    }
+
+.niceButton2 {
+    color: white;
+    background-color: #9400d3;
+}
+
+    .niceButton2:hover {
+        color: white;
+        background-color: #6b0099;
+        border-color: #6b0099;
     }
 
 .carAdvice {

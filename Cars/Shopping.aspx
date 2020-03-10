@@ -2,12 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="bigImage" style="background-image: url(Images/mainImage.png)">
+    <div class="bigImage" style="background-image: url(Images/mainImage2.png)">
         <div class="textOnImage">
             <h2 class="font-weight-bold">Shop Cars for Sale</h2>
             <h3>Find the right price, dealer and advice.</h3>
         </div>
-        
     </div>
 
     <div class="body-content">
