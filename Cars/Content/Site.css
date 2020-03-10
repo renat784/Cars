@@ -21,7 +21,7 @@ label {
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+/*@media screen and (min-width: 768px) {
     .jumbotron {
         margin-top: 20px;
     }
@@ -29,13 +29,19 @@ label {
     .body-content {
         padding: 0;
     }
-}
+}*/
 
 
 /*media smartphone Portrait orientation*/
 @media (max-width: 576px) {
     #logoImg {
         margin-left: 15px !important;
+    }
+
+    .bigImage {
+        height: 200px !important;
+        background-position-x: center;
+        background-position-y: center;
     }
 
     #smallFooter li {
@@ -75,10 +81,29 @@ label {
             display: inline !important;
             color: white;
         }
+
+
+
+    
+    .divOnImage {
+        margin-top: 75px !important;
+    }
+    .textOnImage, .textOnImageRight {
+        display: none;
+    }
 }
 /*media ends*/
 
 
+
+.whiteLink {
+    color: white;
+    font-size: 13px;
+}
+.whiteLink:hover {
+    color: white;
+    text-decoration: underline;
+}
 
 
 #logoImg {
@@ -176,13 +201,14 @@ a:hover {
             color: white;
             font-size: 12px;
         }
-        #quiz span.badge {
-            border-radius: 0;
-            font-size: 10px;
-            padding: 4px 4px;
-            margin-right: 5px;
-            font-weight: normal;
-        }
+
+    #quiz span.badge {
+        border-radius: 0;
+        font-size: 10px;
+        padding: 4px 4px;
+        margin-right: 5px;
+        font-weight: normal;
+    }
 
 
 
@@ -314,8 +340,6 @@ div#feedBack {
 
 
 .grayToolBox div {
-    
-    
 }
 
     .grayToolBox div a {
@@ -336,10 +360,10 @@ div#feedBack {
             padding-top: 15px;
         }
 
-.grayToolBox div a span {
-    display: block;
-    padding-bottom: 15px;
-}
+        .grayToolBox div a span {
+            display: block;
+            padding-bottom: 15px;
+        }
 
 .blackTitle {
     font-size: 30px;
@@ -354,6 +378,36 @@ div#feedBack {
 }
 
 /*sell.aspx*/
+
+.customCard {
+    border: none;
+    background-color: transparent;
+}
+
+.textOnImage {
+    color: white; 
+    padding-left: 40px; 
+    position: absolute;
+    top: 150px;
+}
+
+.textOnImageRight {
+    color: white;
+    right: 50px;
+    position: absolute;
+    text-align: right;
+    width: 400px;
+    top: 150px;
+}
+
+.bigImage {
+    height: 450px;
+}
+
+.divOnImage {
+    margin-top: -50px;
+}
+
 .notLogedIn {
     padding: 15px 0;
     text-align: center;
@@ -366,28 +420,28 @@ div#feedBack {
     padding: 5px 25px;
 }
 
-.niceButton:hover {
-    color: white;
-    border-color: #9400d3;
-    background-color: #9400d3;
-}
+    .niceButton:hover {
+        color: white;
+        border-color: #9400d3;
+        background-color: #9400d3;
+    }
 
 .carAdvice {
     background-color: #f2f2f2;
     padding: 25px 0;
 }
 
-.carAdvice img{
-    display: block;
-    width: 100%;
-}
+    .carAdvice img {
+        display: block;
+        width: 100%;
+    }
 
-.carAdvice span {
-    color: white;
-    display: block;
-    padding: 0 5px;
-    margin-top: -50px;
-}
+    .carAdvice span {
+        color: white;
+        display: block;
+        padding: 0 5px;
+        margin-top: -50px;
+    }
 
 a.circleIcon {
     display: inline-block;
@@ -405,9 +459,22 @@ a.circleIcon {
         margin-top: 25px;
     }
 
-a.circleIcon i:hover {
-    color: white;
-}
+        a.circleIcon i:hover {
+            color: white;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -438,22 +505,21 @@ a.circleIcon i:hover {
     color: white;
     border-radius: 0;
     border-color: white;
-    
 }
-.navTab a.nav-link:hover {
-    background-color: white;
-    color: black;
-}
+
+    .navTab a.nav-link:hover {
+        background-color: white;
+        color: black;
+    }
 
 .list {
     padding-left: 0;
     list-style-type: none;
 }
 
-.list li {
-    margin-top: 10px;
-    
-}
+    .list li {
+        margin-top: 10px;
+    }
 
 .white-outline-button {
     border-radius: 0;

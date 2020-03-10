@@ -219,9 +219,11 @@
     <Content Include="Images\homePagePic-5.jpg" />
     <Content Include="Images\homePagePic-6.png" />
     <Content Include="Images\jeep.png" />
+    <Content Include="Images\mainImage.png" />
     <Content Include="Images\newRdeisignCar1.png" />
     <Content Include="Images\pickUp.png" />
     <Content Include="Images\sellCar.jpg" />
+    <Content Include="Images\sellImage.jpg" />
     <Content Include="Images\smartphone1.png" />
     <Content Include="Images\tesla.png" />
     <Content Include="matchmaker.aspx" />

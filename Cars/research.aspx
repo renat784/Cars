@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="research.aspx.cs" Inherits="Cars.research" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-    <h2>Make Smart Choices</h2>
+    
+    <div class="body-content">
+        <h2>Make Smart Choices</h2>
     <h3>Read specs and reviews, and compare cars.</h3>
 
     <div class="p-3 colorPrimary col-sm-12" style="border-radius: 5px">
@@ -194,6 +195,8 @@
             </div>
         </div>
     </div>
+    </div>
+    
 
 
 
