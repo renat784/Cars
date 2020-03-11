@@ -238,6 +238,7 @@
     <Content Include="Content\News\hundai.jpg" />
     <Content Include="Content\News\porsche-911-carrera.jpg" />
     <Content Include="research.aspx" />
+    <Content Include="Reusable\feedback.ascx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -525,6 +526,13 @@
     </Compile>
     <Compile Include="research.aspx.designer.cs">
       <DependentUpon>research.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reusable\feedback.ascx.cs">
+      <DependentUpon>feedback.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reusable\feedback.ascx.designer.cs">
+      <DependentUpon>feedback.ascx</DependentUpon>
     </Compile>
     <Compile Include="sell.aspx.cs">
       <DependentUpon>sell.aspx</DependentUpon>

@@ -1,5 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Cars.SiteMaster" %>
-
+<%@ Register Src="~/Reusable/feedback.ascx" TagName="feedback" TagPrefix="CustomControl"%>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -47,10 +47,23 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+        
 
-        <div id="feedBack" onclick="alert('hi')">
+        <div id="feedBack" data-toggle="modal" data-target="#feedbackModal">
             <strong>Feedback</strong>
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog"
+            aria-labelledby="feedbackModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <CustomControl:feedback runat="server" ID="feedback"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <div class="navbar  navbar-expand-lg navbar-dark colorPrimary">
             <a class="navbar-brand" runat="server" href="~/">

@@ -7,11 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cars {
-    
-    
-    public partial class SiteMaster {
-        
+namespace Cars
+{
+
+
+    public partial class SiteMaster
+    {
+
+        /// <summary>
+        /// feedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Cars.Reusable.feedback feedback;
+
         /// <summary>
         /// MainContent control.
         /// </summary>

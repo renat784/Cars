@@ -1,51 +1,12 @@
 ﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="contact.aspx.cs" Inherits="Cars.Contact" %>
-
+<%@ Register Src="~/Reusable/feedback.ascx" TagName="feedback" TagPrefix="CustomControl"%>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
     <div class="body-content">
         <h3 class="text-center mt-5 primary font-weight-bold">Contact Us</h3>
     <div class="row mt-4 mb-5">
         <div class="col-lg-6">
-            <p>Please summarize the business opportunity and provide your contact information so a Cars.com representative can follow up with you.</p>
-            <div id="ContactUsForm" class="mt-5">
-                <div class="row form-group">
-                    <div class="col-lg-6">
-                        <asp:Label CssClass="control-label" runat="server">Summary of Business Opportunity</asp:Label>
-                    </div>
-                    <div class="col-lg-6">
-                        <asp:TextBox CssClass="form-control" ID="summary" TextMode="MultiLine" runat="server"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-lg-6">
-                        <asp:Label CssClass="control-label" runat="server">Name</asp:Label>
-                    </div>
-                    <div class="col-lg-6">
-                        <asp:TextBox CssClass="form-control" ID="name" runat="server"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-lg-6">
-                        <asp:Label CssClass="control-label" runat="server">Phone Number</asp:Label>
-                    </div>
-                    <div class="col-lg-6">
-                        <asp:TextBox CssClass="form-control" TextMode="Phone" ID="phone" runat="server"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-lg-6 ">
-                        <asp:Label CssClass="control-label" runat="server">Email Adress</asp:Label>
-                    </div>
-                    <div class="col-lg-6 ">
-                        <asp:TextBox CssClass="form-control" TextMode="Email" ID="email" runat="server"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-12 text-right">
-                        <asp:Button CssClass="btn btn-dark" runat="server" Text="Send"/>
-                    </div>
-                </div>
-            </div>
+            <CustomControl:feedback runat="server" ID="feedback"></CustomControl:feedback>
         </div>
 
         <div class="col-lg-6 text-center">
