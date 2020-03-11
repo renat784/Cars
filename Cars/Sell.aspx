@@ -157,26 +157,28 @@
             </div>
         </div>
 
-        <div class="row mt-5">
-            <div class="col-lg-6 form-group">
-                <p>
-                    Sell your car fast with Quick Offer
-                If you're looking to get eyes on your car quickly, use Quick Offer to get up to four offers 
-                from dealerships online. 
-                <a href="#">Learn More</a>
-                </p>
+        <section>
+            <div class="row text-center">
+                <div class="col-lg-6 form-group">
+                    <p>
+                        Sell your car fast with Quick Offer
+                        If you're looking to get eyes on your car quickly, use Quick Offer to get up to four offers 
+                        from dealerships online. 
+                        <a href="#">Learn More</a>
+                    </p>
 
-            </div>
-            <div class="col-lg-6 form-group">
-                <p>
-                    Sell your car in-person to a dealer
-                In-person appraisals let you select the dealers you want to contact, set up appointments 
-                to get your car appraised and pick the offer that works best for you.
-                <a href="#">Learn More</a>
-                </p>
+                </div>
+                <div class="col-lg-6 form-group">
+                    <p>
+                        Sell your car in-person to a dealer
+                        In-person appraisals let you select the dealers you want to contact, set up appointments 
+                        to get your car appraised and pick the offer that works best for you.
+                        <a href="#">Learn More</a>
+                    </p>
 
+                </div>
             </div>
-        </div>
+        </section>
     </div>
 
 

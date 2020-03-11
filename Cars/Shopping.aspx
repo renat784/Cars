@@ -107,10 +107,10 @@
         </div>
 
         <div class="mt-5">
-            <h2 class="text-center">Find New & Used Cars for Sale</h2>
+            <h3 class="text-center">Find New & Used Cars for Sale</h3>
             <div class="colorGray">
                 <h5 class="text-center py-2">Popular Searches Near You</h5>
-                <div class="row pb-3">
+                <div class="row pb-3 px-lg-5">
                     <div class="col-lg-3 text-center">
                         <a href="#">
                             <div style="background-color: white">

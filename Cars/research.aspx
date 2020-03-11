@@ -47,8 +47,8 @@
 
         <section>
             <div class="text-center">
-                <h4>Research Car Models</h4>
-                <h5>Start with Type</h5>
+                <h4 class="font-weight-bold">Research Car Models</h4>
+                <h5 class="font-weight-bold" >Start with Type</h5>
             </div>
             <div class="row carRow">
                 <div class="col-lg-3 ">

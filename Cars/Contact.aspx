@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
     <div class="body-content">
-        <h3 class="text-center mt-5">Contact Us</h3>
+        <h3 class="text-center mt-5 primary font-weight-bold">Contact Us</h3>
     <div class="row mt-4 mb-5">
         <div class="col-lg-6">
             <p>Please summarize the business opportunity and provide your contact information so a Cars.com representative can follow up with you.</p>

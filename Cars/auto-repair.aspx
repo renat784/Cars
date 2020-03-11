@@ -86,7 +86,7 @@
             </section>
 
             <section>
-                <h4>Service Term to Know</h4>
+                <h3 class="primary">Service Term to Know</h3>
                 <div style="background-color: #F2F2F2; margin: 15px 0"><%= CleanTitle(item.Title) %></div>
                 <div class="row">
                     <div class="col-lg-6">
@@ -105,7 +105,7 @@
         </div>
 
         <section>
-            <h3 class="">Find Service by Make</h3>
+            <h3 class="primary">Find Service by Make</h3>
             <div>
                 <ul class="horizMenu">
                     <li>acura</li>

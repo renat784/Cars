@@ -5,9 +5,9 @@
 
     <div class="body-content">
 
-        <div class="row">
+        <div class="row pt-3">
             <div class="col-6">
-                <h2 style="color: black; font-weight: bold">News</h2>
+                <h1 style="font-weight: bold">News</h1>
             </div>
             <div class="col-lg-4 offset-lg-2 offset-sm-1 col-sm-5">
                 <input type="search" id="searchForm" placeholder="Search" class="form-control" />
@@ -32,13 +32,13 @@
                 <div id="bigImage">
                     <div class="row">
                         <div class="col-8">
-                            <h3 style="color: black">Latest Stories</h3>
+                            <h3 class="font-weight-bold">Latest Stories</h3>
                         </div>
-                        <div class="col-4 text-right" style="margin-top: 30px;">
+                        <div class="col-4 text-right pt-2">
                             <a href="#">See all</a>
                         </div>
                     </div>
-                    <div class="latestStories">
+                    <div class="latestStories ">
                         <img src="../Content/News/bigImage.jpg" />
                         <div>
                             <a href="#">Auto Show</a>
@@ -123,7 +123,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <h3 style="color: black">Featured Stories</h3>
+                <h3 class="font-weight-bold">Featured Stories</h3>
                 <div class="latestStories mb-4">
                     <img src="/Content/News/audi_s4.jpg" />
                     <div>

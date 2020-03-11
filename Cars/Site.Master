@@ -87,7 +87,7 @@
                     </ul>
 
                     <div class="px-lg-3 ">
-                        <input type="button" class="btn btn-outline-light btnSignIn" title="Log In or Sign Up" value="Sign Up"/>
+                        <a class="btn btn-outline-light" style="font-size: 12px;" runat="server" href="~/Account/Login">Log in</a>
                     </div>
                     <div id="dashBoard">
                         <a runat="server" href="~/Contact" style="color: white">
@@ -253,7 +253,7 @@
             <div class="colorPrimary py-2">
 
 
-                <ul id="smallFooter">
+                <ul id="smallFooter" class="pl-lg-3">
                     <li>
                         <a href="#">Terms of Service</a>
                     </li>
@@ -270,7 +270,7 @@
                         <a href="#">[+] Feedback</a>
                     </li>
                     <li>
-                        <span class="small" style="color: rgba(255, 255, 255, .75); margin-left: 200px">&copy; <%: DateTime.Now.Year %> Cars.com. All rights reserved.
+                        <span class="small" style="color: rgba(255, 255, 255, .75);margin-left: 200px">&copy; <%: DateTime.Now.Year %> Cars.com. All rights reserved.
                         </span>
                     </li>
                 </ul>

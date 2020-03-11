@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cars.Account {
-    
-    
-    public partial class OpenAuthProviders {
-        
+namespace Cars.Account
+{
+
+
+    public partial class OpenAuthProviders
+    {
+
         /// <summary>
         /// providerDetails control.
         /// </summary>
