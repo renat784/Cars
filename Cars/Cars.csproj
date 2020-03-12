@@ -188,6 +188,17 @@
     <Content Include="Content\CarTypes\sportcar.png" />
     <Content Include="Content\CarTypes\suv.png" />
     <Content Include="Content\CarTypes\truck.png" />
+    <Content Include="Content\ImagesForVideo\imageVideo-1.png" />
+    <Content Include="Content\ImagesForVideo\imageVideo-2.png" />
+    <Content Include="Content\ImagesForVideo\imageVideo-3.png" />
+    <Content Include="Content\News\1car.jpg" />
+    <Content Include="Content\News\2car.jpg" />
+    <Content Include="Content\News\3car.jpg" />
+    <Content Include="Content\News\audi-image1.png" />
+    <Content Include="Content\News\audi-image2.png" />
+    <Content Include="Content\News\audi111.jpg" />
+    <Content Include="Content\News\audi222.jpg" />
+    <Content Include="Content\News\chevroltet3333333.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -238,7 +249,9 @@
     <Content Include="Content\News\hundai.jpg" />
     <Content Include="Content\News\porsche-911-carrera.jpg" />
     <Content Include="research.aspx" />
+    <Content Include="Reusable\EmailSubscription.ascx" />
     <Content Include="Reusable\feedback.ascx" />
+    <Content Include="Reusable\FindTheDealer.ascx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -527,12 +540,26 @@
     <Compile Include="research.aspx.designer.cs">
       <DependentUpon>research.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reusable\EmailSubscription.ascx.cs">
+      <DependentUpon>EmailSubscription.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reusable\EmailSubscription.ascx.designer.cs">
+      <DependentUpon>EmailSubscription.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Reusable\feedback.ascx.cs">
       <DependentUpon>feedback.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reusable\feedback.ascx.designer.cs">
       <DependentUpon>feedback.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Reusable\FindTheDealer.ascx.cs">
+      <DependentUpon>FindTheDealer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reusable\FindTheDealer.ascx.designer.cs">
+      <DependentUpon>FindTheDealer.ascx</DependentUpon>
     </Compile>
     <Compile Include="sell.aspx.cs">
       <DependentUpon>sell.aspx</DependentUpon>
