@@ -38,6 +38,15 @@ section {
 
 /*media smartphone Portrait orientation*/
 @media (max-width: 576px) {
+
+    .menuItemsBigScreen {
+        display: none !important;
+    }
+    .menuItemsSmallScreen {
+        display: block !important;
+    }
+
+
     #logoImg {
         margin-left: 15px !important;
     }
@@ -77,9 +86,19 @@ section {
         margin: 10px;
     }
 
-    #dashBoard {
-        margin: 15px 0px 15px 10px;
+    #logInButton a:first-of-type {
+        display: none;
     }
+    #logInButton a:last-of-type {
+        display: block !important;
+    }
+
+    #dashBoard {
+        
+    }
+        #dashBoard i {
+            display: none;
+        }
 
         #dashBoard a span {
             display: inline !important;
@@ -311,11 +330,7 @@ div#feedBack {
 
 
 
-#grayBox {
-    background-color: #F2F2F2;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
+
 
 /*news.aspx*/
 .latestStories img {
@@ -385,7 +400,7 @@ div#feedBack {
 }
 
 .carRow div a:hover img {
-    width: 105%;
+    transform: scale(1.05);
 }
 
 
@@ -401,6 +416,7 @@ div#feedBack {
         .grayToolBox div a p {
             color: black;
             margin: 15px 0;
+            padding: 0 25px;
         }
 
         .grayToolBox div a img {
@@ -413,6 +429,7 @@ div#feedBack {
         .grayToolBox div a span {
             display: block;
             padding-bottom: 15px;
+            font-size: small;
         }
 
 .blackTitle {
@@ -457,7 +474,7 @@ div#feedBack {
 }
 
 .divOnImage {
-    margin-top: -50px;
+    margin-top: -150px;
 }
 
 .notLogedIn {
@@ -562,7 +579,28 @@ a.circleIcon {
 
 
 /*shopping.aspx*/
+ #BlackBox {
+   
+    background-color: rgba(0,0,0,0.8);
+    text-align: right;
+    
+    padding: 10px 20px;
+    
+}
 
+.blackBoxOnImage div{
+    color: white;
+    font-size: 14px;
+}
+
+.blackBoxOnImage #sponsored {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.blackBoxOnImage:hover span{
+    text-decoration: underline;
+}
 
 .navTab a.nav-link {
     color: white;

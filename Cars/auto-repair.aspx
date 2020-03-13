@@ -60,49 +60,119 @@
             </div>
         </div>
 
-        <div class="body-content">
-            <section>
-                <div class="col-lg-4 offset-lg-4">
-                    <div class="row form-group">
-                        <asp:DropDownList CssClass="form-control col-lg-6"
-                                          ID="DropDownList1" runat="server" AutoPostBack="True">
-                            <asp:ListItem Selected="True">All makers</asp:ListItem>
-                            <asp:ListItem>Toyota</asp:ListItem>
-                            <asp:ListItem>Honda</asp:ListItem>
-                            <asp:ListItem>Lexus</asp:ListItem>
-                        </asp:DropDownList>
-                        <span class="col-1 p-1"></span>
-                        <asp:TextBox CssClass="form-control col-lg-5" ToolTip="Zip code, for example 12345" runat="server"></asp:TextBox>
+
+        <section>
+            <div class="col-lg-4 offset-lg-4">
+                <div class="row form-group">
+                    <asp:DropDownList CssClass="form-control col-lg-6"
+                        ID="DropDownList1" runat="server" AutoPostBack="True">
+                        <asp:ListItem Selected="True">All makers</asp:ListItem>
+                        <asp:ListItem>Toyota</asp:ListItem>
+                        <asp:ListItem>Honda</asp:ListItem>
+                        <asp:ListItem>Lexus</asp:ListItem>
+                    </asp:DropDownList>
+                    <span class="col-1 p-1"></span>
+                    <asp:TextBox CssClass="form-control col-lg-5" ToolTip="Zip code, for example 12345" runat="server"></asp:TextBox>
+                </div>
+                <div class="row">
+                    <div class="col-12" style="padding: 0">
+                        <asp:Button CssClass="btn"
+                            Style="background-color: #93a533; color: white; display: block; width: 100%;"
+                            runat="server"
+                            Text="Find a Service Center" />
                     </div>
-                    <div class="row">
-                        <div class="col-12" style="padding: 0">
-                            <asp:Button CssClass="btn"
-                                        Style="background-color: #93a533; color: white; display: block; width: 100%;"
-                                        runat="server"
-                                        Text="Find a Service Center" />
+                </div>
+            </div>
+        </section>
+
+        
+        
+        <section>
+            <h3 class="primary">Do It Yourself Repairs</h3>
+            <p>Learn how to make repairs on your car in your own garage.</p>
+            <div class="row">
+                <div class="col-lg-6">
+                    
+                </div>
+                <div class="col-lg-6">
+                    
+                </div>
+            </div>
+            <div>
+                <a href="#" class="btn niceButton col-lg-4 offset-lg-4">See All DIY Repairs</a>
+            </div>
+        </section>
+        
+        
+        <section>
+            <h3 class="primary">Expert Tips About Service</h3>
+            <div class="row mt-4">
+                <div class="col-lg-4">
+                    <a href="#">
+                    <div class="card" style="border-style: none">
+                        <img src="ExpertTips/image1.jpg" class="card-img-top" />
+                        <div class="card-body pl-0">
+                            <h5 class="card-title black">Expensive Oil Changes Are Here to Stay</h5>
+                            <p class="card-text black">
+                                Oil changes may be more expensive with the required 0W-20 weight oil compared to conventional oil, but only having to service the car once or twice a year keeps annual costs to nearly a wash.
+                            </p>
+                            <p>Read more</p>
                         </div>
                     </div>
+                    </a>
                 </div>
-            </section>
-
-            <section>
-                <h3 class="primary">Service Term to Know</h3>
-                <div style="background-color: #F2F2F2; margin: 15px 0"><%= CleanTitle(item.Title) %></div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <img class="col-12" src="Glossary/<%= item.ImageFileName %>" />
+                <div class="col-lg-4">
+                    <a href="#">
+                    <div class="card" style="border-style: none">
+                        <img src="ExpertTips/image2.jpg" class="card-img-top" />
+                        <div class="card-body pl-0 ">
+                            <h5 class="card-title black">What's Included in a Tuneup?</h5>
+                            <p class="card-text black">
+                                Actually, there is no such thing as a tuneup in the traditional sense of replacing parts to bring the ignition and fuel systems up to specs for maximum performance and efficiency efficiency...
+                            </p>
+                            <p>Read more</p>
+                        </div>
                     </div>
-                    <div class="col-lg-6 pt-lg-4">
-                        <%= ShowText(item.TextFileName) %>
-                    </div>
+                    </a>
                 </div>
-            </section>
-        </div>
-        
+                <div class="col-lg-4">
+                    <a href="#">
+                        <div class="card" style="border-style: none;">
+                            <img src="ExpertTips/image3.jpg" class="card-img-top" />
+                            <div class="card-body pl-0">
+                                <h5 class="card-title black">Do You Really Need to Change Your Oil Every 3,000 Miles?</h5>
+                                <p class="card-text black">
+                                    No, you don't, according to every auto manufacturer we've talked to. The main advocates of the 3,000-mile oil change schedule are those who would profit by it...
+                                </p>
+                                <p>Read more</p>
+                            </div>
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </section>
 
-        <div class="text-center my-3">
-            <a href="#">See More Auto Parts ></a>
-        </div>
+        <section>
+            <h3 class="primary">Service Term to Know</h3>
+            <div style="background-color: #F2F2F2; margin: 15px 0"><%= CleanTitle(item.Title) %></div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <img class="col-12" src="Glossary/<%= item.ImageFileName %>" />
+                </div>
+                <div class="col-lg-6 pt-lg-4">
+                    <%= ShowText(item.TextFileName) %>
+                </div>
+            </div>
+
+            <div class="text-center my-3">
+                <a href="#">See More Auto Parts ></a>
+            </div>
+        </section>
+
+
+
+
 
         <section>
             <h3 class="primary">Find Service by Make</h3>

@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
     <div class="body-content">
-        <h3 class="text-center mt-5 primary font-weight-bold">Contact Us</h3>
+        <h3 class="text-center mt-5 secondary font-weight-bold">Contact Us</h3>
     <div class="row mt-4 mb-5">
         <div class="col-lg-6">
             <CustomControl:feedback runat="server" ID="feedback"></CustomControl:feedback>
@@ -11,7 +11,7 @@
 
         <div class="col-lg-6 text-center">
             <p>Have a question? Check our <a href="#">Frequently Asked Questions</a> page.</p>
-            <div id="grayBox">
+            <div class="py-4 px-2 colorGray">
                 <p>
                     <strong>Customer Service</strong>
                     <br />

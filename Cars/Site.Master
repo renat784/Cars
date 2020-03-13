@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Cars.SiteMaster" %>
-<%@ Register Src="~/Reusable/feedback.ascx" TagName="feedback" TagPrefix="CustomControl"%>
+
+<%@ Register Src="~/Reusable/feedback.ascx" TagName="feedback" TagPrefix="CustomControl" %>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -15,9 +16,9 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script>
-        $(function() {
+        $(function () {
             page = location.pathname.substring(1);
             if (page == 'contact' || page == 'auto-repair' || page == 'sell') {
                 $('#quiz').css('display', 'none');
@@ -27,7 +28,7 @@
 
 </head>
 <body>
-    <form runat="server" >
+    <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -47,7 +48,7 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        
+
 
         <div id="feedBack" data-toggle="modal" data-target="#feedbackModal">
             <strong>Feedback</strong>
@@ -58,7 +59,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <CustomControl:feedback runat="server" ID="feedback"/>
+                        <CustomControl:feedback runat="server" ID="feedback" />
                     </div>
                 </div>
             </div>
@@ -67,7 +68,7 @@
 
         <div class="navbar  navbar-expand-lg navbar-dark colorPrimary">
             <a class="navbar-brand" runat="server" href="~/">
-                <img id="logoImg" src="../Content/carLogo.png"  />
+                <img id="logoImg" src="../Content/carLogo.png" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,17 +97,24 @@
                         <li class="nav-item">
                             <a runat="server" href="~/contact" title="Ask a question or submit feedback">Contact Us</a>
                         </li>
+                        <li class="nav-item menuItemsSmallScreen" style="display: none">
+                            <a runat="server" href="~/Account/Login">Log in</a>
+                        </li>
+                        <li class="nav-item menuItemsSmallScreen" style="display: none">
+                            <a runat="server" href="~/Account/Login">My Dashboard</a>
+                        </li>
 
                     </ul>
 
-                    <div class="px-lg-3 ">
-                        <a class="btn btn-outline-light" style="font-size: 12px;" runat="server" href="~/Account/Login">Log in</a>
-                    </div>
-                    <div id="dashBoard">
-                        <a runat="server" href="~/Contact" style="color: white">
-                            <i class="fa fa-user-circle-o" style="font-size: 25px;" title="My Dashboard" aria-hidden="true"></i>
-                            <span style="display: none">My Dashboard</span>
-                        </a>
+                    <div class="menuItemsBigScreen row pl-lg-3">
+                        <div class="col-8">
+                            <a class="btn btn-outline-light py-1 px-2" style="font-size: 12px" runat="server" href="~/Account/Login">Log in</a>
+                        </div>
+                        <div class="col-4">
+                            <a runat="server" href="~/Contact">
+                                <i class="fa fa-user-circle-o white" style="font-size: 25px;" title="My Dashboard" aria-hidden="true"></i>
+                            </a>
+                        </div>
                     </div>
 
 
@@ -136,7 +144,7 @@
                         </LoggedInTemplate>
                     </asp:LoginView>--%>
                 </div>
-                
+
             </div>
 
         </div>
@@ -147,7 +155,7 @@
                 <span class="font-weight-bold">Take our quiz & meet the car you will love &gt;</span>
             </a>
         </div>
-    
+
 
         <div>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
@@ -283,7 +291,7 @@
                         <a href="#">[+] Feedback</a>
                     </li>
                     <li>
-                        <span class="small" style="color: rgba(255, 255, 255, .75);margin-left: 200px">&copy; <%: DateTime.Now.Year %> Cars.com. All rights reserved.
+                        <span class="small" style="color: rgba(255, 255, 255, .75); margin-left: 200px">&copy; <%: DateTime.Now.Year %> Cars.com. All rights reserved.
                         </span>
                     </li>
                 </ul>

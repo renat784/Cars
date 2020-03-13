@@ -10,7 +10,7 @@
    
 
     <div class="body-content">
-        <div class="row divOnImage" >
+        <div class="row" style="margin-top: -50px">
             <div class="col-lg-4 text-center">
                 <div class="card h-100 customCard">
                     <div class="card-img-top">

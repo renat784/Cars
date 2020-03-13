@@ -1,30 +1,50 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="shopping.aspx.cs" Inherits="Cars.Shopping" %>
-<%@ Register Src="~/Reusable/FindTheDealer.ascx" TagName="findTheDealer" TagPrefix="CustomControl"%>
+
+<%@ Register Src="~/Reusable/FindTheDealer.ascx" TagName="findTheDealer" TagPrefix="CustomControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="bigImage" style="background-image: url(Images/mainImage2.png)">
+
+
         <div class="textOnImage">
             <h2 class="font-weight-bold">Shop Cars for Sale</h2>
             <h3>Find the right price, dealer and advice.</h3>
         </div>
+
+
+
     </div>
 
     <div class="body-content">
-        <div class="colorSecondary py-4 px-3 divOnImage mx-lg-5">
-            <ul class="nav nav-tabs" style="border-bottom: none" id="myTab" role="tablist">
-                <li class="nav-item navTab">
-                    <a class="nav-link active py-1 px-2" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                        aria-controls="home" aria-selected="true">Search By Make
-                    </a>
 
-                </li>
-                <li class="nav-item navTab">
+        <div class="divOnImage">
+
+            <div class="mb-2">
+                <div id="BlackBox" class="col-2 offset-lg-10">
+                    <a class="blackBoxOnImage" href="#">
+                        <div id="model">2020 Volkswagen</div>
+                        <div>
+                            <span>Learn More</span>
+                            <i class="fa fa-external-link ml-1" aria-hidden="true"></i>
+                        </div>
+                        <div id="sponsored">Sponsored by Jeep</div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="colorSecondary py-4 px-3 ">
+                <ul class="nav nav-tabs" style="border-bottom: none" id="myTab" role="tablist">
+                    <li class="nav-item navTab">
+                        <a class="nav-link active py-1 px-2" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                            aria-controls="home" aria-selected="true">Search By Make
+                        </a>
+                    </li>
+                    <li class="nav-item navTab">
                     <a class="nav-link py-1 px-2" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
                         aria-controls="profile" aria-selected="false">Search By Body Style
                     </a>
-
                 </li>
-                <li style="margin-left: auto;text-align: right">
+                <li style="margin-left: auto; text-align: right">
                     <a class="whiteLink" href="advanced-search.aspx">Advanced Search &gt;</a>
                 </li>
             </ul>
@@ -105,6 +125,8 @@
 
             </div>
         </div>
+        </div>
+
 
         <div class="mt-5">
             <h3 class="text-center">Find New & Used Cars for Sale</h3>
@@ -296,9 +318,9 @@
             </div>
             <hr />
         </div>
-        
+
         <CustomControl:findTheDealer runat="server"></CustomControl:findTheDealer>
-        
+
 
         <div class="row" style="background-color: #5c707c; color: white; padding: 15px 0">
             <div class="col-lg-5 offset-lg-1">
