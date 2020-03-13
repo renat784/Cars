@@ -199,6 +199,10 @@
     <Content Include="Content\News\audi111.jpg" />
     <Content Include="Content\News\audi222.jpg" />
     <Content Include="Content\News\chevroltet3333333.jpg" />
+    <Content Include="Content\News\news-hundai.png" />
+    <Content Include="Content\News\news-lexus.png" />
+    <Content Include="Content\News\news-porche.png" />
+    <Content Include="Content\News\news-safety.png" />
     <Content Include="Content\Site.css" />
     <Content Include="ExpertTips\image1.jpg" />
     <Content Include="ExpertTips\image2.jpg" />

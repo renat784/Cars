@@ -147,12 +147,14 @@ section {
 
 
 
-.listCollapse{
-    
+.smallImage {
+    height: 125px;
 }
 
 
-
+.cardWithImage:hover h5 {
+    color: #004b83;
+}
 
 
 .onHover:hover {
@@ -371,6 +373,9 @@ div#feedBack {
 
 
 /*news.aspx*/
+
+
+
 .latestStories img {
     margin-bottom: 10px;
     width: 100%
