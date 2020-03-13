@@ -27,6 +27,13 @@
                 $('#feedBack').css('display', 'none');
             }
         })
+
+        function expandList(element) {
+            var div = $(element).find('div:first-of-type');
+
+            var state = $(div).css('display');
+            $(div).css('display', state == 'block' ? 'none' : 'block');
+        }
     </script>
 
 </head>
@@ -168,9 +175,130 @@
 
         <footer>
             <%--big footer--%>
-            <div class="colorSecondary py-4 row">
-                
-                    <div class="col-lg-3 col-sm-12 pl-lg-5 verticalList">
+            <div id="bigFooter" class="colorSecondary py-4 row">
+                <div class="col-lg-3 col-sm-12 pl-lg-5 verticalList listCollapse white" onclick="expandList(this)">
+                    <h6 class="font-weight-bold">Our Company 
+                    </h6>
+                    <div>
+                        <ul>
+                            <li>
+                                <a href="#">About Cars.com</a>
+                            </li>
+                            <li>
+                                <a href="#">Investor Relations</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact Cars.com</a>
+                            </li>
+                            <li>
+                                <a href="#">Mobile Apps</a>
+                            </li>
+                            <li>
+                                <a href="#">Site Map</a>
+                            </li>
+                            <li>
+                                <a href="#">Careers</a>
+                            </li>
+                            <li>
+                                <a href="#">Fraud Awareness</a>
+                            </li>
+                            <li>
+                                <a href="#">Licensing & Reprints</a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-sm-12 pl-lg-5 verticalList listCollapse white" onclick="expandList(this)">
+                    <h6 class="font-weight-bold">Buying & Selling</h6>
+                    <div>
+                        <ul>
+                            <li>
+                                <a href="#">Find a Car</a>
+                            </li>
+                            <li>
+                                <a href="#">Certified Pre-Owned</a>
+                            </li>
+                            <li>
+                                <a href="#">Sell Your Car</a>
+                            </li>
+                            <li>
+                                <a href="#">Car Book Values</a>
+                            </li>
+                            <li>
+                                <a href="#">Car Dealers</a>
+                            </li>
+                            <li>
+                                <a href="#">Compare Car Prices</a>
+                            </li>
+                            <li>
+                                <a href="#">Listings by City</a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-3 col-sm-12 pl-lg-5 verticalList listCollapse white" onclick="expandList(this)">
+                    <h6 class="font-weight-bold">Our Partners
+                    </h6>
+                    <div>
+                        <ul>
+                            <li>
+                                <a href="#">Auto.com</a>
+                            </li>
+                            <li>
+                                <a href="#">NewCars.com</a>
+                            </li>
+                            <li>
+                                <a href="#">RepairPal.com</a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-sm-12">
+                    <ul id="iconsList">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-twitter" style="font-size: 20px;" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-facebook" style="font-size: 20px;" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-youtube-play" style="font-size: 20px;" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-instagram" style="font-size: 20px;" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-linkedin" style="font-size: 20px;" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+
+
+
+                <%-- <div class="col-lg-3 col-sm-12 pl-lg-5 verticalList">
                         <h6 class="font-weight-bold white">Our Company</h6>
                         <ul>
                             <li>
@@ -270,8 +398,109 @@
                                 </a>
                             </li>
                         </ul>
+                    </div>--%>
+
+                <%-- <div class="col-lg-3 col-sm-12 pl-lg-5 verticalList">
+                        <h6 class="font-weight-bold white">Our Company</h6>
+                        <ul>
+                            <li>
+                                <a href="#">About Cars.com</a>
+                            </li>
+                            <li>
+                                <a href="#">Investor Relations</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact Cars.com</a>
+                            </li>
+                            <li>
+                                <a href="#">Mobile Apps</a>
+                            </li>
+                            <li>
+                                <a href="#">Site Map</a>
+                            </li>
+                            <li>
+                                <a href="#">Careers</a>
+                            </li>
+                            <li>
+                                <a href="#">Fraud Awareness</a>
+                            </li>
+                            <li>
+                                <a href="#">Licensing & Reprints</a>
+                            </li>
+                        </ul>
                     </div>
-                
+                    <div class="col-lg-3 col-sm-12 verticalList">
+                        <h6 class="font-weight-bold white">Buying & Selling</h6>
+                        <ul>
+                            <li>
+                                <a href="#">Find a Car</a>
+                            </li>
+                            <li>
+                                <a href="#">Certified Pre-Owned</a>
+                            </li>
+                            <li>
+                                <a href="#">Sell Your Car</a>
+                            </li>
+                            <li>
+                                <a href="#">Car Book Values</a>
+                            </li>
+                            <li>
+                                <a href="#">Car Dealers</a>
+                            </li>
+                            <li>
+                                <a href="#">Compare Car Prices</a>
+                            </li>
+                            <li>
+                                <a href="#">Listings by City</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-12 verticalList">
+                        <h6 class="font-weight-bold white">Our Partners</h6>
+                        <ul>
+                            <li>
+                                <a href="#">Auto.com</a>
+                            </li>
+                            <li>
+                                <a href="#">NewCars.com</a>
+                            </li>
+                            <li>
+                                <a href="#">RepairPal.com</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-12">
+                        <ul id="iconsList">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-twitter" style="font-size: 20px;" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-facebook" style="font-size: 20px;" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-youtube-play" style="font-size: 20px;" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-instagram" style="font-size: 20px;" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-linkedin" style="font-size: 20px;" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>--%>
             </div>
             <%--little footer--%>
             <div class="colorPrimary py-2 row px-3">
@@ -293,15 +522,15 @@
                     <li>
                         <a href="#">[+] Feedback</a>
                     </li>
-                    
-                        
-                    
+
+
+
                 </ul>
                 <div id="copyright" class="col-lg-4 text-right">
                     <span class="small" style="color: rgba(255, 255, 255, .75);">&copy; <%: DateTime.Now.Year %> Cars.com. All rights reserved.
                     </span>
                 </div>
-                
+
 
             </div>
         </footer>
