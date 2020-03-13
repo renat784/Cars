@@ -115,6 +115,11 @@ section {
     .textOnImage, .textOnImageRight {
         display: none;
     }
+
+
+    #copyright {
+        text-align: center !important;
+    }
 }
 /*media ends*/
 
@@ -261,9 +266,12 @@ a:hover {
 }
 
     #quiz a {
-        display: block;
-        padding: 3px 0 6px 0;
-        text-align: center;
+        display: flex;
+        padding: 5px;
+        justify-content: center;
+        align-items: center;
+        /*padding: 3px 0 6px 0;
+        text-align: center;*/
     }
 
         #quiz a span {
@@ -309,9 +317,7 @@ div#feedBack {
         margin: 0 15px;
     }
 
-        #smallFooter li:last-child {
-            margin-top: 15px !important;
-        }
+
 
 
 .verticalList ul {

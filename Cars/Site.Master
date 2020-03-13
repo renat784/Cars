@@ -23,6 +23,9 @@
             if (page == 'contact' || page == 'auto-repair' || page == 'sell') {
                 $('#quiz').css('display', 'none');
             }
+            if (page == 'contact') {
+                $('#feedBack').css('display', 'none');
+            }
         })
     </script>
 
@@ -165,8 +168,8 @@
 
         <footer>
             <%--big footer--%>
-            <div class="colorSecondary py-4">
-                <div class="row">
+            <div class="colorSecondary py-4 row">
+                
                     <div class="col-lg-3 col-sm-12 pl-lg-5 verticalList">
                         <h6 class="font-weight-bold white">Our Company</h6>
                         <ul>
@@ -268,13 +271,13 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                
             </div>
             <%--little footer--%>
-            <div class="colorPrimary py-2">
+            <div class="colorPrimary py-2 row px-3">
 
 
-                <ul id="smallFooter" class="pl-lg-3">
+                <ul id="smallFooter" class="pl-lg-3 col-lg-8">
                     <li>
                         <a href="#">Terms of Service</a>
                     </li>
@@ -290,12 +293,15 @@
                     <li>
                         <a href="#">[+] Feedback</a>
                     </li>
-                    <li>
-                        <span class="small" style="color: rgba(255, 255, 255, .75); margin-left: 200px">&copy; <%: DateTime.Now.Year %> Cars.com. All rights reserved.
-                        </span>
-                    </li>
+                    
+                        
+                    
                 </ul>
-
+                <div id="copyright" class="col-lg-4 text-right">
+                    <span class="small" style="color: rgba(255, 255, 255, .75);">&copy; <%: DateTime.Now.Year %> Cars.com. All rights reserved.
+                    </span>
+                </div>
+                
 
             </div>
         </footer>
