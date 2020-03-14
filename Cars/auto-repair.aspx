@@ -1,9 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="auto-repair.aspx.cs" Inherits="Cars.auto_repair" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script>
+        function changeText(e) {
+            if (e.text == 'View More Makes') {
+                e.text = 'View Less Makes';
+                $('#chevron').attr('class', 'fa fa-chevron-up pl-2');
+            }
+            else {
+                e.text = 'View More Makes';
+                $('#chevron').attr('class', 'fa fa-chevron-down pl-2');
+            }
+        }
+</script>
 
-    <div class="bigImage" style="background-image: url(Images/repairCar.jpg)">
-        <div class="textOnImage" style="padding-left: 30%">
+    <div class="bigImage" style="background-image: url(Images/repairCar.jpg);position: relative">
+        <div class="textOnImage" style="left: 30%">
             <h2 class="font-weight-bold">Vehicle Service and Repairs</h2>
         </div>
     </div>
@@ -176,15 +190,116 @@
 
         <section>
             <h3 class="primary">Find Service by Make</h3>
-            <div>
-                <ul class="horizMenu">
-                    <li>acura</li>
-                    <li>audi</li>
-                    <li>BMW</li>
-                    <li>Buick</li>
-                    <li>Cadillac</li>
-                    <li>Chevrolet</li>
+            <div class="carMake">
+                <ul class="row">
+                    <li class="col-lg-2">
+                        <a href="#" class="text-center">
+                            <div>
+                                <img src="CarVector/acura.svg"/>
+                            </div>
+                            <p class="gray">Acura</p>
+                        </a>
+                        
+                    </li>
+                    <li class="col-lg-2">
+                        <a href="#" class="text-center">
+                            <div>
+                                <img src="CarVector/audi.svg"/>
+                            </div>
+                            <p class="gray">Audi</p>
+                        </a>
+                    </li>
+                    <li class="col-lg-2">
+                        <a href="#" class="text-center">
+                            <div>
+                                <img src="CarVector/bmw.svg"/>
+                            </div>
+                            <p class="gray">BMW</p>
+                        </a>
+                    </li>
+                    <li class="col-lg-2">
+                        <a href="#" class="text-center">
+                            <div>
+                                <img src="CarVector/buick.svg"/>
+                            </div>
+                            <p class="gray">Buick</p>
+                        </a>
+                    </li>
+                    <li class="col-lg-2">
+                        <a href="#" class="text-center">
+                            <div>
+                                <img src="CarVector/cadillac.svg"/>
+                            </div>
+                            <p class="gray">Cadillac</p>
+                        </a>
+                    </li>
+                    <li class="col-lg-2">
+                        <a href="#" class="text-center">
+                            <div>
+                                <img src="CarVector/chevrolet.svg"/>
+                            </div>
+                            <p class="gray">Chevrolet</p>
+                        </a>
+                    </li>
+                 </ul>
+
+                <ul id="hiddenList" class="row collapse">
+                    <li class="col-lg-2">
+                        <a href="#" class="text-center">
+                            <div>
+                                <img src="CarVector/chrysler.svg"/>
+                            </div>
+                            <p class="gray">Chrysler</p>
+                        </a>
+                    </li>
+                    <li class="col-lg-2">
+                        <a href="#" class="text-center">
+                            <div>
+                                <img src="CarVector/dodge.svg"/>
+                            </div>
+                            <p class="gray">Dodge</p>
+                        </a>
+                    </li>
+                    <li class="col-lg-2">
+                        <a href="#" class="text-center">
+                            <div>
+                                <img src="CarVector/fiat.svg"/>
+                            </div>
+                            <p class="gray">Fiat</p>
+                        </a>
+                        
+                    </li>
+                    <li class="col-lg-2">
+                        <a href="#" class="text-center">
+                            <div>
+                                <img src="CarVector/ford.svg"/>
+                            </div>
+                            <p class="gray">Ford</p>
+                        </a>
+                    </li>
+                    <li class="col-lg-2">
+                        <a href="#" class="text-center">
+                            <div>
+                                <img src="CarVector/geo.svg"/>
+                            </div>
+                            <p class="gray">Geo</p>
+                        </a>
+                    </li>
+                    <li class="col-lg-2">
+                        <a href="#" class="text-center">
+                            <div>
+                                <img src="CarVector/gmc.svg"/>
+                            </div>
+                            <p class="gray">GMC</p>
+                        </a>
+                    </li>
                 </ul>
+                
+                    
+                <div class="text-center">
+                    <a href="#hiddenList" onclick="changeText(this)" data-toggle="collapse">View More Makes</a>
+                    <i id="chevron" class="fa fa-chevron-down pl-2" aria-hidden="true"></i>
+                </div>
             </div>
         </section>
     </div>

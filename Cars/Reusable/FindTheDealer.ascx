@@ -4,14 +4,14 @@
     <div class="row py-3" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), 
                             url(Images/big-Map.png);color: white; text-align: center">
                                                                      
-        <div class="col-lg-1 offset-lg-2">
+        <div class="col-lg-1 offset-lg-2 pr-0">
             <i class="fa fa-map-marker" style="font-size: 40px" aria-hidden="true"></i>
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-5 pr-0">
             <h3>Find the Best Car Dealers</h3> 
         </div>
-        <div class="col-lg-2">
-            <asp:Button CssClass="btn btn-outline-dark white-outline-button" runat="server" Text="Search Near You" />
+        <div class="col-lg-2 pr-0">
+            <asp:Button CssClass="btn btn-outline-dark white-outline-button" style="width: 90%" runat="server" Text="Search Near You" />
         </div>
 
     </div>

@@ -39,12 +39,25 @@ section {
 /*media smartphone Portrait orientation*/
 @media (max-width: 576px) {
 
+    .carMake ul li {
+        width: 50%;
+    }
+
+    .carRow div.col-lg-3 {
+        width: 50%;
+        text-align: center;
+    }
+
+
     .blackBox {
         position: absolute;
         right: 2%;
         top: -35%;
-        
+    }
 
+    .grayToolBox div{
+        width: 60%;
+        margin: 15px auto;
     }
 
 
@@ -159,6 +172,16 @@ section {
 
 
 
+
+.carMake ul {
+    list-style-type: none;
+    margin-top: 40px;
+    padding-left: 0;
+
+}
+.carMake ul li {
+    padding: 10px 40px;
+}
 
 
 
@@ -506,7 +529,6 @@ div#feedBack {
 
 .textOnImage {
     color: white;
-    
     position: absolute;
     top: 10%;
     left: 5%;

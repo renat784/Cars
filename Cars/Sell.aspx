@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
-    <div class="bigImage" style="background-image: url(Images/sellImage.jpg)">
+    <div class="bigImage" style="background-image: url(Images/sellImage.jpg);position: relative">
         <h2 class="textOnImage">Sell My Car</h2>
         
     </div>

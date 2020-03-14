@@ -179,27 +179,36 @@
 
         <section>
             <h5 class="text-center font-weight-bold">Start with Make</h5>
-            <div class="row mt-3 px-5">
-                <ul class="col-lg-3" style="list-style-type: none; padding: 0">
-                    <li><a href="#">acura</a></li>
-                    <li><a href="#">acura 2</a></li>
-                    <li><a href="#">acura 3</a></li>
-                </ul>
-                <ul class="col-lg-3" style="list-style-type: none; padding: 0">
-                    <li><a href="#">bmw</a></li>
-                    <li><a href="#">bmw 2</a></li>
-                    <li><a href="#">bmw 3</a></li>
-                </ul>
-                <ul class="col-lg-3" style="list-style-type: none; padding: 0">
-                    <li><a href="#">honda</a></li>
-                    <li><a href="#">honda 2</a></li>
-                    <li><a href="#">honda 3</a></li>
-                </ul>
-                <ul class="col-lg-3" style="list-style-type: none; padding: 0">
-                    <li><a href="#">lexus</a></li>
-                    <li><a href="#">lexus 2</a></li>
-                    <li><a href="#">lexus 3</a></li>
-                </ul>
+            <div id="carMakeList" class="row mt-3 px-5">
+                <div class="col-lg-3" >
+                    <ul style="list-style-type: none; padding: 0">
+                        <li><a href="#">acura</a></li>
+                        <li><a href="#">acura 2</a></li>
+                        <li><a href="#">acura 3</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3" >
+                    <ul style="list-style-type: none; padding: 0">
+                        <li><a href="#">bmw 1</a></li>
+                        <li><a href="#">bmw 2</a></li>
+                        <li><a href="#">bmw 3</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3" >
+                    <ul style="list-style-type: none; padding: 0">
+                        <li><a href="#">honda 1</a></li>
+                        <li><a href="#">honda 2</a></li>
+                        <li><a href="#">honda 3</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3" >
+                    <ul style="list-style-type: none; padding: 0">
+                        <li><a href="#">lexus 1</a></li>
+                        <li><a href="#">lexus 2</a></li>
+                        <li><a href="#">lexus 3</a></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
