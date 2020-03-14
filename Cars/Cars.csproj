@@ -249,12 +249,8 @@
     <Content Include="Images\tesla.png" />
     <Content Include="matchmaker.aspx" />
     <Content Include="news.aspx" />
-    <Content Include="Content\News\2019-lexus.jpg" />
     <Content Include="Content\News\audi_s4.jpg" />
     <Content Include="Content\News\bigImage.jpg" />
-    <Content Include="Content\News\car-safety-features-motion.png" />
-    <Content Include="Content\News\hundai.jpg" />
-    <Content Include="Content\News\porsche-911-carrera.jpg" />
     <Content Include="research.aspx" />
     <Content Include="Reusable\EmailSubscription.ascx" />
     <Content Include="Reusable\feedback.ascx" />

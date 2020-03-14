@@ -56,7 +56,7 @@
                     <div class="col-lg-3">
                         <a href="#" class="cardWithImage">
                             <div class="card" style="border: none">
-                                <img src="/Content/News/news-porche.png" class="card-img-top smallImage">
+                                <img src="/Content/News/news-porche.png" class="card-img-top">
                                 <div class="card-body pl-0">
                                     <span class="card-title small font-weight-bold black onHover third">Auto Show</span>
                                     <h5 class="black onHover mb-0">2021 Porsche 911 Turbo S: 911’s Next  Top Model</h5>
@@ -74,7 +74,7 @@
                     <div class="col-lg-3">
                         <a href="#" class="cardWithImage">
                             <div class="card" style="border: none">
-                                <img src="/Content/News/news-hundai.png" class="card-img-top smallImage">
+                                <img src="/Content/News/news-hundai.png" class="card-img-top">
                                 <div class="card-body pl-0">
                                     <span class="card-title small font-weight-bold black onHover third">Safety</span>
                                     <h5 class="black onHover mb-0">2013-2014 Hyundai Sonata: Recall Alert</h5>
@@ -92,7 +92,7 @@
                     <div class="col-lg-3">
                         <a href="#" class="cardWithImage">
                             <div class="card" style="border: none">
-                                <img src="/Content/News/news-lexus.png" class="card-img-top smallImage">
+                                <img src="/Content/News/news-lexus.png" class="card-img-top">
                                 <div class="card-body pl-0">
                                     <span class="card-title small font-weight-bold black onHover third">Safety</span>
                                     <h5 class="black onHover mb-0">2013-2019 Lexus and Toyota Cars: Recall Alert</h5>
@@ -110,7 +110,7 @@
                     <div class="col-lg-3">
                         <a href="#" class="cardWithImage">
                             <div class="card" style="border: none">
-                                <img src="/Content/News/news-safety.png" class="card-img-top smallImage">
+                                <img src="/Content/News/news-safety.png" class="card-img-top">
                                 <div class="card-body pl-0">
                                     <span class="card-title small font-weight-bold black onHover third">Safety</span>
                                     <h5 class="black onHover mb-0">Which Cars Have Self-Driving Features for 2020?</h5>
@@ -209,7 +209,15 @@
         <CustomControl:emailSubscription runat="server"></CustomControl:emailSubscription>
 
         <section>
-            <h3 class="font-weight-bold">Latest Expert Reviews</h3>
+            <div class="row">
+                <div class="col-8">
+                    <h3 class="font-weight-bold">Latest Expert Reviews</h3>
+                </div>
+                <div class="col-4 text-right pt-2">
+                    <a href="#">See all</a>
+                </div>
+            </div>
+           
             <div class="row mt-4">
                 <div class="col-lg-4">
                     <a href="#">
@@ -251,7 +259,14 @@
         </section>
 
         <section>
-            <h3 class="font-weight-bold">Latest Videos</h3>
+            <div class="row">
+                <div class="col-8">
+                    <h3 class="font-weight-bold">Latest Videos</h3>
+                </div>
+                <div class="col-4 text-right pt-2">
+                    <a href="#">See all</a>
+                </div>
+            </div>
             <div class="row mt-4">
                 <div class="col-lg-4">
                     <a href="#">
@@ -317,7 +332,14 @@
         </section>
 
         <section>
-            <h3 class="font-weight-bold">Latest Car Buying Advice</h3>
+            <div class="row">
+                <div class="col-8">
+                    <h3 class="font-weight-bold">Latest Car Buying Advice</h3>
+                </div>
+                <div class="col-4 text-right pt-2">
+                    <a href="#">See all</a>
+                </div>
+            </div>
             <div class="row mt-4">
                 <div class="col-lg-4">
                     <a href="#">

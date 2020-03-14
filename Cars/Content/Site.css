@@ -39,7 +39,11 @@ section {
 /*media smartphone Portrait orientation*/
 @media (max-width: 576px) {
 
-    #bigFooter {
+    .blackBox {
+        position: absolute;
+        right: 2%;
+        top: -35%;
+        
 
     }
 
@@ -57,9 +61,8 @@ section {
     }
 
     .bigImage {
-        height: 200px !important;
-        background-position-x: center;
-        background-position-y: center;
+        height: 250px !important;
+        background-size: contain;
     }
 
     #smallFooter li {
@@ -114,11 +117,14 @@ section {
 
 
     .divOnImage {
-        margin-top: 75px !important;
+        margin-top: 0px !important;
     }
 
-    .textOnImage, .textOnImageRight {
-        display: none;
+    .textOnImage h2{
+        font-size: 18px;
+    }
+    .textOnImage h3 {
+        font-size: 15px;
     }
 
 
@@ -141,15 +147,19 @@ section {
         display: none;
     }
 
-    
+
+    div#searchResearch {
+        margin-top: 15px !important;
+    }
 }
+
+
+
 /*media ends*/
 
 
 
-.smallImage {
-    height: 125px;
-}
+
 
 
 .cardWithImage:hover h5 {
@@ -496,9 +506,10 @@ div#feedBack {
 
 .textOnImage {
     color: white;
-    padding-left: 40px;
+    
     position: absolute;
-    top: 150px;
+    top: 10%;
+    left: 5%;
 }
 
 .textOnImageRight {
@@ -622,14 +633,7 @@ a.circleIcon {
 
 
 /*shopping.aspx*/
- #BlackBox {
-   
-    background-color: rgba(0,0,0,0.8);
-    text-align: right;
-    
-    padding: 10px 20px;
-    
-}
+
 
 .blackBoxOnImage div{
     color: white;

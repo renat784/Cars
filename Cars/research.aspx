@@ -3,28 +3,32 @@
 <%@ Register Src="~/Reusable/FindTheDealer.ascx" TagName="findTheDealer" TagPrefix="CustomControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="bigImage" style="background-image: url(Images/researchCar.jpg);">
+    <div class="bigImage" style="background-image: url(Images/researchCar.jpg);position: relative">
         <div class="textOnImage">
             <h2 class="font-weight-bold">Make Smart Choices</h2>
             <h3>Read specs and reviews, and compare cars.</h3>
         </div>
     </div>
 
-    <div class="body-content">
-        <div class="divOnImage">
-
-            <div class="mb-2">
-                <div id="BlackBox" class="col-2 offset-lg-10">
-                    <a class="blackBoxOnImage" href="#">
-                        <div id="model">2020 Volkswagen</div>
-                        <div>
-                            <span>Learn More</span>
-                            <i class="fa fa-external-link ml-1" aria-hidden="true"></i>
-                        </div>
-                        <div id="sponsored">Sponsored by Jeep</div>
-                    </a>
+    <div class="px-sm-0 px-lg-3">
+        <div class="divOnImage" style="position: relative">
+            <div class="mb-lg-2 pr-3 blackBox">
+                <div class="row">
+                    <div class="col-lg-10 col-sm-8"></div>
+                    <div class="col-lg-2 col-sm-4 p-2 pr-3" style="background-color: rgba(0,0,0,0.8);text-align: right;">
+                        <a class="blackBoxOnImage" href="#">
+                            <div id="model">2020 Volkswagen</div>
+                            <div>
+                                <span>Learn More</span>
+                                <i class="fa fa-external-link ml-1" aria-hidden="true"></i>
+                            </div>
+                            <div id="sponsored">Sponsored by Jeep</div>
+                        </a>
+                    </div>
                 </div>
             </div>
+            
+
 
             <div class="p-3 colorPrimary col-sm-12" style="border-radius: 5px">
                 <div>
