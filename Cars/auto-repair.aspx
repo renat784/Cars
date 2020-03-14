@@ -104,12 +104,57 @@
         <section>
             <h3 class="primary">Do It Yourself Repairs</h3>
             <p>Learn how to make repairs on your car in your own garage.</p>
-            <div class="row">
+            <div class="row listRepairs">
                 <div class="col-lg-6">
-                    
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="Icons/oil-change.svg" />
+                                <span>Change Oil</span>
+                                <span>&gt;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="Icons/jumping-a-car.svg" />
+                                <span>Jump Car</span>
+                                <span>&gt;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="Icons/check-transmission-fluid.svg" />
+                                <span>Change Transmission Fluid</span>
+                                <span>&gt;</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-lg-6">
-                    
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="Icons/windshield-wiper-replacement.svg" />
+                                <span>Replace Windshield Wipers</span>
+                                <span>&gt;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="Icons/when-to-replace-tire.svg" />
+                                <span>Replace Tires</span>
+                                <span>&gt;</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="Icons/how-to-check-tire-pressure.svg" />
+                                <span>Check Tire Pressure</span>
+                                <span>&gt;</span>
+                            </a>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
             <div>
@@ -118,6 +163,13 @@
         </section>
         
         
+    
+    
+    
+    
+    
+    
+
         <section>
             <h3 class="primary">Expert Tips About Service</h3>
             <div class="row mt-4">

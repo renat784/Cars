@@ -290,6 +290,12 @@
     <Content Include="CarVector\ford.svg" />
     <Content Include="CarVector\geo.svg" />
     <Content Include="CarVector\gmc.svg" />
+    <Content Include="Icons\check-transmission-fluid.svg" />
+    <Content Include="Icons\how-to-check-tire-pressure.svg" />
+    <Content Include="Icons\jumping-a-car.svg" />
+    <Content Include="Icons\oil-change.svg" />
+    <Content Include="Icons\when-to-replace-tire.svg" />
+    <Content Include="Icons\windshield-wiper-replacement.svg" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

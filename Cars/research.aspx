@@ -179,7 +179,7 @@
 
         <section>
             <h5 class="text-center font-weight-bold">Start with Make</h5>
-            <div id="carMakeList" class="row mt-3 px-5">
+            <div class="row mt-lg-4 px-lg-5 listCenter">
                 <div class="col-lg-3" >
                     <ul style="list-style-type: none; padding: 0">
                         <li><a href="#">acura</a></li>

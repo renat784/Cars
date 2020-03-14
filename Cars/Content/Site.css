@@ -39,6 +39,12 @@ section {
 /*media smartphone Portrait orientation*/
 @media (max-width: 576px) {
 
+    
+    .listCenter div ul {
+        text-align: center;
+        margin-bottom: 0;
+    }
+
     .carMake ul li {
         width: 50%;
     }
@@ -164,11 +170,40 @@ section {
     div#searchResearch {
         margin-top: 15px !important;
     }
+
+    
 }
 
 
 
 /*media ends*/
+
+
+.listRepairs div ul{
+    list-style-type: none;
+    padding-left: 0;
+    position: relative;
+}
+
+.listRepairs div ul li a {
+    display: block;
+    padding: 5px 15px 5px 10px;
+    border-radius: 5px;
+}
+
+.listRepairs div ul li:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.listRepairs div ul li a span:first-of-type {
+    padding-left: 10px;
+}
+.listRepairs div ul li a span:last-of-type {
+    position: absolute;
+    right: 50px;
+}
+
+    
 
 
 
@@ -177,7 +212,6 @@ section {
     list-style-type: none;
     margin-top: 40px;
     padding-left: 0;
-
 }
 .carMake ul li {
     padding: 10px 40px;
