@@ -3,19 +3,20 @@
 <%@ Register Src="~/Reusable/FindTheDealer.ascx" TagName="findTheDealer" TagPrefix="CustomControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="bigImage" style="background-image: url(Images/mainImage2.png);position: relative">
+    <div class="bigImage" style="background-image: url(Images/mainImage2.png); position: relative">
         <div class="textOnImage">
             <h2 class="font-weight-bold">Shop Cars for Sale</h2>
             <h3>Find the right price, dealer and advice.</h3>
         </div>
     </div>
 
-    <div class="px-sm-0 px-lg-3">
-        <div class="divOnImage" style="position: relative">
+    
+    
+        <div class="divOnImage px-lg-3 p-sm-0" style="position: relative">
             <div class="mb-lg-2 pr-3 blackBox">
                 <div class="row">
                     <div class="col-lg-10 col-sm-8"></div>
-                    <div class="col-lg-2 col-sm-4 p-2 pr-3" style="background-color: rgba(0,0,0,0.8);text-align: right;">
+                    <div class="col-lg-2 col-sm-4 p-2 pr-3" style="background-color: rgba(0,0,0,0.8); text-align: right;">
                         <a class="blackBoxOnImage" href="#">
                             <div id="model">2020 Volkswagen</div>
                             <div>
@@ -27,13 +28,13 @@
                     </div>
                 </div>
             </div>
-            
 
-           
-            
-            
 
-            <div class="colorSecondary py-4 px-3 ">
+
+
+
+
+            <div class="colorSecondary py-4  px-3 ">
                 <ul class="nav nav-tabs" style="border-bottom: none" id="myTab" role="tablist">
                     <li class="nav-item navTab">
                         <a class="nav-link active py-1 px-2" id="home-tab" data-toggle="tab" href="#home" role="tab"
@@ -41,37 +42,75 @@
                         </a>
                     </li>
                     <li class="nav-item navTab">
-                    <a class="nav-link py-1 px-2" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                        aria-controls="profile" aria-selected="false">Search By Body Style
-                    </a>
-                </li>
-                <li style="margin-left: auto; text-align: right">
-                    <a class="whiteLink" href="advanced-search.aspx">Advanced Search &gt;</a>
-                </li>
-            </ul>
-            <div class="tab-content mt-4" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <div class="px-3">
-                        <div class="row">
-                            <div class="col-lg-4 p-0">
+                        <a class="nav-link py-1 px-2" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                            aria-controls="profile" aria-selected="false">Search By Body Style
+                        </a>
+                    </li>
+                    <li id="advSearch" style="margin-left: auto; text-align: right">
+                        <a class="whiteLink" href="advanced-search.aspx">Advanced Search &gt;</a>
+                    </li>
+                </ul>
+                <div class="tab-content mt-4" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="px-3">
+                            <div class="row">
+                                <div class="col-lg-4 p-0">
+                                    <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
+                                        <asp:ListItem>Used Cars</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="col-lg-4 p-0">
+                                    <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
+                                        <asp:ListItem>All Makes</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="col-lg-4 p-0">
+                                    <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
+                                        <asp:ListItem>All Models</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4  p-0">
+                                    <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
+                                        <asp:ListItem>No Max Price</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="row">
+                                        <div class="col-6 p-0">
+                                            <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
+                                                <asp:ListItem>30 miles from</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                        <div class="col-6  p-0">
+                                            <asp:TextBox CssClass="form-control borderRad-0" runat="server"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 p-0">
+                                    <asp:Button CssClass="btn btn-success greenButton borderRad-0"
+                                        runat="server" Text="Search" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row px-3">
+                            <div class="col-lg-2 p-0">
                                 <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
                                     <asp:ListItem>Used Cars</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
-                            <div class="col-lg-4 p-0">
+                            <div class="col-lg-2 p-0">
                                 <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
-                                    <asp:ListItem>All Makes</asp:ListItem>
+                                    <asp:ListItem>SUV</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
-                            <div class="col-lg-4 p-0">
-                                <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
-                                    <asp:ListItem>All Models</asp:ListItem>
-                                </asp:DropDownList>
-                            </div>
-
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-4 p-0">
+                            <div class="col-lg-2 p-0">
                                 <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
                                     <asp:ListItem>No Max Price</asp:ListItem>
                                 </asp:DropDownList>
@@ -84,57 +123,26 @@
                             <div class="col-lg-2 p-0">
                                 <asp:TextBox CssClass="form-control borderRad-0" runat="server"></asp:TextBox>
                             </div>
-                            <div class="col-lg-4 p-0">
+                            <div class="col-lg-2 p-0">
                                 <asp:Button CssClass="btn btn-success greenButton borderRad-0"
                                     runat="server" Text="Search" />
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <div class="row px-3">
-                        <div class="col-lg-2 p-0">
-                            <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
-                                <asp:ListItem>Used Cars</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                        <div class="col-lg-2 p-0">
-                            <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
-                                <asp:ListItem>SUV</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                        <div class="col-lg-2 p-0">
-                            <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
-                                <asp:ListItem>No Max Price</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                        <div class="col-lg-2 p-0">
-                            <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
-                                <asp:ListItem>30 miles from</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                        <div class="col-lg-2 p-0">
-                            <asp:TextBox CssClass="form-control borderRad-0" runat="server"></asp:TextBox>
-                        </div>
-                        <div class="col-lg-2 p-0">
-                            <asp:Button CssClass="btn btn-success greenButton borderRad-0"
-                                runat="server" Text="Search" />
-                        </div>
-                    </div>
                 </div>
-
             </div>
         </div>
-        </div>
+    
 
 
-        <div class="mt-5">
+        <section>
             <h3 class="text-center">Find New & Used Cars for Sale</h3>
-            <div class="colorGray">
-                <h5 class="text-center py-2">Popular Searches Near You</h5>
-                <div class="row pb-3 px-lg-5">
-                    <div class="col-lg-3 text-center">
+            <div  class="colorGray">
+                <h5 class="text-center py-2 mb-0">Popular Searches Near You</h5>
+                <div class="row px-lg-5">
+
+                    <div class="col-lg-3 p-lg-2 text-center carItem">
                         <a href="#">
                             <div style="background-color: white">
                                 <p style="color: black" class="font-weight-bold mb-0 pt-3">Used Ford F-150s</p>
@@ -145,10 +153,9 @@
                                     <img style="width: 100%" src="Images/pickUp.png" />
                                 </div>
                             </div>
-
                         </a>
                     </div>
-                    <div class="col-lg-3 text-center">
+                    <div class="col-lg-3 p-lg-2 text-center carItem">
                         <a href="#">
                             <div style="background-color: white">
                                 <p style="color: black" class="font-weight-bold mb-0 pt-3">Used Jeep Wranglers</p>
@@ -162,7 +169,7 @@
 
                         </a>
                     </div>
-                    <div class="col-lg-3 text-center">
+                    <div class="col-lg-3 p-lg-2 text-center carItem">
                         <a href="#">
                             <div style="background-color: white">
                                 <p style="color: black" class="font-weight-bold mb-0 pt-3">Used Dodge Challenger </p>
@@ -176,7 +183,7 @@
 
                         </a>
                     </div>
-                    <div class="col-lg-3 text-center">
+                    <div class="col-lg-3  p-lg-2 text-center carItem">
                         <a href="#">
                             <div style="background-color: white">
                                 <p style="color: black" class="font-weight-bold mb-0 pt-3">Electric Cars</p>
@@ -192,9 +199,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div>
+        <section class="body-content">
             <h4 style="text-align: center">Bodystyle Search</h4>
             <div class="row">
                 <div class="col-lg-3 form-group">
@@ -256,11 +263,11 @@
                 </div>
             </div>
             <hr />
-        </div>
+        </section>
 
 
 
-        <div>
+        <section class="body-content">
             <h4 style="text-align: center">Brand Search</h4>
             <div class="row">
                 <div class="col-lg-3 form-group">
@@ -318,7 +325,7 @@
                 </div>
             </div>
             <hr />
-        </div>
+        </section>
 
         <CustomControl:findTheDealer runat="server"></CustomControl:findTheDealer>
 
@@ -504,7 +511,8 @@
             </div>
         </div>
 
-        <div class="mt-5 py-4 colorGray_2">
+    <section class="colorGray_2">
+        <div class="py-4 body-content">
             <div class="text-center py-2">
                 <h3>Tips for Buying a Used Car</h3>
                 <h5 style="color: #777">Useful used-car advice from Cars.com experts to help you shop smart.</h5>
@@ -586,8 +594,9 @@
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="mt-5 text-center">
+        <section class="text-center">
             <h3>Were you looking for more on these related topics?</h3>
             <div class="mt-4">
                 <div>
@@ -604,8 +613,8 @@
                 </div>
             </div>
 
-        </div>
-    </div>
+        </section>
+    
 
 
 
