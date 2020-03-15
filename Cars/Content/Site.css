@@ -81,7 +81,7 @@ section {
 
     .bigImage {
         height: 250px !important;
-        background-size: contain;
+        background-size: auto !important;
     }
 
     #smallFooter li {
@@ -171,15 +171,28 @@ section {
         margin-top: 15px !important;
     }
 
-    
+    .repairBlock {
+        margin-top: -150px !important;   
+    }
+
+        .repairBlock .repairList {
+            margin-top: 50px !important;
+        }
 }
 
 
 
 /*media ends*/
 
+.repairList div.col-2{
+    
+}
+.repairBlock {
+    margin-top: -220px;
+}
 
-.listRepairs div ul{
+
+.listRepairs div ul {
     list-style-type: none;
     padding-left: 0;
     position: relative;

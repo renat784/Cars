@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="auto-repair.aspx.cs" Inherits="Cars.auto_repair" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-<script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script>
         function changeText(e) {
             if (e.text == 'View More Makes') {
                 e.text = 'View Less Makes';
@@ -14,30 +14,30 @@
                 $('#chevron').attr('class', 'fa fa-chevron-down pl-2');
             }
         }
-</script>
+    </script>
 
-    <div class="bigImage" style="background-image: url(Images/repairCar.jpg);position: relative">
-        <div class="textOnImage" style="left: 30%">
+    <div class="bigImage" style="background-image: url(Images/repairCar.jpg); position: relative">
+        <div class="textOnImage" style="left: 50%;transform: translateX(-50%)">
             <h2 class="font-weight-bold">Vehicle Service and Repairs</h2>
         </div>
     </div>
 
     <div class="body-content">
-        <div class="col-lg-10 offset-lg-1 divOnImage py-4 px-5" style="background-color: white; border-radius: 5px;">
+        <div class="col-lg-10 offset-lg-1 py-lg-4 px-lg-5 repairBlock" style="background-color: white; border-radius: 5px;position: relative">
             <div class="row">
-                <div class="col-4 colorPrimary white p-4 text-center">
+                <div class="col-lg-4 colorPrimary white p-4 text-center">
                     <h3 class="font-weight-bold">Auto Repair Services Near Me</h3>
-                    <p>Find the best service center for you and get an estimate.</p>
+                    <p>Find the best service center for you and get an estimate</p>
                     <input type="button" style="width: 100%" class="btn niceButton2" value="Find a Service Center" />
                 </div>
-                <div class="col-7 offset-lg-1 my-auto">
+                <div class="col-lg-7 offset-lg-1 my-auto repairList">
                     <div class="row">
                         <div class="col-2">
                             <div class="colorPrimary white" style="border-radius: 50%; width: 50px; height: 50px; text-align: center">
                                 <i style="font-size: 25px; padding-top: 25%" class="fa fa-usd" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <div class="col-9 pl-0">
+                        <div class="col-10">
                             <p class="mb-0">Do It Yourself Repairs</p>
                             <p>
                                 <a href="#">Learn how to make repairs to your car.</a>
@@ -50,7 +50,7 @@
                                 <i style="font-size: 25px; padding-top: 25%" class="fa fa-search" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <div class="col-9 pl-0">
+                        <div class="col-10 ">
                             <p class="mb-0">Search Recalls</p>
                             <p>
                                 <a href="#">Find out if there are any recalls on your car.</a>
@@ -63,7 +63,7 @@
                                 <i style="font-size: 25px; padding-top: 25%" class="fa fa-comment-o" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <div class="col-9 pl-0">
+                        <div class="col-10 ">
                             <p class="mb-0">Service & Repair Advice</p>
                             <p>
                                 <a href="#">Learn about maintenance and repairs from our experts.</a>
@@ -76,17 +76,18 @@
 
 
         <section>
-            <div class="col-lg-4 offset-lg-4">
+            <div class="col-lg-6 offset-lg-3 px-lg-5">
                 <div class="row form-group">
-                    <asp:DropDownList CssClass="form-control col-lg-6"
+                    <asp:DropDownList CssClass="form-control col-8"
                         ID="DropDownList1" runat="server" AutoPostBack="True">
-                        <asp:ListItem Selected="True">All makers</asp:ListItem>
+                        <asp:ListItem Selected="True">All Makes</asp:ListItem>
                         <asp:ListItem>Toyota</asp:ListItem>
                         <asp:ListItem>Honda</asp:ListItem>
                         <asp:ListItem>Lexus</asp:ListItem>
                     </asp:DropDownList>
-                    <span class="col-1 p-1"></span>
-                    <asp:TextBox CssClass="form-control col-lg-5" ToolTip="Zip code, for example 12345" runat="server"></asp:TextBox>
+                    <div class="col-4 pl-lg-2 pr-0">
+                        <asp:TextBox CssClass="form-control" style="width: 100%" ToolTip="Zip code, for example 12345" runat="server"></asp:TextBox>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-12" style="padding: 0">
@@ -99,10 +100,83 @@
             </div>
         </section>
 
-        
-        
         <section>
-            <h3 class="primary">Do It Yourself Repairs</h3>
+            <h3 class="secondary">Recalls</h3>
+            <p>Find out if there are any recalls on your car.</p>
+            <div class="row">
+                <div class="col-lg-4 offset-lg-2 pr-lg-5">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5 class="font-weight-bold mb-0">2020 Hyundai Sonata</h5>
+                            <small>02/28/2020</small>
+                            <p style="font-size: 13px; margin: 15px 0">EQUIPMENT:OTHER:LABELS</p>
+                            <a href="#">See Full Recall</a>
+                        </div>
+                        <div class="col-6">
+                            <img src="Images/hundai.png" style="width: 100%" />
+                        </div>
+
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-6">
+                            <h5 class="font-weight-bold mb-0">2016 Ford F-150</h5>
+                            <small>02/21/2020</small>
+                            <p style="font-size: 13px; margin: 15px 0">EQUIPMENT:ELECTRICAL</p>
+                            <a href="#">See Full Recall</a>
+                        </div>
+                        <div class="col-6">
+                            <img src="Images/ford.png" style="width: 100%" />
+                        </div>
+
+                    </div>
+                    <hr />
+                </div>
+                <div class="col-lg-4 pl-lg-5">
+                    <div class="row">
+                        <div class="col-6">
+                            <h5 class="font-weight-bold mb-0">2013 Hyundai Sonata</h5>
+                            <small>02/28/2020</small>
+                            <p style="font-size: 13px; margin: 15px 0">FUEL SYSTEM, GASOLINE:DELIVERY:HOSES, LINES/PIPING, AND FITTINGS</p>
+                            <a href="#">See Full Recall</a>
+                        </div>
+                        <div class="col-6">
+                            <img src="Images/hundai22.png" style="width: 100%" />
+                        </div>
+
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-6">
+                            <h5 class="font-weight-bold mb-0">2014 Hyundai Sonata</h5>
+                            <small>02/28/2020</small>
+                            <p style="font-size: 13px; margin: 15px 0">UEL SYSTEM, GASOLINE:DELIVERY:HOSES, LINES/PIPING, AND FITTINGS</p>
+                            <a href="#">See Full Recall</a>
+                        </div>
+                        <div class="col-6">
+                            <img src="Images/hundai33333.png" style="width: 100%" />
+                        </div>
+
+                    </div>
+                    <hr />
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <a href="#" class="btn niceButton col-lg-4 offset-lg-4">Find Recalls for Your Car</a>
+            </div>
+
+        </section>
+
+
+
+
+
+
+        <section>
+            <h3 class="secondary">Do It Yourself Repairs</h3>
             <p>Learn how to make repairs on your car in your own garage.</p>
             <div class="row listRepairs">
                 <div class="col-lg-6">
@@ -161,44 +235,44 @@
                 <a href="#" class="btn niceButton col-lg-4 offset-lg-4">See All DIY Repairs</a>
             </div>
         </section>
-        
-        
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
 
         <section>
-            <h3 class="primary">Expert Tips About Service</h3>
+            <h3 class="secondary">Expert Tips About Service</h3>
             <div class="row mt-4">
                 <div class="col-lg-4">
                     <a href="#">
-                    <div class="card" style="border-style: none">
-                        <img src="ExpertTips/image1.jpg" class="card-img-top" />
-                        <div class="card-body pl-0">
-                            <h5 class="card-title black">Expensive Oil Changes Are Here to Stay</h5>
-                            <p class="card-text black">
-                                Oil changes may be more expensive with the required 0W-20 weight oil compared to conventional oil, but only having to service the car once or twice a year keeps annual costs to nearly a wash.
-                            </p>
-                            <p>Read more</p>
+                        <div class="card" style="border-style: none">
+                            <img src="ExpertTips/image1.jpg" class="card-img-top" />
+                            <div class="card-body pl-0">
+                                <h5 class="card-title black">Expensive Oil Changes Are Here to Stay</h5>
+                                <p class="card-text black">
+                                    Oil changes may be more expensive with the required 0W-20 weight oil compared to conventional oil, but only having to service the car once or twice a year keeps annual costs to nearly a wash.
+                                </p>
+                                <p>Read more</p>
+                            </div>
                         </div>
-                    </div>
                     </a>
                 </div>
                 <div class="col-lg-4">
                     <a href="#">
-                    <div class="card" style="border-style: none">
-                        <img src="ExpertTips/image2.jpg" class="card-img-top" />
-                        <div class="card-body pl-0 ">
-                            <h5 class="card-title black">What's Included in a Tuneup?</h5>
-                            <p class="card-text black">
-                                Actually, there is no such thing as a tuneup in the traditional sense of replacing parts to bring the ignition and fuel systems up to specs for maximum performance and efficiency efficiency...
-                            </p>
-                            <p>Read more</p>
+                        <div class="card" style="border-style: none">
+                            <img src="ExpertTips/image2.jpg" class="card-img-top" />
+                            <div class="card-body pl-0 ">
+                                <h5 class="card-title black">What's Included in a Tuneup?</h5>
+                                <p class="card-text black">
+                                    Actually, there is no such thing as a tuneup in the traditional sense of replacing parts to bring the ignition and fuel systems up to specs for maximum performance and efficiency efficiency...
+                                </p>
+                                <p>Read more</p>
+                            </div>
                         </div>
-                    </div>
                     </a>
                 </div>
                 <div class="col-lg-4">
@@ -214,13 +288,13 @@
                             </div>
                         </div>
                     </a>
-                    
+
                 </div>
             </div>
         </section>
 
         <section>
-            <h3 class="primary">Service Term to Know</h3>
+            <h3 class="secondary">Service Term to Know</h3>
             <div style="background-color: #F2F2F2; margin: 15px 0"><%= CleanTitle(item.Title) %></div>
             <div class="row">
                 <div class="col-lg-6">
@@ -241,22 +315,22 @@
 
 
         <section>
-            <h3 class="primary">Find Service by Make</h3>
+            <h3 class="secondary">Find Service by Make</h3>
             <div class="carMake">
                 <ul class="row">
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
                             <div>
-                                <img src="CarVector/acura.svg"/>
+                                <img src="CarVector/acura.svg" />
                             </div>
                             <p class="gray">Acura</p>
                         </a>
-                        
+
                     </li>
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
                             <div>
-                                <img src="CarVector/audi.svg"/>
+                                <img src="CarVector/audi.svg" />
                             </div>
                             <p class="gray">Audi</p>
                         </a>
@@ -264,7 +338,7 @@
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
                             <div>
-                                <img src="CarVector/bmw.svg"/>
+                                <img src="CarVector/bmw.svg" />
                             </div>
                             <p class="gray">BMW</p>
                         </a>
@@ -272,7 +346,7 @@
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
                             <div>
-                                <img src="CarVector/buick.svg"/>
+                                <img src="CarVector/buick.svg" />
                             </div>
                             <p class="gray">Buick</p>
                         </a>
@@ -280,7 +354,7 @@
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
                             <div>
-                                <img src="CarVector/cadillac.svg"/>
+                                <img src="CarVector/cadillac.svg" />
                             </div>
                             <p class="gray">Cadillac</p>
                         </a>
@@ -288,18 +362,18 @@
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
                             <div>
-                                <img src="CarVector/chevrolet.svg"/>
+                                <img src="CarVector/chevrolet.svg" />
                             </div>
                             <p class="gray">Chevrolet</p>
                         </a>
                     </li>
-                 </ul>
+                </ul>
 
                 <ul id="hiddenList" class="row collapse">
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
                             <div>
-                                <img src="CarVector/chrysler.svg"/>
+                                <img src="CarVector/chrysler.svg" />
                             </div>
                             <p class="gray">Chrysler</p>
                         </a>
@@ -307,7 +381,7 @@
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
                             <div>
-                                <img src="CarVector/dodge.svg"/>
+                                <img src="CarVector/dodge.svg" />
                             </div>
                             <p class="gray">Dodge</p>
                         </a>
@@ -315,16 +389,16 @@
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
                             <div>
-                                <img src="CarVector/fiat.svg"/>
+                                <img src="CarVector/fiat.svg" />
                             </div>
                             <p class="gray">Fiat</p>
                         </a>
-                        
+
                     </li>
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
                             <div>
-                                <img src="CarVector/ford.svg"/>
+                                <img src="CarVector/ford.svg" />
                             </div>
                             <p class="gray">Ford</p>
                         </a>
@@ -332,7 +406,7 @@
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
                             <div>
-                                <img src="CarVector/geo.svg"/>
+                                <img src="CarVector/geo.svg" />
                             </div>
                             <p class="gray">Geo</p>
                         </a>
@@ -340,14 +414,14 @@
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
                             <div>
-                                <img src="CarVector/gmc.svg"/>
+                                <img src="CarVector/gmc.svg" />
                             </div>
                             <p class="gray">GMC</p>
                         </a>
                     </li>
                 </ul>
-                
-                    
+
+
                 <div class="text-center">
                     <a href="#hiddenList" onclick="changeText(this)" data-toggle="collapse">View More Makes</a>
                     <i id="chevron" class="fa fa-chevron-down pl-2" aria-hidden="true"></i>

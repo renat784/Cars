@@ -230,12 +230,16 @@
     <Content Include="Images\certified1.png" />
     <Content Include="Images\compareCars1.png" />
     <Content Include="Images\cooler.png" />
+    <Content Include="Images\ford.png" />
     <Content Include="Images\homePagePic-1.jpg" />
     <Content Include="Images\homePagePic-2.png" />
     <Content Include="Images\homePagePic-3.jpg" />
     <Content Include="Images\homePagePic-4.jpg" />
     <Content Include="Images\homePagePic-5.jpg" />
     <Content Include="Images\homePagePic-6.png" />
+    <Content Include="Images\hundai.png" />
+    <Content Include="Images\hundai22.png" />
+    <Content Include="Images\hundai33333.png" />
     <Content Include="Images\jeep.png" />
     <Content Include="Images\mainImage.png" />
     <Content Include="Images\mainImage2.png" />
