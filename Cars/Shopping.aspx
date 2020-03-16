@@ -202,65 +202,85 @@
         </section>
 
         <section class="body-content">
-            <h4 style="text-align: center">Bodystyle Search</h4>
+            <h4 class="mb-4" style="text-align: center">Bodystyle Search</h4>
             <div class="row">
-                <div class="col-lg-3 form-group">
-                    <h5>Coupes & Sedans</h5>
-                    <ul class="list">
-                        <li>
-                            <a href="#">Sedan</a>
-                        </li>
-                        <li>
-                            <a href="#">Convertible</a>
-                        </li>
-                        <li>
-                            <a href="#">Coupe</a>
-                        </li>
-                    </ul>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class=" form-group">
+                                <h5>Coupes & Sedans</h5>
+                                <ul class="list">
+                                    <li>
+                                        <a href="#">Sedan</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Convertible</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Coupe</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class=" form-group">
+                                <h5>Pickup Trucks</h5>
+                                <ul class="list">
+                                    <li>
+                                        <a href="#">Regular Cab Pickup</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Crew Cab Pickup</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Extended Cab Pickup</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-3 form-group">
-                    <h5>Pickup Trucks</h5>
-                    <ul class="list">
-                        <li>
-                            <a href="#">Regular Cab Pickup</a>
-                        </li>
-                        <li>
-                            <a href="#">Crew Cab Pickup</a>
-                        </li>
-                        <li>
-                            <a href="#">Extended Cab Pickup</a>
-                        </li>
-                    </ul>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class=" form-group">
+                                <h5>Vans & Minivans</h5>
+                                <ul class="list">
+                                    <li>
+                                        <a href="#">Minivan</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Cargo Van</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Passenger Van</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class=" form-group">
+                                <h5>SUVs & Crossovers</h5>
+                                <ul class="list">
+                                    <li>
+                                        <a href="#">SUV</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Wagon</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Hatchback</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
+                
 
-                <div class="col-lg-3 form-group">
-                    <h5>Vans & Minivans</h5>
-                    <ul class="list">
-                        <li>
-                            <a href="#">Minivan</a>
-                        </li>
-                        <li>
-                            <a href="#">Cargo Van</a>
-                        </li>
-                        <li>
-                            <a href="#">Passenger Van</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 form-group">
-                    <h5>SUVs & Crossovers</h5>
-                    <ul class="list">
-                        <li>
-                            <a href="#">SUV</a>
-                        </li>
-                        <li>
-                            <a href="#">Wagon</a>
-                        </li>
-                        <li>
-                            <a href="#">Hatchback</a>
-                        </li>
-                    </ul>
-                </div>
+                
+                
             </div>
             <hr />
         </section>
@@ -326,38 +346,43 @@
             </div>
             <hr />
         </section>
+    
 
         <CustomControl:findTheDealer runat="server"></CustomControl:findTheDealer>
 
 
-        <div class="row" style="background-color: #5c707c; color: white; padding: 15px 0">
-            <div class="col-lg-5 offset-lg-1">
-                <h5 class="font-weight-bold">Used-Car Values</h5>
-                <p>Find out before you go to trade it in at the dealer or sell it yourself.</p>
-                <p>
-                    <a style="color: white; text-decoration: underline" href="#">Check current book value &gt;</a>
-                </p>
+        <div class="row py-3" style="background-color: #5c707c; color: white;">
+            <div class="col-lg-5 offset-1 ">
+                <div class="">
+                    <h5 class="font-weight-bold">Used-Car Values</h5>
+                    <p class="mb-2">Find out before you go to trade it in at the dealer or sell it yourself.</p>
+                    <p>
+                        <a style="color: white; text-decoration: underline" href="#">Check current book value &gt;</a>
+                    </p>
+                </div>
             </div>
-            <div class="col-lg-5" style="background-color: #5c707c; color: white">
-                <h5 class="font-weight-bold">Price Comparison Tool</h5>
-                <p>The Price Comparison Tool helps you find the most value for your money.</p>
-                <p>
-                    <a href="#" style="color: white; text-decoration: underline">Learn more about deal badges &gt;</a>
-                </p>
+            <div class="col-lg-5 offset-1" style="background-color: #5c707c; color: white">
+                <div class="">
+                    <h5 class="font-weight-bold">Price Comparison Tool</h5>
+                    <p class="mb-2">The Price Comparison Tool helps you find the most value for your money.</p>
+                    <p>
+                        <a href="#" style="color: white; text-decoration: underline">Learn more about deal badges &gt;</a>
+                    </p>
+                </div>
             </div>
         </div>
 
-        <div class="text-center colorGray pt-5 pb-2">
+        <section class="text-center colorGray p-3">
             <h3 class="mt-0">Used-Car Loan Rates</h3>
             <h1>4.93%</h1>
             <p>Current Average Loan Rate (APR)*</p>
             <p>Several factors can affect a car loan’s interest rate: the lender, the loan’s term length, your credit rating and the age of the used car you’re considering.</p>
             <p><a href="#">Read more</a></p>
             <p class="small">*Rates are averages and may change on an individual basis. <a href="#">Used car auto loan rates</a> provided by Bankrate.com</p>
-        </div>
+        </section>
 
-        <div class="mt-5">
-            <h3 class="text-center">Used-Car Financing & Warranty FAQs</h3>
+        <section>
+            <h3 class="text-center mb-4">Used-Car Financing & Warranty FAQs</h3>
             <div class="col-lg-8 offset-lg-2">
                 <div>
                     <p class="font-weight-bold">Financing & Lease</p>
@@ -509,7 +534,7 @@
 
                 </div>
             </div>
-        </div>
+        </section>
 
     <section class="colorGray_2">
         <div class="py-4 body-content">
