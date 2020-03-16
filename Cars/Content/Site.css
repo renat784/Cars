@@ -16,9 +16,7 @@ body {
     white-space: normal;
 }
 
-label {
-    font-weight: bold;
-}
+
 
 section {
     margin-top: 50px;
@@ -232,9 +230,26 @@ section {
 
 /*media ends*/
 
-.repairList div.col-2{
-    
+
+a.underlinedLink {
+    color: #767676;
+    font-weight: bold;
+    padding: 3px 15px;
 }
+
+    a.underlinedLink:hover {
+        color: black;
+        border-bottom: 4px solid #A400B4;
+    }
+    a.underlinedLink.activ {
+        color: black;
+        border-bottom: 4px solid #A400B4;
+    }
+
+
+
+
+
 .repairBlock {
     margin-top: -220px;
 }

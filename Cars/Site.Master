@@ -20,8 +20,8 @@
     <script>
         $(function () {
             page = location.pathname.substring(1);
-            if (page == 'contact' || page == 'auto-repair' || page == 'sell') {
-                $('#quiz').css('display', 'none');
+            if (page == 'shopping' || page == 'research' || page == 'news') {
+                $('#quiz').css('display', 'block');
             }
             if (page == 'contact') {
                 $('#feedBack').css('display', 'none');
@@ -119,7 +119,7 @@
                             <a runat="server" href="~/contact" title="Ask a question or submit feedback">Contact Us</a>
                         </li>
                         <li class="nav-item menuItemsSmallScreen" style="display: none">
-                            <a runat="server" href="~/Account/Login">Log in</a>
+                            <a runat="server" href="~/Account/Register">Sign Up</a>
                         </li>
                         <li class="nav-item menuItemsSmallScreen" style="display: none">
                             <a runat="server" href="~/Account/Login">My Dashboard</a>
@@ -129,7 +129,7 @@
 
                     <div class="menuItemsBigScreen row pl-lg-3">
                         <div class="col-8">
-                            <a class="btn btn-outline-light py-1 px-2" style="font-size: 12px" runat="server" href="~/Account/Login">Log in</a>
+                            <a class="btn btn-outline-light py-1 px-2" style="font-size: 12px" runat="server" href="~/Account/Register">Sign Up</a>
                         </div>
                         <div class="col-4">
                             <a runat="server" href="~/Contact">
@@ -170,7 +170,7 @@
 
         </div>
 
-        <div id="quiz">
+        <div id="quiz" style="display: none">
             <a href="#">
                 <span class="badge badge-dark">NEW</span>
                 <span class="font-weight-bold">Take our quiz & meet the car you will love &gt;</span>
