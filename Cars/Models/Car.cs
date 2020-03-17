@@ -13,9 +13,9 @@ namespace Cars.Models
         public string Image { get; set; }
         public int Condition { get; set; } // new or used
         public string Bodystyle { get; set; } // sedan
-        public decimal Price { get; set; }
-        public int Year { get; set; }
-        public int Mileage { get; set; }
+        public decimal Price { get; set; } // user can write it, only this field
+        public int Year { get; set; } // 
+        public int Mileage { get; set; } // user can write it, only this field
         public string ExteriorColor { get; set; }
         public string InteriorColor { get; set; }
         public string Transmission { get; set; }
@@ -24,9 +24,7 @@ namespace Cars.Models
         public string SellerType { get; set; }
         public DateTime ListingDate { get; set; }
         public int FuelType { get; set; }
-
-
-        public string City { get; set; }
+        public string State { get; set; } 
 
     }
 }
