@@ -29,7 +29,7 @@ namespace Cars.Account
             }
             else 
             {
-                ErrorMessage.Text = result.Errors.FirstOrDefault();
+                //ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
         }
     }
