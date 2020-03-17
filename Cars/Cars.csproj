@@ -262,6 +262,12 @@
     <Content Include="Images\mainImage.png" />
     <Content Include="Images\mainImage2.png" />
     <Content Include="Images\newRdeisignCar1.png" />
+    <Content Include="Images\PhotoTips\center_console_mdpi.png" />
+    <Content Include="Images\PhotoTips\front_mdpi.png" />
+    <Content Include="Images\PhotoTips\front_right_mdpi.png" />
+    <Content Include="Images\PhotoTips\LRrear_mdpi.png" />
+    <Content Include="Images\PhotoTips\rear_mdpi.png" />
+    <Content Include="Images\PhotoTips\rear_right_mdpi.png" />
     <Content Include="Images\pickUp.png" />
     <Content Include="Images\repairCar.jpg" />
     <Content Include="Images\researchCar.jpg" />
