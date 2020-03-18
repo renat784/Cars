@@ -574,11 +574,13 @@
     </Compile>
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\Condition.cs" />
+    <Compile Include="Models\ContactInfo.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\FuelType.cs" />
     <Compile Include="Models\GlossaryItem.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\News.cs" />
+    <Compile Include="Models\PhoneType.cs" />
     <Compile Include="Models\SellerType.cs" />
     <Compile Include="news.aspx.cs">
       <DependentUpon>news.aspx</DependentUpon>

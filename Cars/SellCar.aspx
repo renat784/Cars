@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SellCar.aspx.cs" Inherits="Cars.SellCar" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" MaintainScrollPositionOnPostback="true" AutoEventWireup="true" CodeBehind="SellCar.aspx.cs" Inherits="Cars.SellCar" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -14,10 +14,9 @@
     </script>
 
 
-
-
-
-    <section>
+<asp:UpdatePanel ID="updpnlRefresh" runat="server" UpdateMode="Conditional">
+    <ContentTemplate>
+        <section>
         <div class="col-lg-6 offset-lg-2">
             <h2 class="secondary text-center font-weight-bold">Your Listing</h2>
             <hr />
@@ -105,8 +104,8 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="mileage">Mileage</label>
-                    <asp:DropDownList ID="mileage" CssClass="form-control" runat="server" AutoPostBack="True">
-                    </asp:DropDownList>
+                    <asp:TextBox ID="mileage" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
+                    
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="exteriorColor">Exterior Color</label>
@@ -533,5 +532,17 @@
                 </div>
             </div>
         
-    </section>
+    </section>    
+    </ContentTemplate>
+</asp:UpdatePanel>
+        
+
+
+
+    
+
+
+
+
+    
 </asp:Content>
