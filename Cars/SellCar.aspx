@@ -8,9 +8,10 @@
         $(function () {
             $('[data-toggle="popover"]').popover();
 
-            $('.popover-dismiss').popover({
-                trigger: 'focus'
-            });
+           
+        });
+        $('.popover-dismiss').popover({
+            trigger: 'focus'
         });
     </script>
 
@@ -18,6 +19,13 @@
     <asp:UpdatePanel ID="updpnlRefresh" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <section>
+            
+            <%--for test output--%>
+            <asp:Label runat="server" ID="test" style="color: red; position: fixed; top: 50%; left: 5%;background-color: black"></asp:Label>
+            <%--for test output--%>
+            
+
+
                 <div class="col-lg-6 offset-lg-2">
                     <h2 class="secondary text-center font-weight-bold">Your Listing</h2>
                     <hr />
@@ -47,13 +55,14 @@
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
-                            <asp:Label class="control-label" AssociatedControlID="Make" runat="server">Make</asp:Label>
-                            <asp:DropDownList ID="Make" CssClass="form-control" runat="server" AutoPostBack="True">
+                            <asp:Label class="control-label" AssociatedControlID="Make"  runat="server">Make</asp:Label>
+                            <asp:DropDownList ID="Make" CssClass="form-control"  OnSelectedIndexChanged="MakeChanged" runat="server" AutoPostBack="True">
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="Model" runat="server">Model</asp:Label>
                             <asp:DropDownList ID="Model" CssClass="form-control" runat="server" AutoPostBack="True">
+                                <asp:ListItem>Select a Model</asp:ListItem>
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">

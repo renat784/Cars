@@ -18,12 +18,24 @@ namespace Cars
             //    Response.Redirect("~/account/Login.aspx");
             //}
 
-            
+
 
 
             // adding data to dropdownlists
 
-            var statesItems = State.Items;
+           
+            
+            
+
+            var makesItems = Make.Items;
+            if (!makesItems.Contains(new ListItem(MakesList().First())))
+            {
+                makesItems.Add("Select a Make");
+                MakesList().ForEach(i => makesItems.Add(i.ToString()));
+            }
+
+
+                var statesItems = State.Items;
             if (!statesItems.Contains(new ListItem(StatesList().First())))
             {
                 statesItems.Add("Select a State");
@@ -111,7 +123,30 @@ namespace Cars
                 
         }
 
-        
+        public IEnumerable<string> MakesList()
+        {
+            var list = new List<string>
+            {
+                "Honda",
+                "Toyota",
+                "Lexus",
+                "Ford",
+                "KIA"
+            };
+            return list;
+        }
+
+        public IEnumerable<string> ModelsList(string make)
+        {
+            var d = new Dictionary<string, List<string>>();
+            d.Add("Toyota", new List<string>{"Corolla", "Camry", "RAV4", "Highlander", "Land Cruser"});
+            d.Add("Honda", new List<string>{"Civic", "Accord", "CRV", "Pilot"});
+            d.Add("Lexus", new List<string>{"ES", "EX", "XD"});
+            d.Add("KIA", new List<string>{"Rio", "Cerato", "Spartage", "Soul"});
+            d.Add("Ford", new List<string>{"Mondeo", "Focus", "F-150", "Explorer"});
+            return d[make];
+        }
+
 
         public IEnumerable<string> FuelTypeList()
         {
@@ -314,6 +349,14 @@ namespace Cars
             return list;
         }
 
-       
+
+        protected void MakeChanged(object sender, EventArgs e)
+        {
+            var modelsItems = Model.Items;
+            modelsItems.Clear();
+            modelsItems.Add(new ListItem("Select a Model"));
+            ModelsList(Make.SelectedValue).ForEach(i => modelsItems.Add(i.ToString()));
+
+        }
     }
 }
