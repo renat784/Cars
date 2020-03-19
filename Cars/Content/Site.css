@@ -230,6 +230,14 @@ section {
 
 /*media ends*/
 
+div.checkboxList td input[type="checkbox"],
+div.asp_checkbox input[type="checkbox"] {
+    transform: scale(1.5);
+}
+div.checkboxList td label,
+div.asp_checkbox label {
+    margin-left: 10px;
+}
 
 a.underlinedLink {
     color: #767676;

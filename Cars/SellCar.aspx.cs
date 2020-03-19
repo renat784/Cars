@@ -18,19 +18,19 @@ namespace Cars
             //    Response.Redirect("~/account/Login.aspx");
             //}
 
-
+            
 
 
             // adding data to dropdownlists
-            
-            var statesItems = state.Items;
+
+            var statesItems = State.Items;
             if (!statesItems.Contains(new ListItem(StatesList().First())))
             {
                 statesItems.Add("Select a State");
                 StatesList().ForEach(i => statesItems.Add(i.ToString()));
             }
 
-            var yearsItems = year.Items;
+            var yearsItems = Year.Items;
             if (!yearsItems.Contains(new ListItem(YearsList().First())))
             {
                 yearsItems.Add("Select a Year");
@@ -38,7 +38,7 @@ namespace Cars
             }
                 
 
-            var transmissionItems = transmission.Items;
+            var transmissionItems = Transmission.Items;
             if (! transmissionItems.Contains(new ListItem(TransmissionList().First())))
             {
                 transmissionItems.Add("Select a Transmission");
@@ -46,7 +46,7 @@ namespace Cars
             }
 
 
-            var bodyStyleItems = bodyStyle.Items;
+            var bodyStyleItems = BodyStyle.Items;
             if (!bodyStyleItems.Contains(new ListItem(BodyStyleList().First())))
             {
                 bodyStyleItems.Add("Select a Body Style");
@@ -54,7 +54,7 @@ namespace Cars
             }
                 
 
-            var stylesItems = style.Items;
+            var stylesItems = Style.Items;
             if (!stylesItems.Contains(new ListItem(StylesList().First())))
             {
                 stylesItems.Add("Select a Style");
@@ -62,7 +62,7 @@ namespace Cars
             }
                 
 
-            var colorInteriorItems = interiorColor.Items;
+            var colorInteriorItems = InteriorColor.Items;
             if (!colorInteriorItems.Contains(new ListItem(ColorsList().First())))
             {
                 colorInteriorItems.Add("Select an Interior Color");
@@ -70,7 +70,7 @@ namespace Cars
             }
                 
 
-            var exteriorColorItems = exteriorColor.Items;
+            var exteriorColorItems = ExteriorColor.Items;
             if (!exteriorColorItems.Contains(new ListItem(ColorsList().First())))
             {
                 exteriorColorItems.Add("Select an Exterior Color");
@@ -78,7 +78,7 @@ namespace Cars
             }
                 
 
-            var numberOfDoorsItems = numberOfDoors.Items;
+            var numberOfDoorsItems = NumberOfDoors.Items;
             if (!numberOfDoorsItems.Contains(new ListItem(NumberOfDoorsList().First())))
             {
                 numberOfDoorsItems.Add("Select a Number Of Doors");
@@ -86,7 +86,7 @@ namespace Cars
             }
                 
 
-            var engineCylinderItems = engineCylinder.Items;
+            var engineCylinderItems = EngineCylinder.Items;
             if (!engineCylinderItems.Contains(new ListItem(EngineCylinderList().First())))
             {
                 engineCylinderItems.Add("Select an Engine Cylinder");
@@ -94,7 +94,7 @@ namespace Cars
             }
                 
 
-            var driveTypeItems = driveType.Items;
+            var driveTypeItems = DriveType.Items;
             if (!driveTypeItems.Contains(new ListItem(DriveTypeList().First())))
             {
                 driveTypeItems.Add("Select a Drive Type");
@@ -102,7 +102,7 @@ namespace Cars
             }
                 
 
-            var fuelTypeItems = fuelType.Items;
+            var fuelTypeItems = Fueltype.Items;
             if (!fuelTypeItems.Contains(new ListItem(FuelTypeList().First())))
             {
                 fuelTypeItems.Add("Select a Fuel Type");

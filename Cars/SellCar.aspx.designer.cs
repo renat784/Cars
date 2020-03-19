@@ -24,193 +24,265 @@ namespace Cars
         protected global::System.Web.UI.UpdatePanel updpnlRefresh;
 
         /// <summary>
-        /// licencePlate control.
+        /// LicencePlate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox licencePlate;
+        protected global::System.Web.UI.WebControls.TextBox LicencePlate;
 
         /// <summary>
-        /// state control.
+        /// State control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList state;
+        protected global::System.Web.UI.WebControls.DropDownList State;
 
         /// <summary>
-        /// year control.
+        /// LookUp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList year;
+        protected global::System.Web.UI.WebControls.Button LookUp;
 
         /// <summary>
-        /// make control.
+        /// Year control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList make;
+        protected global::System.Web.UI.WebControls.DropDownList Year;
 
         /// <summary>
-        /// model control.
+        /// Make control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList model;
+        protected global::System.Web.UI.WebControls.DropDownList Make;
 
         /// <summary>
-        /// style control.
+        /// Model control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList style;
+        protected global::System.Web.UI.WebControls.DropDownList Model;
 
         /// <summary>
-        /// bodyStyle control.
+        /// Style control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList bodyStyle;
+        protected global::System.Web.UI.WebControls.DropDownList Style;
 
         /// <summary>
-        /// transmission control.
+        /// BodyStyle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList transmission;
+        protected global::System.Web.UI.WebControls.DropDownList BodyStyle;
 
         /// <summary>
-        /// mileage control.
+        /// Transmission control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox mileage;
+        protected global::System.Web.UI.WebControls.DropDownList Transmission;
 
         /// <summary>
-        /// exteriorColor control.
+        /// Mileage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList exteriorColor;
+        protected global::System.Web.UI.WebControls.TextBox Mileage;
 
         /// <summary>
-        /// interiorColor control.
+        /// ExteriorColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList interiorColor;
+        protected global::System.Web.UI.WebControls.DropDownList ExteriorColor;
 
         /// <summary>
-        /// numberOfDoors control.
+        /// InteriorColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList numberOfDoors;
+        protected global::System.Web.UI.WebControls.DropDownList InteriorColor;
 
         /// <summary>
-        /// engineCylinder control.
+        /// NumberOfDoors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList engineCylinder;
+        protected global::System.Web.UI.WebControls.DropDownList NumberOfDoors;
 
         /// <summary>
-        /// driveType control.
+        /// EngineCylinder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList driveType;
+        protected global::System.Web.UI.WebControls.DropDownList EngineCylinder;
 
         /// <summary>
-        /// fuelType control.
+        /// DriveType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList fuelType;
+        protected global::System.Web.UI.WebControls.DropDownList DriveType;
 
         /// <summary>
-        /// price control.
+        /// Fueltype control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox price;
+        protected global::System.Web.UI.WebControls.DropDownList Fueltype;
 
         /// <summary>
-        /// description control.
+        /// CheckBoxListComfort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox description;
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListComfort;
 
         /// <summary>
-        /// firstName control.
+        /// CheckBoxListSeats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox firstName;
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListSeats;
 
         /// <summary>
-        /// lastName control.
+        /// CheckBoxListSafety control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastName;
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListSafety;
 
         /// <summary>
-        /// emailAdress control.
+        /// CheckBoxListWindows control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emailAdress;
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListWindows;
 
         /// <summary>
-        /// phoneNumber control.
+        /// CheckBoxListEntertainment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox phoneNumber;
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListEntertainment;
+
+        /// <summary>
+        /// CheckBoxListOther control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListOther;
+
+        /// <summary>
+        /// Price control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Price;
+
+        /// <summary>
+        /// or_best_offer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox or_best_offer;
+
+        /// <summary>
+        /// Description control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Description;
+
+        /// <summary>
+        /// FirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FirstName;
+
+        /// <summary>
+        /// LastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox LastName;
+
+        /// <summary>
+        /// EmailAdress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EmailAdress;
+
+        /// <summary>
+        /// PhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PhoneNumber;
 
         /// <summary>
         /// phoneType control.
@@ -222,13 +294,13 @@ namespace Cars
         protected global::System.Web.UI.WebControls.DropDownList phoneType;
 
         /// <summary>
-        /// zip control.
+        /// Zip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox zip;
+        protected global::System.Web.UI.WebControls.TextBox Zip;
 
         /// <summary>
         /// car_Images control.
