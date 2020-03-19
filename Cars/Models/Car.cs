@@ -11,40 +11,44 @@ namespace Cars.Models
         [ScaffoldColumn(false)]
         public int CarId { get; set; }
 
+       
+
+        [Required]
+        public int MakeId { get; set; } //   Honda
+
+        [Required]
+        public string Name { get; set; } //  Accord
+
         [Required]
         public int Year { get; set; }
 
         [Required]
-        public string Make { get; set; } //   Honda
+        public int StyleId { get; set; } // standard, luxe
 
         [Required]
-        public string Model { get; set; } //  Accord
+        public int BodystyleId { get; set; } // sedan
 
         [Required]
-        public string Style { get; set; } // standard, luxe
-
-        [Required]
-        public string Bodystyle { get; set; } // sedan
-
-        [Required]
-        public string Transmission { get; set; }
+        public int TransmissionId { get; set; }
 
         [Required]
         public int Mileage { get; set; } // user can write it, only this field
 
         [Required]
-        public string ExteriorColor { get; set; }
+        public int ExteriorColorId { get; set; }
 
         [Required]
-        public string InteriorColor { get; set; }
+        public int InteriorColorId { get; set; }
 
         [Required] 
         public decimal Price { get; set; }
 
-        [Required]
+        
         public string[] CarImage { get; set; }
 
         public string Description { get; set; }
+
+       
 
         public int? NumberOfDoors { get; set; }
 

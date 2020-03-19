@@ -572,16 +572,27 @@
     <Compile Include="matchmaker.aspx.designer.cs">
       <DependentUpon>matchmaker.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\BodyStyle.cs" />
     <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\CarsContext.cs" />
+    <Compile Include="Models\CarsInitializer.cs" />
+    <Compile Include="Models\Color.cs" />
     <Compile Include="Models\Condition.cs" />
     <Compile Include="Models\ContactInfo.cs" />
     <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\DriveType.cs" />
+    <Compile Include="Models\EngineCylinder.cs" />
     <Compile Include="Models\FuelType.cs" />
     <Compile Include="Models\GlossaryItem.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Make.cs" />
     <Compile Include="Models\News.cs" />
+    <Compile Include="Models\NumberOfDoors.cs" />
     <Compile Include="Models\PhoneType.cs" />
     <Compile Include="Models\SellerType.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Style.cs" />
+    <Compile Include="Models\Transmission.cs" />
     <Compile Include="news.aspx.cs">
       <DependentUpon>news.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

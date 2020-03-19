@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Cars.Models
 {
-    public class FuelType
+    public class NumberOfDoors
     {
-        public int FuelTypeId { get; set; }
+        public int NumberOfDoorsId { get; set; }
         public string Name { get; set; }
     }
 }
