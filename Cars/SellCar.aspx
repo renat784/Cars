@@ -38,7 +38,7 @@
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="State" runat="server">State</asp:Label>
-                            <asp:DropDownList ID="State" CssClass="form-control" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="State"   CssClass="form-control" runat="server" AutoPostBack="True" >
                             </asp:DropDownList>
                         </div>
                         <div class="form-group mt-4">
@@ -51,23 +51,22 @@
                         <hr />
                         <div class="form-group">
                             <asp:Label class="control-label" for="Year" runat="server">Year</asp:Label>
-                            <asp:DropDownList ID="Year" CssClass="form-control" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="Year" CssClass="form-control" SelectMethod="YearsList" runat="server" AutoPostBack="True">
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="Make"  runat="server">Make</asp:Label>
-                            <asp:DropDownList ID="Make" CssClass="form-control"  OnSelectedIndexChanged="MakeChanged" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="Make" CssClass="form-control" OnSelectedIndexChanged="ChangeModels" runat="server" AutoPostBack="True">
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="Model" runat="server">Model</asp:Label>
-                            <asp:DropDownList ID="Model" CssClass="form-control" runat="server" AutoPostBack="True">
-                                <asp:ListItem>Select a Model</asp:ListItem>
+                            <asp:DropDownList ID="Model" CssClass="form-control"  runat="server" AutoPostBack="True">
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="Style" runat="server">Style</asp:Label>
-                            <asp:DropDownList ID="Style" CssClass="form-control" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="Style" CssClass="form-control" runat="server" AutoPostBack="True" >
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
@@ -84,7 +83,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <asp:DropDownList ID="BodyStyle" CssClass="form-control" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="BodyStyle" CssClass="form-control" runat="server" AutoPostBack="True" >
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
@@ -109,7 +108,7 @@
                                 </div>
                             </div>
 
-                            <asp:DropDownList ID="Transmission" CssClass="form-control" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="Transmission" CssClass="form-control" runat="server" AutoPostBack="True" >
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
@@ -119,12 +118,12 @@
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="ExteriorColor" runat="server">Exterior Color</asp:Label>
-                            <asp:DropDownList ID="ExteriorColor" CssClass="form-control" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="ExteriorColor" CssClass="form-control" runat="server" AutoPostBack="True" >
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="InteriorColor" runat="server">Interior Color</asp:Label>
-                            <asp:DropDownList ID="InteriorColor" CssClass="form-control" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="InteriorColor" CssClass="form-control" runat="server" AutoPostBack="True" >
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -133,12 +132,12 @@
                         <hr />
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="NumberOfDoors" runat="server">Number of Doors</asp:Label>
-                            <asp:DropDownList ID="NumberOfDoors" CssClass="form-control" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="NumberOfDoors" CssClass="form-control" runat="server" AutoPostBack="True" >
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="EngineCylinder" runat="server">Engine Cylinder</asp:Label>
-                            <asp:DropDownList ID="EngineCylinder" CssClass="form-control" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="EngineCylinder" CssClass="form-control" runat="server" AutoPostBack="True" >
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
@@ -162,12 +161,12 @@
                                 </div>
                             </div>
 
-                            <asp:DropDownList ID="DriveType" CssClass="form-control" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="DriveType" CssClass="form-control" runat="server" AutoPostBack="True" >
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="Fueltype" runat="server">Fuel Type</asp:Label>
-                            <asp:DropDownList ID="Fueltype" CssClass="form-control" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="Fueltype" CssClass="form-control" runat="server" AutoPostBack="True" >
                             </asp:DropDownList>
                         </div>
                         <div class="text-center text-lg-left">
@@ -446,6 +445,7 @@
 
             </section>
         </ContentTemplate>
+    
     </asp:UpdatePanel>
 
 

@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -11,6 +15,7 @@ namespace Cars
 {
     public partial class SellCar : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (!User.Identity.IsAuthenticated) 
@@ -19,108 +24,250 @@ namespace Cars
             //}
 
 
+            // one time init
+            if (!Page.IsPostBack)
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand sqlCommand = new SqlCommand();
 
 
-            // adding data to dropdownlists
+                    string commandText = "select * from States;" +
+                                         "select * from Makes;" +
+                                         "select CarId, Name from Cars where MakeId = 1;" +
+                                         "select * from Styles;" +
+                                         "select * from BodyStyles;" +
+                                         "select * from Transmissions;" +
+                                         "select * from Colors;" +
+                                         "select * from Colors;" +
+                                         "select * from NumberOfDoors;" +
+                                          "select * from EngineCylinders;" +
+                                          "select * from DriveTypes;" +
+                                         "select * from FuelTypes;";
 
-           
+                    sqlCommand.Connection = connection;
+                    sqlCommand.CommandText = commandText;
+
+                    var reader = sqlCommand.ExecuteReader();
+                    State.DataSource = reader;
+                    State.DataTextField = "Name";
+                    State.DataValueField = "StateId";
+                    State.DataBind();
+
+                    reader.NextResult();
+
+                    Make.DataSource = reader;
+                    Make.DataTextField = "Name";
+                    Make.DataValueField = "MakeId";
+                    Make.DataBind();
+
+                    reader.NextResult();
+
+                    Model.DataSource = reader;
+                    Model.DataTextField = "Name";
+                    Model.DataValueField = "CarId";
+                    Model.DataBind();
+
+                    reader.NextResult();
+
+                    Style.DataSource = reader;
+                    Style.DataTextField = "Name";
+                    Style.DataValueField = "StyleId";
+                    Style.DataBind();
+
+                    reader.NextResult();
+
+                    BodyStyle.DataSource = reader;
+                    BodyStyle.DataTextField = "Name";
+                    BodyStyle.DataValueField = "BodyStyleId";
+                    BodyStyle.DataBind();
+
+                    reader.NextResult();
+
+                    Transmission.DataSource = reader;
+                    Transmission.DataTextField = "Name";
+                    Transmission.DataValueField = "TransmissionId";
+                    Transmission.DataBind();
+
+                    reader.NextResult();
+
+                    ExteriorColor.DataSource = reader;
+                    ExteriorColor.DataTextField = "Name";
+                    ExteriorColor.DataValueField = "ColorId";
+                    ExteriorColor.DataBind();
+
+                    reader.NextResult();
+
+                    InteriorColor.DataSource = reader;
+                    InteriorColor.DataTextField = "Name";
+                    InteriorColor.DataValueField = "ColorId";
+                    InteriorColor.DataBind();
+
+                    reader.NextResult();
+
+                    NumberOfDoors.DataSource = reader;
+                    NumberOfDoors.DataTextField = "Name";
+                    NumberOfDoors.DataValueField = "NumberOfDoorsId";
+                    NumberOfDoors.DataBind();
+
+                    reader.NextResult();
+
+                    EngineCylinder.DataSource = reader;
+                    EngineCylinder.DataTextField = "Name";
+                    EngineCylinder.DataValueField = "EngineCylinderId";
+                    EngineCylinder.DataBind();
+
+                    reader.NextResult();
+
+                    DriveType.DataSource = reader;
+                    DriveType.DataTextField = "Name";
+                    DriveType.DataValueField = "DriveTypeId";
+                    DriveType.DataBind();
+
+                    reader.NextResult();
+
+                    Fueltype.DataSource = reader;
+                    Fueltype.DataTextField = "Name";
+                    Fueltype.DataValueField = "FueltypeId";
+                    Fueltype.DataBind();
+                    reader.Close();
+                    connection.Close();
+                }
+
+
+            }
+
+
+
+
+
+            //var makesItems = Make.Items;
+            //if (!makesItems.Contains(new ListItem(MakesList().First())))
+            //{
+            //    makesItems.Add("Select a Make");
+            //    MakesList().ForEach(i => makesItems.Add(i.ToString()));
+            //}
+
+
+            //    var statesItems = State.Items;
+            //if (!statesItems.Contains(new ListItem(StatesList().First())))
+            //{
+            //    statesItems.Add("Select a State");
+            //    StatesList().ForEach(i => statesItems.Add(i.ToString()));
+            //}
+
+            //var yearsItems = Year.Items;
+            //if (!yearsItems.Contains(new ListItem(YearsList().First())))
+            //{
+            //    yearsItems.Add("Select a Year");
+            //    YearsList().ForEach(i => yearsItems.Add(i.ToString()));
+            //}
+
+
+            //var transmissionItems = Transmission.Items;
+            //if (! transmissionItems.Contains(new ListItem(TransmissionList().First())))
+            //{
+            //    transmissionItems.Add("Select a Transmission");
+            //    TransmissionList().ForEach(i => transmissionItems.Add(i));
+            //}
+
+
+            //var bodyStyleItems = BodyStyle.Items;
+            //if (!bodyStyleItems.Contains(new ListItem(BodyStyleList().First())))
+            //{
+            //    bodyStyleItems.Add("Select a Body Style");
+            //    BodyStyleList().ForEach(i => bodyStyleItems.Add(i));
+            //}
+
+
+            //var stylesItems = Style.Items;
+            //if (!stylesItems.Contains(new ListItem(StylesList().First())))
+            //{
+            //    stylesItems.Add("Select a Style");
+            //    StylesList().ForEach(i => stylesItems.Add(i));
+            //}
+
+
+            //var colorInteriorItems = InteriorColor.Items;
+            //if (!colorInteriorItems.Contains(new ListItem(ColorsList().First())))
+            //{
+            //    colorInteriorItems.Add("Select an Interior Color");
+            //    ColorsList().ForEach(i => colorInteriorItems.Add(i));
+            //}
+
+
+            //var exteriorColorItems = ExteriorColor.Items;
+            //if (!exteriorColorItems.Contains(new ListItem(ColorsList().First())))
+            //{
+            //    exteriorColorItems.Add("Select an Exterior Color");
+            //    ColorsList().ForEach(i => exteriorColorItems.Add(i));
+            //}
+
+
+            //var numberOfDoorsItems = NumberOfDoors.Items;
+            //if (!numberOfDoorsItems.Contains(new ListItem(NumberOfDoorsList().First())))
+            //{
+            //    numberOfDoorsItems.Add("Select a Number Of Doors");
+            //    NumberOfDoorsList().ForEach(i => numberOfDoorsItems.Add(i));
+            //}
+
+
+            //var engineCylinderItems = EngineCylinder.Items;
+            //if (!engineCylinderItems.Contains(new ListItem(EngineCylinderList().First())))
+            //{
+            //    engineCylinderItems.Add("Select an Engine Cylinder");
+            //    EngineCylinderList().ForEach(i => engineCylinderItems.Add(i));
+            //}
+
+
+            //var driveTypeItems = DriveType.Items;
+            //if (!driveTypeItems.Contains(new ListItem(DriveTypeList().First())))
+            //{
+            //    driveTypeItems.Add("Select a Drive Type");
+            //    DriveTypeList().ForEach(i => driveTypeItems.Add(i));
+            //}
+
+
+            //var fuelTypeItems = Fueltype.Items;
+            //if (!fuelTypeItems.Contains(new ListItem(FuelTypeList().First())))
+            //{
+            //    fuelTypeItems.Add("Select a Fuel Type");
+            //    FuelTypeList().ForEach(i => fuelTypeItems.Add(i));
+            //}
+
+        }
+
+        protected  void ChangeModels(object sender, EventArgs e)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand sqlCommand = new SqlCommand();
+
+
+
+                string commandText = "select CarId, Name from Cars where MakeId=" + Make.SelectedItem.Value;
+
+                sqlCommand.Connection = connection;
+                sqlCommand.CommandText = commandText;
+
+                var reader = sqlCommand.ExecuteReader();
+
+
+
+                Model.DataSource = reader;
+                Model.DataTextField = "Name";
+                Model.DataValueField = "CarId";
+                Model.DataBind();
+
+            }
+
             
+
             
-
-            var makesItems = Make.Items;
-            if (!makesItems.Contains(new ListItem(MakesList().First())))
-            {
-                makesItems.Add("Select a Make");
-                MakesList().ForEach(i => makesItems.Add(i.ToString()));
-            }
-
-
-                var statesItems = State.Items;
-            if (!statesItems.Contains(new ListItem(StatesList().First())))
-            {
-                statesItems.Add("Select a State");
-                StatesList().ForEach(i => statesItems.Add(i.ToString()));
-            }
-
-            var yearsItems = Year.Items;
-            if (!yearsItems.Contains(new ListItem(YearsList().First())))
-            {
-                yearsItems.Add("Select a Year");
-                YearsList().ForEach(i => yearsItems.Add(i.ToString()));
-            }
-                
-
-            var transmissionItems = Transmission.Items;
-            if (! transmissionItems.Contains(new ListItem(TransmissionList().First())))
-            {
-                transmissionItems.Add("Select a Transmission");
-                TransmissionList().ForEach(i => transmissionItems.Add(i));
-            }
-
-
-            var bodyStyleItems = BodyStyle.Items;
-            if (!bodyStyleItems.Contains(new ListItem(BodyStyleList().First())))
-            {
-                bodyStyleItems.Add("Select a Body Style");
-                BodyStyleList().ForEach(i => bodyStyleItems.Add(i));
-            }
-                
-
-            var stylesItems = Style.Items;
-            if (!stylesItems.Contains(new ListItem(StylesList().First())))
-            {
-                stylesItems.Add("Select a Style");
-                StylesList().ForEach(i => stylesItems.Add(i));
-            }
-                
-
-            var colorInteriorItems = InteriorColor.Items;
-            if (!colorInteriorItems.Contains(new ListItem(ColorsList().First())))
-            {
-                colorInteriorItems.Add("Select an Interior Color");
-                ColorsList().ForEach(i => colorInteriorItems.Add(i));
-            }
-                
-
-            var exteriorColorItems = ExteriorColor.Items;
-            if (!exteriorColorItems.Contains(new ListItem(ColorsList().First())))
-            {
-                exteriorColorItems.Add("Select an Exterior Color");
-                ColorsList().ForEach(i => exteriorColorItems.Add(i));
-            }
-                
-
-            var numberOfDoorsItems = NumberOfDoors.Items;
-            if (!numberOfDoorsItems.Contains(new ListItem(NumberOfDoorsList().First())))
-            {
-                numberOfDoorsItems.Add("Select a Number Of Doors");
-                NumberOfDoorsList().ForEach(i => numberOfDoorsItems.Add(i));
-            }
-                
-
-            var engineCylinderItems = EngineCylinder.Items;
-            if (!engineCylinderItems.Contains(new ListItem(EngineCylinderList().First())))
-            {
-                engineCylinderItems.Add("Select an Engine Cylinder");
-                EngineCylinderList().ForEach(i => engineCylinderItems.Add(i));
-            }
-                
-
-            var driveTypeItems = DriveType.Items;
-            if (!driveTypeItems.Contains(new ListItem(DriveTypeList().First())))
-            {
-                driveTypeItems.Add("Select a Drive Type");
-                DriveTypeList().ForEach(i => driveTypeItems.Add(i));
-            }
-                
-
-            var fuelTypeItems = Fueltype.Items;
-            if (!fuelTypeItems.Contains(new ListItem(FuelTypeList().First())))
-            {
-                fuelTypeItems.Add("Select a Fuel Type");
-                FuelTypeList().ForEach(i => fuelTypeItems.Add(i));
-            }
-                
         }
 
         public IEnumerable<string> MakesList()
@@ -139,11 +286,11 @@ namespace Cars
         public IEnumerable<string> ModelsList(string make)
         {
             var d = new Dictionary<string, List<string>>();
-            d.Add("Toyota", new List<string>{"Corolla", "Camry", "RAV4", "Highlander", "Land Cruser"});
-            d.Add("Honda", new List<string>{"Civic", "Accord", "CRV", "Pilot"});
-            d.Add("Lexus", new List<string>{"ES", "EX", "XD"});
-            d.Add("KIA", new List<string>{"Rio", "Cerato", "Spartage", "Soul"});
-            d.Add("Ford", new List<string>{"Mondeo", "Focus", "F-150", "Explorer"});
+            d.Add("Toyota", new List<string> { "Corolla", "Camry", "RAV4", "Highlander", "Land Cruser" });
+            d.Add("Honda", new List<string> { "Civic", "Accord", "CRV", "Pilot" });
+            d.Add("Lexus", new List<string> { "ES", "EX", "XD" });
+            d.Add("KIA", new List<string> { "Rio", "Cerato", "Spartage", "Soul" });
+            d.Add("Ford", new List<string> { "Mondeo", "Focus", "F-150", "Explorer" });
             return d[make];
         }
 
@@ -205,7 +352,7 @@ namespace Cars
                 "Minivan",
                 "Passenger Van",
                 "Regular Cub Pickup",
-                "Sedan", 
+                "Sedan",
                 "SUV",
                 "Wagon"
             };
@@ -262,64 +409,7 @@ namespace Cars
             return list;
         }
 
-        public IEnumerable<string> StatesList()
-        {
-            IEnumerable<string> list = new List<string>
-            {
 
-                "Alabama",
-                "Alaska",
-                "Arizona",
-                "Arkansas",
-                "California",
-                "Colorado",
-                "Connecticut",
-                "Delaware",
-                "Florida",
-                "Georgia",
-                "Hawaii",
-                "Idaho",
-                "Illinois",
-                "Indiana",
-                "Iowa",
-                "Kansas",
-                "Kentucky",
-                "Louisiana",
-                "Maine",
-                "Maryland",
-                "Massachusetts",
-                "Michigan",
-                "Minnesota",
-                "Mississippi",
-                "Missouri",
-                "Montana",
-                "Nebraska",
-                "Nevada",
-                "New Hampshire",
-                "New Jersey",
-                "New Mexico",
-                "New York",
-                "North Carolina",
-                "North Dakota",
-                "Ohio",
-                "Oklahoma",
-                "Oregon",
-                "Pennsylvania",
-                "Rhode Island",
-                "South Carolina",
-                "South Dakota",
-                "Tennessee",
-                "Texas",
-                "Utah",
-                "Vermont",
-                "Virginia",
-                "Washington",
-                "West Virginia",
-                "Wisconsin",
-                "Wyoming"
-            };
-            return list;
-        }
 
         public IEnumerable<string> TransmissionList()
         {
@@ -334,16 +424,16 @@ namespace Cars
 
         }
 
-        public IEnumerable<string> YearsList()
+        public IEnumerable<int> YearsList()
         {
             var MIN_YEAR = 1900;
             var MAX_YEAR = DateTime.Now.Year + 1;
-            var list = new List<string>();
+            var list = new List<int>();
 
             // backward list
             for (int i = MAX_YEAR - 1; i >= MIN_YEAR; i--)
             {
-                list.Add(i.ToString());
+                list.Add(i);
             }
 
             return list;
@@ -358,5 +448,7 @@ namespace Cars
             ModelsList(Make.SelectedValue).ForEach(i => modelsItems.Add(i.ToString()));
 
         }
+
+
     }
 }

@@ -572,6 +572,11 @@
     <Compile Include="matchmaker.aspx.designer.cs">
       <DependentUpon>matchmaker.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003200722161_car_database_init.cs" />
+    <Compile Include="Migrations\202003200722161_car_database_init.Designer.cs">
+      <DependentUpon>202003200722161_car_database_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BodyStyle.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\CarsContext.cs" />
@@ -702,6 +707,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003200722161_car_database_init.resx">
+      <DependentUpon>202003200722161_car_database_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
