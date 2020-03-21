@@ -576,6 +576,8 @@
     <Compile Include="Migrations\202003200722161_car_database_init.Designer.cs">
       <DependentUpon>202003200722161_car_database_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\CarsGenerator.cs" />
+    <Compile Include="Migrations\Carusel.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BodyStyle.cs" />
     <Compile Include="Models\Car.cs" />

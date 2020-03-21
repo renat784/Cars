@@ -252,7 +252,15 @@ namespace Cars.Migrations
             context.States.AddRange(statesList);
             context.Transmissions.AddRange(transmissionList);
             context.Makes.AddRange(makeList);
-            context.Cars.AddRange(carList);
+
+            context.Cars.AddRange(new CarsGenerator().Generate(
+                styleList.Count,
+                bodyStyleList.Count,
+                colorsList.Count,
+                transmissionList.Count,
+                makeList.Count, 
+                1000));
+
             context.SaveChanges();
         }
     }

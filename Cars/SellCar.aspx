@@ -3,12 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
 
-
+    
     <script>
         $(function () {
             $('[data-toggle="popover"]').popover();
-
-           
         });
         $('.popover-dismiss').popover({
             trigger: 'focus'
