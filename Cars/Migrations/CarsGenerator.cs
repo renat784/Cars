@@ -8,75 +8,20 @@ using Microsoft.Ajax.Utilities;
 
 namespace Cars.Migrations
 {
-    
     public class CarsGenerator
     {
-        public List<string> toyota = new List<string>
-        {
-            "Corolla",
-            "Camry",
-            "Land Cruser",
-            "Highlander",
-            "RAV4",
-            "CH-6",
-            "FJ Cruser",
-            "Hilux",
-            "Prius",
-            "Yaris"
-        };
-
-        public List<string> honda = new List<string>
-        {
-            "Civic",
-            "Accord",
-            "Pilot",
-            "CR-V",
-            "Odyssei",
-            "Passport",
-            "Clarity",
-            "Acty"
-        };
-
-        public List<string> lexus = new List<string>
-        {
-            "IS",
-            "HS",
-            "UX",
-            "LC",
-            "RC",
-            "NX",
-            "RX"
-        };
-
-        public List<string> ford = new List<string>
-        {
-            "Fiesta",
-            "Focus",
-            "Mondeo",
-            "Mustang",
-            "F-150",
-            "Puma",
-            "Edge",
-            "Explorer",
-            "Expedition"
-        };
-
-        public List<string> kia = new List<string>
-        {
-            "Rio",
-            "Stinger",
-            "Forte",
-            "Seed",
-            "Optima",
-            "Picanto",
-            "Cadenza",
-            "Sportage"
-        };
-
-       
-
-        public IEnumerable<Car> Generate(int stylesCount, int bodystyleCount,  int colorlistCount, 
-            int transmissiaonlistCount, int makelistCount, int TotalCountToGenerate = 20)
+        public IEnumerable<Car> Generate(
+            int stylesCount,
+            int bodystyleCount,
+            int colorlistCount,
+            int transmissiaonlistCount,
+            int makelistCount,
+            List<string> toyota,
+            List<string> honda,
+            List<string> lexus,
+            List<string> ford,
+            List<string> kia,
+            int TotalCountToGenerate = 20)
         {
             var list = new List<Car>();
             var caruselForMake = new Carusel(1, makelistCount, true);

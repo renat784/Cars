@@ -168,8 +168,6 @@ namespace Cars.Migrations
                 new Transmission{TransmissionId = 4, Name = "Manual"}
             };
 
-
-            //  Makes and cars list
             var makeList = new List<Make>
             {
                 new Make{MakeId = 1, Name = "Toyota"},
@@ -179,87 +177,92 @@ namespace Cars.Migrations
                 new Make{MakeId = 5, Name = "KIA"}
             };
 
-            var carList = new List<Car>
-            {
-                // Toyota - 1
-                new Car
-                {
-                    CarId = 1, MakeId = 1, Name = "Corolla",  Year = 2015, StyleId = 1, BodystyleId = 3,
-                    TransmissionId = 2, Mileage = 15454, ExteriorColorId = 5, InteriorColorId = 3, Price = 8500
-                },
-                new Car
-                {
-                    CarId = 2, MakeId = 1, Name = "Camry",  Year = 2012, StyleId = 3, BodystyleId = 2,
-                    TransmissionId = 2, Mileage = 552498, ExteriorColorId = 2, InteriorColorId = 1, Price = 4300
-                },
+            List<string> toyota = new List<string>
+        {
+            "Corolla",
+            "Camry",
+            "Land Cruser",
+            "Highlander",
+            "RAV4",
+            "CH-6",
+            "FJ Cruser",
+            "Hilux",
+            "Prius",
+            "Yaris"
+        };
 
-                // Honda - 2
-                new Car
-                {
-                    CarId = 3, MakeId = 2, Name = "Accord",  Year = 2011, StyleId = 1, BodystyleId = 2,
-                    TransmissionId = 3, Mileage = 552498, ExteriorColorId = 2, InteriorColorId = 1, Price = 4900
-                },
-                new Car
-                {
-                    CarId = 4, MakeId = 2, Name = "Accord",  Year = 2019, StyleId = 2, BodystyleId = 3,
-                    TransmissionId = 1, Mileage = 552498, ExteriorColorId = 2, InteriorColorId = 1, Price = 14300
-                },
+            List<string> honda = new List<string>
+        {
+            "Civic",
+            "Accord",
+            "Pilot",
+            "CR-V",
+            "Odyssei",
+            "Passport",
+            "Clarity",
+            "Acty"
+        };
 
-                // Lexus - 3
-                new Car
-                {
-                    CarId = 5, MakeId = 3, Name = "ES",  Year = 2014, StyleId = 2, BodystyleId = 3,
-                    TransmissionId = 1, Mileage = 48498, ExteriorColorId = 4, InteriorColorId = 1, Price = 17500
-                },
-                new Car
-                {
-                    CarId = 6, MakeId = 3, Name = "RX",  Year = 2018, StyleId = 2, BodystyleId = 3,
-                    TransmissionId = 1, Mileage = 112498, ExteriorColorId = 2, InteriorColorId = 5, Price = 34300
-                },
-                // Ford  - 4 
-                new Car
-                {
-                    CarId = 7, MakeId = 4, Name = "Focus",  Year = 2012, StyleId = 2, BodystyleId = 3,
-                    TransmissionId = 1, Mileage = 56121, ExteriorColorId = 2, InteriorColorId = 1, Price = 11300
-                },
-                new Car
-                {
-                    CarId = 8, MakeId = 4, Name = "Mondeo",  Year = 2001, StyleId = 2, BodystyleId = 3,
-                    TransmissionId = 4, Mileage = 199784, ExteriorColorId = 2, InteriorColorId = 1, Price = 2800
-                },
+            List<string> lexus = new List<string>
+        {
+            "IS",
+            "HS",
+            "UX",
+            "LC",
+            "RC",
+            "NX",
+            "RX"
+        };
 
-                // KIA  - 5
-                new Car
-                {
-                    CarId = 9, MakeId = 5, Name = "Rio",  Year = 2019, StyleId = 3, BodystyleId = 3,
-                    TransmissionId = 1, Mileage = 4100, ExteriorColorId = 5, InteriorColorId = 4, Price = 15400
-                },
-                new Car
-                {
-                    CarId = 10, MakeId = 5, Name = "Rio 2",  Year = 2007, StyleId = 2, BodystyleId = 3,
-                    TransmissionId = 1, Mileage = 785457, ExteriorColorId = 2, InteriorColorId = 1, Price = 1500
-                }
-            };
+            List<string> ford = new List<string>
+        {
+            "Fiesta",
+            "Focus",
+            "Mondeo",
+            "Mustang",
+            "F-150",
+            "Puma",
+            "Edge",
+            "Explorer",
+            "Expedition"
+        };
+
+            List<string> kia = new List<string>
+        {
+            "Rio",
+            "Stinger",
+            "Forte",
+            "Seed",
+            "Optima",
+            "Picanto",
+            "Cadenza",
+            "Sportage"
+        };
 
             // adding to context
-            context.Styles.AddRange(styleList);
-            context.FuelTypes.AddRange(fuelTypeList);
-            context.DriveTypes.AddRange(driveTypeList);
-            context.EngineCylinders.AddRange(engineCylinderList);
-            context.BodyStyles.AddRange(bodyStyleList);
-            context.NumberOfDoors.AddRange(numberOfDoorsList);
-            context.Colors.AddRange(colorsList);
-            context.States.AddRange(statesList);
-            context.Transmissions.AddRange(transmissionList);
-            context.Makes.AddRange(makeList);
+            context.Styles.AddOrUpdate(styleList.ToArray());
+            context.FuelTypes.AddOrUpdate(fuelTypeList.ToArray());
+            context.DriveTypes.AddOrUpdate(driveTypeList.ToArray());
+            context.EngineCylinders.AddOrUpdate(engineCylinderList.ToArray());
+            context.BodyStyles.AddOrUpdate(bodyStyleList.ToArray());
+            context.NumberOfDoors.AddOrUpdate(numberOfDoorsList.ToArray());
+            context.Colors.AddOrUpdate(colorsList.ToArray());
+            context.States.AddOrUpdate(statesList.ToArray());
+            context.Transmissions.AddOrUpdate(transmissionList.ToArray());
+            context.Makes.AddOrUpdate(makeList.ToArray());
 
-            context.Cars.AddRange(new CarsGenerator().Generate(
+            context.Cars.AddOrUpdate(new CarsGenerator().Generate(
                 styleList.Count,
                 bodyStyleList.Count,
                 colorsList.Count,
                 transmissionList.Count,
-                makeList.Count, 
-                1000));
+                makeList.Count,
+                toyota,
+                honda,
+                lexus,
+                ford,
+                kia,
+                1000).ToArray());
 
             context.SaveChanges();
         }
