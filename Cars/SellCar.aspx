@@ -60,6 +60,7 @@
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="Model" runat="server">Model</asp:Label>
                             <asp:DropDownList ID="Model" CssClass="form-control"  runat="server" AutoPostBack="True">
+                                <asp:ListItem>Select a Make First</asp:ListItem>
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
