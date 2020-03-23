@@ -21,160 +21,160 @@ namespace Cars.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-            var styleList = new List<Style>
+            var styleList = new List<string>
             {
-                new Style{StyleId = 1, Name = "EX"},
-                new Style{StyleId = 2, Name = "EX-L"},
-                new Style{StyleId = 3, Name = "LX"},
-                new Style{StyleId = 4, Name = "Touring"}
+                "EX",
+                "EX-L",
+                "LX",
+                "Touring"
             };
 
-            var fuelTypeList = new List<FuelType>
+            var fuelTypeList = new List<string>
             {
-                new FuelType{FuelTypeId = 1, Name = "Compressed Natural Gas"},
-                new FuelType{FuelTypeId = 2, Name = "Diesel"},
-                new FuelType{FuelTypeId = 3, Name = "E85 Flex Fuel"},
-                new FuelType{FuelTypeId = 4, Name = "Electric"},
-                new FuelType{FuelTypeId = 5, Name = "Gasoline"},
-                new FuelType{FuelTypeId = 6, Name = "Hybrid"}
+                "Compressed Natural Gas",
+                "Diesel",
+                "E85 Flex Fuel",
+                "Electric",
+                "Gasoline",
+                "Hybrid"
             };
 
-            var driveTypeList = new List<DriveType>
+            var driveTypeList = new List<string>
             {
-                new DriveType{DriveTypeId = 1, Name = "4x2/2 wheel drive"},
-                new DriveType{DriveTypeId = 2, Name = "4x4/4 wheel drive"},
-                new DriveType{DriveTypeId = 3, Name = "AWD"},
-                new DriveType{DriveTypeId = 4, Name = "FWD"},
-                new DriveType{DriveTypeId = 5, Name = "RWD"}
+               "4x2/2 wheel drive",
+               "4x4/4 wheel drive",
+               "AWD",
+               "FWD",
+               "RWD"
             };
 
-            var engineCylinderList = new List<EngineCylinder>
+            var engineCylinderList = new List<string>
             {
-                new EngineCylinder{EngineCylinderId = 1, Name = "1-cylinder"},
-                new EngineCylinder{EngineCylinderId = 2, Name = "2-cylinder"},
-                new EngineCylinder{EngineCylinderId = 3, Name = "3-cylinder"},
-                new EngineCylinder{EngineCylinderId = 4, Name = "4-cylinder"},
-                new EngineCylinder{EngineCylinderId = 5, Name = "5-cylinder"},
-                new EngineCylinder{EngineCylinderId = 6, Name = "6-cylinder"},
-                new EngineCylinder{EngineCylinderId = 7, Name = "8-cylinder"},
-                new EngineCylinder{EngineCylinderId = 8, Name = "10-cylinder"},
-                new EngineCylinder{EngineCylinderId = 9, Name = "12-cylinder"}
+               "1-cylinder",
+               "2-cylinder",
+               "3-cylinder",
+               "4-cylinder",
+               "5-cylinder",
+               "6-cylinder",
+               "8-cylinder",
+               "10-cylinder",
+               "12-cylinder"
             };
 
-            var bodyStyleList = new List<BodyStyle>
+            var bodyStyleList = new List<string>
             {
-                new BodyStyle{BodyStyleId = 1, Name = "Cargo Van"},
-                new BodyStyle{BodyStyleId = 2, Name = "Convertible"},
-                new BodyStyle{BodyStyleId = 3, Name = "Coupe"},
-                new BodyStyle{BodyStyleId = 4, Name = "Crew Cub Pickup"},
-                new BodyStyle{BodyStyleId = 5, Name = "Extended Cub Pickup"},
-                new BodyStyle{BodyStyleId = 6, Name = "Hatchback"},
-                new BodyStyle{BodyStyleId = 7, Name = "Minivan"},
-                new BodyStyle{BodyStyleId = 8, Name = "Passenger Van"},
-                new BodyStyle{BodyStyleId = 9, Name = "Regular Cub Pickup"},
-                new BodyStyle{BodyStyleId = 10, Name = "Sedan"},
-                new BodyStyle{BodyStyleId = 11, Name = "SUV"},
-                new BodyStyle{BodyStyleId = 12, Name = "Wagon"}
+               "Cargo Van",
+               "Convertible",
+               "Coupe",
+               "Crew Cub Pickup",
+               "Extended Cub Pickup",
+               "Hatchback",
+               "Minivan",
+               "Passenger Van",
+               "Regular Cub Pickup",
+                "Sedan",
+                "SUV",
+                "Wagon"
             };
 
-            var numberOfDoorsList = new List<NumberOfDoors>
+            var numberOfDoorsList = new List<string>
             {
-                new NumberOfDoors{NumberOfDoorsId = 1, Name = "1 door"},
-                new NumberOfDoors{NumberOfDoorsId = 2, Name = "2 door"},
-                new NumberOfDoors{NumberOfDoorsId = 3, Name = "3 door"},
-                new NumberOfDoors{NumberOfDoorsId = 4, Name = "4 door"},
-                new NumberOfDoors{NumberOfDoorsId = 5, Name = "5 door"},
-                new NumberOfDoors{NumberOfDoorsId = 6, Name = "6 door"}
+                 "1 door",
+                 "2 door",
+                 "3 door",
+                 "4 door",
+                 "5 door",
+                 "6 door"
             };
 
-            var colorsList = new List<Color>
+            var colorsList = new List<string>
             {
-                new Color{ColorId = 1, Name = "Beige"},
-                new Color{ColorId = 2, Name = "Black"},
-                new Color{ColorId = 3, Name = "Blue"},
-                new Color{ColorId = 4, Name = "Brown"},
-                new Color{ColorId = 5, Name = "Gold"},
-                new Color{ColorId = 6, Name = "Gray"},
-                new Color{ColorId = 7, Name = "Green"},
-                new Color{ColorId = 8, Name = "Orange"},
-                new Color{ColorId = 9, Name = "Pink"},
-                new Color{ColorId = 10, Name = "Purple"},
-                new Color{ColorId = 11, Name = "Red"},
-                new Color{ColorId = 12, Name = "Silver"},
-                new Color{ColorId = 13, Name = "White"},
-                new Color{ColorId = 14, Name = "Yellow"}
+               "Beige",
+               "Black",
+               "Blue",
+               "Brown",
+               "Gold",
+               "Gray",
+               "Green",
+               "Orange",
+               "Pink",
+                "Purple",
+                "Red",
+                "Silver",
+                "White",
+                "Yellow"
             };
 
-            var statesList = new List<State>
+            var statesList = new List<string>
             {
-                new State{StateId = 1, Name = "Alabama"},
-                new State{StateId = 2, Name = "Alaska"},
-                new State{StateId = 3, Name = "Arizona"},
-                new State{StateId = 4, Name = "Arkansas"},
-                new State{StateId = 5, Name = "California"},
-                new State{StateId = 6, Name = "Colorado"},
-                new State{StateId = 7, Name = "Connecticut"},
-                new State{StateId = 8, Name = "Delaware"},
-                new State{StateId = 9, Name = "Florida"},
-                new State{StateId = 10, Name = "Georgia"},
-                new State{StateId = 11, Name = "Hawaii"},
-                new State{StateId = 12, Name = "Idaho"},
-                new State{StateId = 13, Name = "Illinois"},
-                new State{StateId = 14, Name = "Indiana"},
-                new State{StateId = 15, Name = "Iowa"},
-                new State{StateId = 16, Name = "Kansas"},
-                new State{StateId = 17, Name = "Kentucky"},
-                new State{StateId = 18, Name = "Louisiana"},
-                new State{StateId = 19, Name = "Maine"},
-                new State{StateId = 20, Name = "Maryland"},
-                new State{StateId = 21, Name = "Massachusetts"},
-                new State{StateId = 22, Name = "Michigan"},
-                new State{StateId = 23, Name = "Minnesota"},
-                new State{StateId = 24, Name = "Mississippi"},
-                new State{StateId = 25, Name = "Missouri"},
-                new State{StateId = 26, Name = "Montana"},
-                new State{StateId = 27, Name = "Nebraska"},
-                new State{StateId = 28, Name = "Nevada"},
-                new State{StateId = 29, Name = "New Hampshire"},
-                new State{StateId = 30, Name = "New Jersey"},
-                new State{StateId = 31, Name = "New Mexico"},
-                new State{StateId = 32, Name = "New York"},
-                new State{StateId = 33, Name = "North Carolina"},
-                new State{StateId = 34, Name = "North Dakota"},
-                new State{StateId = 35, Name = "Ohio"},
-                new State{StateId = 36, Name = "Oklahoma"},
-                new State{StateId = 37, Name = "Oregon"},
-                new State{StateId = 38, Name = "Pennsylvania"},
-                new State{StateId = 39, Name = "Rhode Island"},
-                new State{StateId = 40, Name = "South Carolina"},
-                new State{StateId = 41, Name = "South Dakota"},
-                new State{StateId = 42, Name = "Tennessee"},
-                new State{StateId = 43, Name = "Texas"},
-                new State{StateId = 44, Name = "Utah"},
-                new State{StateId = 45, Name = "Vermont"},
-                new State{StateId = 46, Name = "Virginia"},
-                new State{StateId = 47, Name = "Washington"},
-                new State{StateId = 48, Name = "West Virginia"},
-                new State{StateId = 49, Name = "Wisconsin"},
-                new State{StateId = 50, Name = "Wyoming"}
+                "Alabama",
+                "Alaska",
+                "Arizona",
+                "Arkansas",
+                "California",
+                "Colorado",
+                "Connecticut",
+                "Delaware",
+                "Florida",
+                 "Georgia",
+                 "Hawaii",
+                 "Idaho",
+                 "Illinois",
+                 "Indiana",
+                 "Iowa",
+                 "Kansas",
+                 "Kentucky",
+                 "Louisiana",
+                 "Maine",
+                 "Maryland",
+                 "Massachusetts",
+                 "Michigan",
+                 "Minnesota",
+                "Mississippi",
+                "Missouri",
+                "Montana",
+                "Nebraska",
+                "Nevada",
+                "New Hampshire",
+                "New Jersey",
+                "New Mexico",
+                "New York",
+                "North Carolina",
+                "North Dakota",
+                "Ohio",
+                "Oklahoma",
+                "Oregon",
+                "Pennsylvania",
+                "Rhode Island",
+                "South Carolina",
+                "South Dakota",
+                "Tennessee",
+                "Texas",
+                "Utah",
+                "Vermont",
+                "Virginia",
+                "Washington",
+                "West Virginia",
+                "Wisconsin",
+                "Wyoming"
 
             };
 
-            var transmissionList = new List<Transmission>
+            var transmissionList = new List<string>
             {
-                new Transmission{TransmissionId = 1, Name = "Automanual"},
-                new Transmission{TransmissionId = 2, Name = "Automatic"},
-                new Transmission{TransmissionId = 3, Name = "CVT"},
-                new Transmission{TransmissionId = 4, Name = "Manual"}
+                "Automanual",
+                "Automatic",
+                "CVT",
+                "Manual"
             };
 
-            var makeList = new List<Make>
+            var makeList = new List<string>
             {
-                new Make{MakeId = 1, Name = "Toyota"},
-                new Make{MakeId = 2, Name = "Honda"},
-                new Make{MakeId = 3, Name = "Lexus"},
-                new Make{MakeId = 4, Name = "Ford"},
-                new Make{MakeId = 5, Name = "KIA"}
+                "Toyota",
+                "Honda",
+                "Lexus",
+                "Ford",
+                "Kia"
             };
 
             List<string> toyota = new List<string>
@@ -240,29 +240,20 @@ namespace Cars.Migrations
         };
 
             // adding to context
-            context.Styles.AddOrUpdate(styleList.ToArray());
-            context.FuelTypes.AddOrUpdate(fuelTypeList.ToArray());
-            context.DriveTypes.AddOrUpdate(driveTypeList.ToArray());
-            context.EngineCylinders.AddOrUpdate(engineCylinderList.ToArray());
-            context.BodyStyles.AddOrUpdate(bodyStyleList.ToArray());
-            context.NumberOfDoors.AddOrUpdate(numberOfDoorsList.ToArray());
-            context.Colors.AddOrUpdate(colorsList.ToArray());
-            context.States.AddOrUpdate(statesList.ToArray());
-            context.Transmissions.AddOrUpdate(transmissionList.ToArray());
-            context.Makes.AddOrUpdate(makeList.ToArray());
+           
 
             context.Cars.AddOrUpdate(new CarsGenerator().Generate(
-                styleList.Count,
-                bodyStyleList.Count,
-                colorsList.Count,
-                transmissionList.Count,
-                makeList.Count,
+                styleList,
+                bodyStyleList,
+                colorsList,
+                transmissionList,
+                makeList,
                 toyota,
                 honda,
                 lexus,
                 ford,
                 kia,
-                1000).ToArray());
+                5000).ToArray());
 
             context.SaveChanges();
         }

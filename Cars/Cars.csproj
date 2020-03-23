@@ -574,9 +574,9 @@
     <Compile Include="matchmaker.aspx.designer.cs">
       <DependentUpon>matchmaker.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003200722161_car_database_init.cs" />
-    <Compile Include="Migrations\202003200722161_car_database_init.Designer.cs">
-      <DependentUpon>202003200722161_car_database_init.cs</DependentUpon>
+    <Compile Include="Migrations\202003231049110_init.cs" />
+    <Compile Include="Migrations\202003231049110_init.Designer.cs">
+      <DependentUpon>202003231049110_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\CarsGenerator.cs" />
     <Compile Include="Migrations\Carusel.cs" />
@@ -720,8 +720,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003200722161_car_database_init.resx">
-      <DependentUpon>202003200722161_car_database_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202003231049110_init.resx">
+      <DependentUpon>202003231049110_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
