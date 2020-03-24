@@ -56,29 +56,47 @@ namespace Cars
 
         private void SearchNow()
         {
+            
             string make = Request.QueryString["make"];
             string model = Request.QueryString["model"];
+            string maxPrice = Request.QueryString["maxPrice"];
+            string bodystyle = Request.QueryString["bodystyle"];
+
+            Debug.WriteLine(maxPrice);
 
             string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Parameters.AddWithValue("@Make", make);
-                sqlCommand.Parameters.AddWithValue("@Model", model);
+                
+                
+                
 
                 List<string> cmdList = new List<string>();
 
                 
                 if (!string.IsNullOrEmpty(make))
                 {
-                    cmdList.Add(" Make=@Make and ");
+                    sqlCommand.Parameters.AddWithValue("@Make", make);
+                    cmdList.Add(" Make = @Make and ");
                 }
                 if (!string.IsNullOrEmpty(model))
                 {
-                    cmdList.Add(" Model=@Model and ");
+                    sqlCommand.Parameters.AddWithValue("@Model", model);
+                    cmdList.Add(" Model = @Model and ");
                 }
-                
+                if (!string.IsNullOrEmpty(maxPrice))
+                {
+                    sqlCommand.Parameters.AddWithValue("@MaxPrice", maxPrice);
+                    cmdList.Add(" Price < @MaxPrice and ");
+                }
+                if (!string.IsNullOrEmpty(bodystyle))
+                {
+                    sqlCommand.Parameters.AddWithValue("@BodyStyle", bodystyle);
+                    cmdList.Add(" Bodystyle = @BodyStyle and ");
+                }
+
 
                 cmdList[cmdList.Count - 1] = cmdList[cmdList.Count - 1].Replace("and", ";");
 

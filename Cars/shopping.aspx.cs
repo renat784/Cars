@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,7 +18,8 @@ namespace Cars
         {
             if (!Page.IsPostBack)
             {
-                
+                Price.DataSource = MaxPriceList();
+                Price.DataBind();
             }
         }
 
@@ -35,6 +38,11 @@ namespace Cars
             {
                 cmdList.Add("model=" + Model.SelectedValue + "&");
             }
+            if (!Price.SelectedValue.Contains("Max"))
+            {
+                string maxPrice = Price.SelectedValue.Replace("under $", "");
+                cmdList.Add("maxPrice=" + maxPrice + "&");
+            }
 
 
             cmdList[cmdList.Count - 1] = cmdList[cmdList.Count - 1].Replace("&", "");
@@ -43,5 +51,22 @@ namespace Cars
             cmdList.ForEach(i => generatedUrl += i);
             Response.Redirect(url + generatedUrl);
         }
+
+        public List<string> MaxPriceList()
+        {
+            var list = new List<string>();
+
+            list.Add("No Max Price");
+
+            for (int i = 2000; i <= 100000; i+= 2000)
+            {
+                list.Add("under $" + i);
+            }
+            
+
+            return list;
+        }
+
+        
     }
 }

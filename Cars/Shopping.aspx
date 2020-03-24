@@ -83,8 +83,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4  p-0">
-                                    <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
-                                        <asp:ListItem>No Max Price</asp:ListItem>
+                                    <asp:DropDownList ID="Price"   CssClass="form-control borderRad-0" runat="server"  AutoPostBack="True">
+                                        
                                     </asp:DropDownList>
                                 </div>
                                 <div class="col-lg-4">
@@ -95,7 +95,7 @@
                                             </asp:DropDownList>
                                         </div>
                                         <div class="col-6  p-0">
-                                            <asp:TextBox CssClass="form-control borderRad-0" runat="server"></asp:TextBox>
+                                            <asp:TextBox  CssClass="form-control borderRad-0" runat="server" Text="ZIP"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -221,13 +221,13 @@
                                 <h5>Coupes & Sedans</h5>
                                 <ul class="list">
                                     <li>
-                                        <a href="#">Sedan</a>
+                                        <a href="/SearchResult?bodystyle=sedan">Sedan</a>
                                     </li>
                                     <li>
-                                        <a href="#">Convertible</a>
+                                        <a href="/SearchResult?bodystyle=convertible">Convertible</a>
                                     </li>
                                     <li>
-                                        <a href="#">Coupe</a>
+                                        <a href="/SearchResult?bodystyle=coupe">Coupe</a>
                                     </li>
                                 </ul>
                             </div>
@@ -237,13 +237,13 @@
                                 <h5>Pickup Trucks</h5>
                                 <ul class="list">
                                     <li>
-                                        <a href="#">Regular Cab Pickup</a>
+                                        <a href="/SearchResult?bodystyle=Regular+Cub+Pickup">Regular Cub Pickup</a>
                                     </li>
                                     <li>
-                                        <a href="#">Crew Cab Pickup</a>
+                                        <a href="/SearchResult?bodystyle=Crew+Cub+Pickup">Crew Cub Pickup</a>
                                     </li>
                                     <li>
-                                        <a href="#">Extended Cab Pickup</a>
+                                        <a href="/SearchResult?bodystyle=Extended+Cub+Pickup">Extended Cub Pickup</a>
                                     </li>
                                 </ul>
                             </div>
@@ -257,13 +257,13 @@
                                 <h5>Vans & Minivans</h5>
                                 <ul class="list">
                                     <li>
-                                        <a href="#">Minivan</a>
+                                        <a href="/SearchResult?bodystyle=minivan">Minivan</a>
                                     </li>
                                     <li>
-                                        <a href="#">Cargo Van</a>
+                                        <a href="/SearchResult?bodystyle=Cargo+Van">Cargo Van</a>
                                     </li>
                                     <li>
-                                        <a href="#">Passenger Van</a>
+                                        <a href="/SearchResult?bodystyle=Passenger+Van">Passenger Van</a>
                                     </li>
                                 </ul>
                             </div>
@@ -273,13 +273,13 @@
                                 <h5>SUVs & Crossovers</h5>
                                 <ul class="list">
                                     <li>
-                                        <a href="#">SUV</a>
+                                        <a href="/SearchResult?bodystyle=SUV">SUV</a>
                                     </li>
                                     <li>
-                                        <a href="#">Wagon</a>
+                                        <a href="/SearchResult?bodystyle=Wagon">Wagon</a>
                                     </li>
                                     <li>
-                                        <a href="#">Hatchback</a>
+                                        <a href="/SearchResult?bodystyle=Hatchback">Hatchback</a>
                                     </li>
                                 </ul>
                             </div>
@@ -299,7 +299,25 @@
 
         <section class="body-content">
             <h4 style="text-align: center">Brand Search</h4>
-            <div class="row">
+            <asp:Repeater runat="server" DataSourceID="SqlDataSource">
+                <HeaderTemplate>
+                    <div class="row">
+                        <div class="col-lg-12 text-center form-group">
+                            <ul class="list">
+                </HeaderTemplate>
+                <ItemTemplate>
+                                <li>
+                                    <a href="/SearchResult?make=<%#Eval("Make")%>"><%#Eval("Make")%></a>
+                                </li>
+                </ItemTemplate>
+                <FooterTemplate>
+                            </ul>
+                        </div>
+                    </div>
+                </FooterTemplate>
+            </asp:Repeater>
+
+            <%--<div class="row">
                 <div class="col-lg-3 form-group">
                     <ul class="list">
                         <li>
@@ -353,7 +371,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div>--%>
             <hr />
         </section>
     

@@ -201,7 +201,7 @@
 
                                             </div>
                                             <div class="row small mt-1">
-                                                <div class="col-6">
+                                                <div class="col-4">
                                                     <div>
                                                         <span class="bold">Ext.Color:</span>
                                                         <span><%#Eval("ExteriorColor")%></span>
@@ -211,14 +211,14 @@
                                                         <span><%#Eval("InteriorColor")%></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-6">
+                                                <div class="col-8">
                                                     <div>
                                                         <span class="bold">Transmission:</span>
                                                         <span><%#Eval("Transmission")%></span>
                                                     </div>
                                                     <div>
-                                                        <span class="bold">Drivetrain:</span>
-                                                        <%-- <span><%#Eval("DriveType")%></span>--%>
+                                                        <span class="bold">Body Style:</span>
+                                                         <span><%#Eval("Bodystyle")%></span>
                                                     </div>
                                                 </div>
                                             </div>
