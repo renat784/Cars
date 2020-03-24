@@ -3,6 +3,9 @@
 <%@ Register Src="~/Reusable/FindTheDealer.ascx" TagName="findTheDealer" TagPrefix="CustomControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+<asp:UpdatePanel ID="updpnlRefresh" runat="server" UpdateMode="Conditional">
+<ContentTemplate>
+    
     <div class="bigImage" style="background-image: url(Images/mainImage2.png); position: relative">
         <div class="textOnImage">
             <h2 class="font-weight-bold">Shop Cars for Sale</h2>
@@ -60,14 +63,21 @@
                                     </asp:DropDownList>
                                 </div>
                                 <div class="col-lg-4 p-0">
-                                    <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
-                                        <asp:ListItem>All Makes</asp:ListItem>
+                                    <asp:DropDownList ID="Make" CssClass="form-control borderRad-0" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource" DataTextField="Make" DataValueField="Make">
                                     </asp:DropDownList>
+
+                                    <asp:SqlDataSource runat="server" ID="SqlDataSource" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Make] FROM [Cars]"></asp:SqlDataSource>
                                 </div>
+                                
+
                                 <div class="col-lg-4 p-0">
-                                    <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
-                                        <asp:ListItem>All Models</asp:ListItem>
+                                    <asp:DropDownList ID="Model" CssClass="form-control borderRad-0" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Model" DataValueField="Model">
                                     </asp:DropDownList>
+                                    <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Model], [Make] FROM [Cars] WHERE ([Make] = @Make)">
+                                        <SelectParameters>
+                                            <asp:ControlParameter ControlID="Make" PropertyName="SelectedValue" Name="Make" Type="String"></asp:ControlParameter>
+                                        </SelectParameters>
+                                    </asp:SqlDataSource>
                                 </div>
 
                             </div>
@@ -92,7 +102,7 @@
 
                                 <div class="col-lg-4 p-0">
                                     <asp:Button CssClass="btn btn-success greenButton borderRad-0"
-                                        runat="server" Text="Search" />
+                                        runat="server" Text="Search" OnClick="SearchButtonClicked"/>
                                 </div>
                             </div>
                         </div>
@@ -639,6 +649,11 @@
             </div>
 
         </section>
+
+</ContentTemplate>
+</asp:UpdatePanel>
+
+    
     
 
 

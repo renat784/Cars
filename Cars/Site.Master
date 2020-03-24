@@ -135,7 +135,7 @@
                             <a class="btn btn-outline-light py-1 px-2" style="font-size: 12px" runat="server" href="~/Account/Register">Sign Up</a>
                         </div>
                         <div class="col-4">
-                            <a runat="server" href="~/Contact">
+                            <a runat="server" href="~/Account/Login">
                                 <i class="fa fa-user-circle-o white" style="font-size: 25px;" title="My Dashboard" aria-hidden="true"></i>
                             </a>
                         </div>
