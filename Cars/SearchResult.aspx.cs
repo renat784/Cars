@@ -22,29 +22,29 @@ namespace Cars
                 {
                     OrderBySeeding();
 
-                    SearchNow();
+                    SearchFromQuery();
                    
                     return;
                 }
 
-                string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    SqlCommand sqlCommand = new SqlCommand();
+                //string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
+                //using (SqlConnection connection = new SqlConnection(connectionString))
+                //{
+                //    connection.Open();
+                //    SqlCommand sqlCommand = new SqlCommand();
 
-                    string commandText = "select Make from Cars"; 
+                //    string commandText = "select Make from Cars"; 
 
-                    sqlCommand.Connection = connection;
-                    sqlCommand.CommandText = commandText;
+                //    sqlCommand.Connection = connection;
+                //    sqlCommand.CommandText = commandText;
 
-                    var reader = sqlCommand.ExecuteReader();
+                //    var reader = sqlCommand.ExecuteReader();
 
-                    SeedDropDownList("Make", Make, reader);
-                }
+                //    SeedDropDownList("Make", Make, reader);
+                //}
 
-                Model.Items.Clear();
-                Model.Items.Add("Select a Make First");
+                //Model.Items.Clear();
+                //Model.Items.Add("Select a Make First");
 
                 
             }
@@ -69,34 +69,62 @@ namespace Cars
         {
             string make = Request.QueryString["make"];
             string model = Request.QueryString["model"];
+            string minPrice = Request.QueryString["minPrice"];
             string maxPrice = Request.QueryString["maxPrice"];
             string bodystyle = Request.QueryString["bodystyle"];
             string year = Request.QueryString["year"];
+            string minYear = Request.QueryString["minYear"];
+            string maxYear = Request.QueryString["maxYear"];
 
             SqlCommand sqlCommand = new SqlCommand();
 
             List<string> cmdList = new List<string>();
+
+            if (!string.IsNullOrEmpty(minYear))
+            {
+                sqlCommand.Parameters.AddWithValue("@MinYear", minYear);
+                cmdList.Add(" Year >= @MinYear and ");
+            }
+            if (!string.IsNullOrEmpty(maxYear))
+            {
+                sqlCommand.Parameters.AddWithValue("@MaxYear", maxYear);
+                cmdList.Add(" Year <= @MaxYear and ");
+            }
+
 
             if (!string.IsNullOrEmpty(make))
             {
                 sqlCommand.Parameters.AddWithValue("@Make", make);
                 cmdList.Add(" Make = @Make and ");
             }
+
+
             if (!string.IsNullOrEmpty(model))
             {
                 sqlCommand.Parameters.AddWithValue("@Model", model);
                 cmdList.Add(" Model = @Model and ");
             }
+
+
+            if (!string.IsNullOrEmpty(minPrice))
+            {
+                sqlCommand.Parameters.AddWithValue("@MinPrice", minPrice);
+                cmdList.Add(" Price >= @MinPrice and ");
+            }
             if (!string.IsNullOrEmpty(maxPrice))
             {
                 sqlCommand.Parameters.AddWithValue("@MaxPrice", maxPrice);
-                cmdList.Add(" Price < @MaxPrice and ");
+                cmdList.Add(" Price <= @MaxPrice and ");
             }
+
+
             if (!string.IsNullOrEmpty(bodystyle))
             {
                 sqlCommand.Parameters.AddWithValue("@BodyStyle", bodystyle);
                 cmdList.Add(" Bodystyle = @BodyStyle and ");
             }
+
+
             if (!string.IsNullOrEmpty(year))
             {
                 sqlCommand.Parameters.AddWithValue("@Year", year);
@@ -119,7 +147,7 @@ namespace Cars
         }
 
 
-        private void SearchNow(string orderBy = "")
+        private void SearchFromQuery(string orderBy = "")
         {
             string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -160,122 +188,109 @@ namespace Cars
             list.ForEach(i => dropDownList.Items.Add(i));
         }
 
-       
 
-       
 
-        protected void SearchCars (object sender, EventArgs e) 
+
+
+        protected void SearchFromNewSearch(object sender, EventArgs e)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
+            string query = "";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            List<string> list = new List<string>();
+
+            if (!Make.SelectedValue.Contains("Select"))
             {
-                connection.Open();
-                SqlCommand sqlCommand = new SqlCommand();
-
-                
-                
-                //sqlCommand.Parameters.AddWithValue("@Year", Year.SelectedValue);
-               
-
-                List<string> cmdList = new List<string>();
-
-                //if (!Year.SelectedValue.Contains("Select"))
-                //{
-                //    cmdList.Add(" Year=@Year and ");
-                //}
-                if (!Make.SelectedValue.Contains("Select"))
-                {
-                    sqlCommand.Parameters.AddWithValue("@Make", Make.SelectedValue);
-                    cmdList.Add(" Make=@Make and ");
-                }
-                if (!Model.SelectedValue.Contains("Select"))
-                {
-                    sqlCommand.Parameters.AddWithValue("@Model", Model.SelectedValue);
-                    cmdList.Add(" Model=@Model and ");
-                }
-                if (!Price.SelectedValue.Contains("Max"))
-                {
-                    sqlCommand.Parameters.AddWithValue("@Price", Price.SelectedValue);
-                    cmdList.Add(" Price < @Price and ");
-                }
-
-                cmdList[cmdList.Count - 1] = cmdList[cmdList.Count - 1].Replace("and", ";");
-
-                string search = "";
-                
-                cmdList.ForEach(i => search += i);
-
-                string commandText = " select * from Cars where " + search +
-                                     " select count(*) from Cars where " + search;
-
-                sqlCommand.Connection = connection;
-                sqlCommand.CommandText = commandText;
-
-                var reader = sqlCommand.ExecuteReader();
-
-                RepeaterCards.DataSource = reader;
-                RepeaterCards.DataBind();
-
-                reader.NextResult();
-                while (reader.Read())
-                {
-                    ResultCount.Text = reader[0].ToString();
-                }
-
+                 list.Add("make=" + Make.SelectedValue + "&"); 
+            }
+            if (!Model.SelectedValue.Contains("Select"))
+            {
+                list.Add("model=" + Model.SelectedValue + "&");
+            }
+            if (!MaxPrice.SelectedValue.Contains("Max"))
+            {
+                list.Add("maxPrice=" + MaxPrice.SelectedValue + "&");
             }
 
-        }
+            list[list.Count - 1] = list[list.Count - 1].Replace("&", "");
+            list.ForEach(i => query += i);
 
-        protected void Make_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            Response.Redirect("/searchresult?" + query);
+
             
-            if (Make.SelectedValue.Contains("Select"))
-            {
-                Model.Items.Clear();
-                Model.Items.Add("Select A Make first");
-                return;
-            }
-          
-            string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Parameters.AddWithValue("@Make", Make.SelectedValue);
-                string commandText = "select Model from Cars where Make = @Make";
-
-                sqlCommand.Connection = connection;
-                sqlCommand.CommandText = commandText;
-
-                var reader = sqlCommand.ExecuteReader();
-
-                var list = new List<string>();
-                while (reader.Read())
-                {
-                    list.Add(reader["Model"].ToString());
-                }
-
-                list = new List<string>(list.Distinct());
-
-                Model.Items.Clear();
-                list.ForEach(i => Model.Items.Add(i));
-            }
 
         }
 
-        public IEnumerable<string> MaxPriceList()
+        //protected void Make_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+            
+        //    if (Make.SelectedValue.Contains("Select"))
+        //    {
+        //        Model.Items.Clear();
+        //        Model.Items.Add("Select A Make first");
+        //        return;
+        //    }
+          
+        //    string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
+
+        //    using (SqlConnection connection = new SqlConnection(connectionString))
+        //    {
+        //        connection.Open();
+        //        SqlCommand sqlCommand = new SqlCommand();
+        //        sqlCommand.Parameters.AddWithValue("@Make", Make.SelectedValue);
+        //        string commandText = "select Model from Cars where Make = @Make";
+
+        //        sqlCommand.Connection = connection;
+        //        sqlCommand.CommandText = commandText;
+
+        //        var reader = sqlCommand.ExecuteReader();
+
+        //        var list = new List<string>();
+        //        while (reader.Read())
+        //        {
+        //            list.Add(reader["Model"].ToString());
+        //        }
+
+        //        list = new List<string>(list.Distinct());
+
+        //        Model.Items.Clear();
+        //        list.ForEach(i => Model.Items.Add(i));
+        //    }
+
+        //}
+
+        public List<string> MaxPriceList()
         {
             List<string> prices = new List<string>();
             prices.Add("No Max Price");
-            for (int i = 1000; i <= 20000;)
+            for (int i = 2000; i <= 20000; i += 2000)
             {
                 prices.Add(i.ToString());
-                i += 1000;
+                
             }
 
             return prices;
+        }
+
+        public List<string> MinPrices()
+        {
+            List<string> list = new List<string>();
+            for (int i = 2000; i < 32000; i+= 2000)
+            {
+                list.Add(i.ToString());
+            }
+
+            return list;
+        }
+
+        public List<string> MaxPrices()
+        {
+            List<string> list = new List<string>();
+            for (int i = 32000 - 2000; i >= 2000; i-= 2000)
+            {
+                list.Add(i.ToString());
+            }
+
+            return list;
         }
 
         public List<int> YearsList()
@@ -350,8 +365,34 @@ namespace Cars
 
           
 
-            SearchNow(text);
+            SearchFromQuery(text);
 
+        }
+
+        protected void SearchFromFilterResults(object sender, EventArgs e)
+        {
+            string query = "";
+
+            List<string> list = new List<string>();
+
+
+            list.Add("minYear=" + MinYear.SelectedValue + "&");
+            list.Add("maxYear=" + MaxYear.SelectedValue + "&");
+            list.Add("make=" + Make_RadioList.SelectedValue + "&");
+            list.Add("model=" + Model_RadioList.SelectedValue + "&");
+            list.Add("minPrice=" + MinPrice_FilterResults.SelectedValue + "&");
+            list.Add("maxPrice=" + MaxPrice_FilterResults.SelectedValue + "&");
+
+
+            list[list.Count - 1] = list[list.Count - 1].Replace("&", "");
+            list.ForEach(i => query += i);
+
+            Response.Redirect("/searchresult?" + query);
+        }
+
+        protected void OnDataBound(object sender, EventArgs e)
+        {
+            (sender as RadioButtonList).Items[0].Selected = true;
         }
     }
 }

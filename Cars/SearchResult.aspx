@@ -66,60 +66,57 @@
                                             <div class="row">
                                                 <div class="col-6">
                                                     <asp:Label CssClass="bold control-label"  AssociatedControlID="MinYear" runat="server">Min</asp:Label>
-                                                    <asp:DropDownList CssClass="form-control" SelectMethod="MinYearList" ID="MinYear" runat="server" AutoPostBack="True">
-                                                        <asp:ListItem Value="2222"></asp:ListItem>
+                                                    <asp:DropDownList CssClass="form-control"  SelectMethod="MinYearList" ID="MinYear" runat="server" AutoPostBack="True">
                                                     </asp:DropDownList>
                                                 </div>
                                                 <div class="col-6">
                                                     <asp:Label CssClass="bold control-label" AssociatedControlID="MaxYear" runat="server">Max</asp:Label>
-                                                    <asp:DropDownList CssClass="form-control" SelectMethod="MaxYearList" ID="MaxYear" runat="server" AutoPostBack="True">
-                                                        <asp:ListItem>2222</asp:ListItem>
+                                                    <asp:DropDownList CssClass="form-control"  SelectMethod="MaxYearList" ID="MaxYear" runat="server" AutoPostBack="True">
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
                                         </div>
                                         <hr />
-                                       <%-- <div>
+                                        <div>
                                             <div>
                                                 <asp:Label CssClass="control-label bold" runat="server">Make</asp:Label>
                                             </div>
-                                            <asp:Repeater runat="server" ID="Make_Repeater">
-                                                <ItemTemplate>
-                                                    <asp:RadioButton runat="server" ID="" Text="" />
-                                                </ItemTemplate>
-                                            </asp:Repeater>
-                                        </div>--%>
+                                            
+                                            <asp:RadioButtonList ID="Make_RadioList" runat="server" OnDataBound="OnDataBound" AutoPostBack="True" DataSourceID="SqlDataSource1" 
+                                                                 DataTextField="Make" DataValueField="Make"/>
+                                               
+                                        </div>
                                         <hr />
-                                        <%--<div>
+                                        
+                                        <div>
                                             <div>
                                                 <asp:Label CssClass="control-label bold" runat="server">Model</asp:Label>
                                             </div>
-                                            <asp:Repeater runat="server" ID="Model_Repeater">
-                                                <ItemTemplate>
-                                                    <asp:CheckBox runat="server" ID="" Text="" />
-                                                </ItemTemplate>
-                                            </asp:Repeater>
-                                        </div>--%>
+                                            <asp:RadioButtonList ID="Model_RadioList" runat="server" OnDataBound="OnDataBound" AutoPostBack="True" DataSourceID="SqlDataSource3" DataTextField="Model" DataValueField="Model" />
+                                            <asp:SqlDataSource runat="server" ID="SqlDataSource3" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Model] FROM [Cars] WHERE ([Make] = @Make)">
+                                                <SelectParameters>
+                                                    <asp:ControlParameter ControlID="Make_RadioList" PropertyName="SelectedValue" Name="Make" Type="String"></asp:ControlParameter>
+                                                </SelectParameters>
+                                            </asp:SqlDataSource>
+                                        </div>
                                         <hr />
-                                        <%--<div>
+                                        <div>
                                             <div class="mb-3">
                                                 <asp:Label CssClass="bold control-label" runat="server">Price</asp:Label>
                                             </div>
                                             <div class="row">
                                                 <div class="col-6">
-                                                    <asp:Label CssClass="bold control-label" AssociatedControlID="MinPrice" runat="server">Min</asp:Label>
-                                                    <asp:DropDownList CssClass="form-control" ID="MinPrice" runat="server" AutoPostBack="True">
-                                                        <asp:ListItem Value="2222"></asp:ListItem>
+                                                    <asp:Label CssClass="bold control-label" AssociatedControlID="MinPrice_FilterResults" runat="server">Min</asp:Label>
+                                                    <asp:DropDownList CssClass="form-control" SelectMethod="MinPrices" ID="MinPrice_FilterResults" runat="server" AutoPostBack="True">
                                                     </asp:DropDownList>
                                                 </div>
                                                 <div class="col-6">
-                                                    <asp:Label CssClass="bold control-label" AssociatedControlID="MaxPrice" runat="server">Max</asp:Label>
-                                                    <asp:DropDownList CssClass="form-control" ID="MaxPrice" runat="server" AutoPostBack="True">
-                                                        <asp:ListItem>2222</asp:ListItem>
+                                                    <asp:Label CssClass="bold control-label" AssociatedControlID="MaxPrice_FilterResults" runat="server">Max</asp:Label>
+                                                    <asp:DropDownList CssClass="form-control" SelectMethod="MaxPrices" ID="MaxPrice_FilterResults" runat="server" AutoPostBack="True">
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
-                                        </div>--%>
+                                        </div>
                                         <hr />
                                         <%--<div>
                                             <div>
@@ -143,7 +140,9 @@
                                             </asp:Repeater>
                                         </div>--%>
                                         <hr />
-
+                                        <div>
+                                            <asp:Button runat="server" Text="Search" OnClick="SearchFromFilterResults"/>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -152,21 +151,27 @@
                                     <div class="p-4 my-4">
                                         <div class="form-group">
                                             <asp:Label class="control-label" AssociatedControlID="Make" runat="server">Make</asp:Label>
-                                            <asp:DropDownList ID="Make" CssClass="form-control" OnSelectedIndexChanged="Make_SelectedIndexChanged" runat="server" AutoPostBack="True">
+                                            <asp:DropDownList ID="Make" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Make" DataValueField="Make">
                                             </asp:DropDownList>
+                                            <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Make] FROM [Cars]"></asp:SqlDataSource>
                                         </div>
                                         <div class="form-group">
                                             <asp:Label class="control-label" AssociatedControlID="Model" runat="server">Model</asp:Label>
-                                            <asp:DropDownList ID="Model" CssClass="form-control" runat="server" AutoPostBack="True">
+                                            <asp:DropDownList ID="Model" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="Model" DataValueField="Model">
+                                            </asp:DropDownList>
+                                            <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Model] FROM [Cars] WHERE ([Make] = @Make)">
+                                                <SelectParameters>
+                                                    <asp:ControlParameter ControlID="Make" PropertyName="SelectedValue" Name="Make" Type="String"></asp:ControlParameter>
+                                                </SelectParameters>
+                                            </asp:SqlDataSource>
+                                        </div>
+                                        <div class="form-group">
+                                            <asp:Label class="control-label" AssociatedControlID="MaxPrice" runat="server">Max Price</asp:Label>
+                                            <asp:DropDownList ID="MaxPrice" SelectMethod="MaxPriceList" CssClass="form-control" runat="server" AutoPostBack="True">
                                             </asp:DropDownList>
                                         </div>
                                         <div class="form-group">
-                                            <asp:Label class="control-label" AssociatedControlID="Price" runat="server">Max Price</asp:Label>
-                                            <asp:DropDownList ID="Price" SelectMethod="MaxPriceList" CssClass="form-control" runat="server" AutoPostBack="True">
-                                            </asp:DropDownList>
-                                        </div>
-                                        <div class="form-group">
-                                            <asp:Button runat="server" ID="SearchButton" Style="width: 100%" CssClass="btn niceButton" OnClick="SearchCars" Text="Search" />
+                                            <asp:Button runat="server" ID="SearchButton" Style="width: 100%" CssClass="btn niceButton" OnClick="SearchFromNewSearch" Text="Search" />
                                         </div>
                                     </div>
                                 </div>
