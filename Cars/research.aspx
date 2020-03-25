@@ -2,6 +2,9 @@
 
 <%@ Register Src="~/Reusable/FindTheDealer.ascx" TagName="findTheDealer" TagPrefix="CustomControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    
+<asp:UpdatePanel ID="updpnlRefresh" runat="server" UpdateMode="Conditional">
+<ContentTemplate>
 
     <div class="bigImage" style="background-image: url(Images/researchCar.jpg);position: relative">
         <div class="textOnImage">
@@ -36,31 +39,26 @@
                 </div>
                 <div class="row px-lg-3">
                     <div class="col-lg-3 col-sm-12 p-lg-0">
-                        <asp:DropDownList CssClass="form-control" runat="server" AutoPostBack="True">
-                            <asp:ListItem>All Makes</asp:ListItem>
-                            <asp:ListItem>Toyota</asp:ListItem>
-                            <asp:ListItem>Honda</asp:ListItem>
-                            <asp:ListItem>Lexus</asp:ListItem>
+                        <asp:DropDownList ID="Make" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource" DataTextField="Make" DataValueField="Make">
                         </asp:DropDownList>
+                        <asp:SqlDataSource runat="server" ID="SqlDataSource" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Make] FROM [Cars]"></asp:SqlDataSource>
                     </div>
                     <div class="col-lg-3 col-sm-12 p-lg-0">
-                        <asp:DropDownList CssClass="form-control" runat="server" AutoPostBack="True">
-                            <asp:ListItem>All Models</asp:ListItem>
-                            <asp:ListItem>model 1</asp:ListItem>
-                            <asp:ListItem>model 2</asp:ListItem>
-                            <asp:ListItem>model 3</asp:ListItem>
+                        <asp:DropDownList ID="Model" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Model" DataValueField="Model">
                         </asp:DropDownList>
+                        <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Model] FROM [Cars] WHERE ([Make] = @Make)">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="Make" PropertyName="SelectedValue" Name="Make" Type="String"></asp:ControlParameter>
+                            </SelectParameters>
+                        </asp:SqlDataSource>
                     </div>
                     <div class="col-lg-3 col-sm-12 p-lg-0">
-                        <asp:DropDownList CssClass="form-control" runat="server" AutoPostBack="True">
-                            <asp:ListItem>All Years</asp:ListItem>
-                            <asp:ListItem>2019</asp:ListItem>
-                            <asp:ListItem>2018</asp:ListItem>
-                            <asp:ListItem>2017</asp:ListItem>
+                        <asp:DropDownList ID="Year" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="Year" DataValueField="Year">
                         </asp:DropDownList>
+                        <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Year] FROM [Cars] ORDER BY [Year]"></asp:SqlDataSource>
                     </div>
                     <div id="searchResearch" class="col-lg-3 col-sm-12 p-lg-0">
-                        <asp:Button CssClass="form-control" runat="server" Text="Search" />
+                        <asp:Button CssClass="form-control" OnClick="SearchCars" runat="server" Text="Search" />
                     </div>
                 </div>
             </div>
@@ -75,7 +73,7 @@
             </div>
             <div class="row carRow">
                 <div class="col-lg-3 ">
-                    <a href="#">
+                    <a href="/SearchResult?bodystyle=sedan">
                         <div>
                             <img src="../Content/CarTypes/sedan.png" />
                         </div>
@@ -83,7 +81,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3">
-                    <a href="#">
+                    <a href="/SearchResult?bodystyle=coupe">
                         <div>
                             <img src="../Content/CarTypes/coupe.png" />
                         </div>
@@ -91,7 +89,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3">
-                    <a href="#">
+                    <a href="/SearchResult?bodystyle=suv">
                         <div>
                             <img src="../Content/CarTypes/suv.png" />
                         </div>
@@ -109,7 +107,7 @@
             </div>
             <div class="row carRow my-lg-5">
                 <div class="col-lg-3 ">
-                    <a href="#">
+                    <a href="/SearchResult?bodystyle=hatchback">
                         <div>
                             <img src="../Content/CarTypes/hatchback.png" />
                         </div>
@@ -125,7 +123,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3">
-                    <a href="#">
+                    <a href="/SearchResult?bodystyle=convertible">
                         <div>
                             <img src="../Content/CarTypes/convertible.png" />
                         </div>
@@ -151,7 +149,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3">
-                    <a href="#">
+                    <a href="/SearchResult?bodystyle=minivan">
                         <div>
                             <img src="../Content/CarTypes/minivan.png" />
                         </div>
@@ -179,37 +177,24 @@
 
         <section>
             <h5 class="text-center font-weight-bold">Start with Make</h5>
-            <div class="row mt-lg-4 px-lg-5 listCenter">
-                <div class="col-lg-3" >
-                    <ul style="list-style-type: none; padding: 0">
-                        <li><a href="#">acura</a></li>
-                        <li><a href="#">acura 2</a></li>
-                        <li><a href="#">acura 3</a></li>
-                    </ul>
+            <asp:Repeater runat="server" DataSourceID="SqlDataSource">
+                <HeaderTemplate>
+                    <div class="row">
+                    <div class="col-lg-12 text-center form-group">
+                    <ul class="list">
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <li>
+                        <a href="/SearchResult?make=<%#Eval("Make")%>"><%#Eval("Make")%></a>
+                    </li>
+                </ItemTemplate>
+                <FooterTemplate>
+                </ul>
                 </div>
-                
-                <div class="col-lg-3" >
-                    <ul style="list-style-type: none; padding: 0">
-                        <li><a href="#">bmw 1</a></li>
-                        <li><a href="#">bmw 2</a></li>
-                        <li><a href="#">bmw 3</a></li>
-                    </ul>
                 </div>
-                <div class="col-lg-3" >
-                    <ul style="list-style-type: none; padding: 0">
-                        <li><a href="#">honda 1</a></li>
-                        <li><a href="#">honda 2</a></li>
-                        <li><a href="#">honda 3</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3" >
-                    <ul style="list-style-type: none; padding: 0">
-                        <li><a href="#">lexus 1</a></li>
-                        <li><a href="#">lexus 2</a></li>
-                        <li><a href="#">lexus 3</a></li>
-                    </ul>
-                </div>
-            </div>
+                </FooterTemplate>
+            </asp:Repeater>
+
         </section>
 
         <hr />
@@ -271,7 +256,8 @@
     </div>
 
 
-
+</ContentTemplate>
+</asp:UpdatePanel>
 
 
 </asp:Content>

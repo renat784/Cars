@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="State" runat="server">State</asp:Label>
-                            <asp:DropDownList ID="State"   CssClass="form-control" runat="server" AutoPostBack="True" >
+                            <asp:DropDownList ID="State" SelectMethod="StatesList"  CssClass="form-control" runat="server" AutoPostBack="True" >
                             </asp:DropDownList>
                         </div>
                         <div class="form-group mt-4">
@@ -49,22 +49,29 @@
                             <asp:Label class="control-label" for="Year" runat="server">Year</asp:Label>
                             <asp:DropDownList ID="Year" CssClass="form-control" SelectMethod="YearsList" runat="server" AutoPostBack="True">
                             </asp:DropDownList>
+                            
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="Make"  runat="server">Make</asp:Label>
-                            <asp:DropDownList ID="Make" CssClass="form-control" OnSelectedIndexChanged="ChangeModels" runat="server" AutoPostBack="True">
+                            <asp:DropDownList ID="Make" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Make" DataValueField="Make">
                             </asp:DropDownList>
+                            <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Make] FROM [Cars]"></asp:SqlDataSource>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="Model" runat="server">Model</asp:Label>
-                            <asp:DropDownList ID="Model" CssClass="form-control"  runat="server" AutoPostBack="True">
-                                <asp:ListItem>Select a Make First</asp:ListItem>
+                            <asp:DropDownList ID="Model" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="Model" DataValueField="Model">
                             </asp:DropDownList>
+                            <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Model] FROM [Cars] WHERE ([Make] = @Make)">
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="Make" PropertyName="SelectedValue" Name="Make" Type="String"></asp:ControlParameter>
+                                </SelectParameters>
+                            </asp:SqlDataSource>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="Style" runat="server">Style</asp:Label>
-                            <asp:DropDownList ID="Style" CssClass="form-control" runat="server" AutoPostBack="True" >
+                            <asp:DropDownList ID="Style" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3" DataTextField="Style" DataValueField="Style">
                             </asp:DropDownList>
+                            <asp:SqlDataSource runat="server" ID="SqlDataSource3" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Style] FROM [Cars]"></asp:SqlDataSource>
                         </div>
                         <div class="form-group">
                             <div class="row">
@@ -80,8 +87,9 @@
                                     </a>
                                 </div>
                             </div>
-                            <asp:DropDownList ID="BodyStyle" CssClass="form-control" runat="server" AutoPostBack="True" >
+                            <asp:DropDownList ID="BodyStyle" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="Bodystyle" DataValueField="Bodystyle">
                             </asp:DropDownList>
+                            <asp:SqlDataSource runat="server" ID="SqlDataSource4" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Bodystyle] FROM [Cars]"></asp:SqlDataSource>
                         </div>
                         <div class="form-group">
                             <div class="row">
@@ -105,23 +113,29 @@
                                 </div>
                             </div>
 
-                            <asp:DropDownList ID="Transmission" CssClass="form-control" runat="server" AutoPostBack="True" >
+                            <asp:DropDownList ID="Transmission" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource5" DataTextField="Transmission" DataValueField="Transmission">
                             </asp:DropDownList>
+                            <asp:SqlDataSource runat="server" ID="SqlDataSource5" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Transmission] FROM [Cars]"></asp:SqlDataSource>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="Mileage" runat="server">Mileage</asp:Label>
-                            <asp:TextBox ID="Mileage" TextMode="Number" CssClass="form-control" runat="server"></asp:TextBox>
-
+                            <asp:TextBox ID="Mileage"  TextMode="Number"  CssClass="form-control" runat="server">
+                            </asp:TextBox>
+                            <asp:RegularExpressionValidator SetFocusOnError="True" ValidationExpression="\d{3,6}" ForeColor="red" ErrorMessage="3-6 digits please" runat="server" ControlToValidate="Mileage"></asp:RegularExpressionValidator>
+                            <br/>
+                            <asp:RequiredFieldValidator SetFocusOnError="True" ErrorMessage="Add Mileage please" ForeColor="red" runat="server" ControlToValidate="Mileage"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="ExteriorColor" runat="server">Exterior Color</asp:Label>
-                            <asp:DropDownList ID="ExteriorColor" CssClass="form-control" runat="server" AutoPostBack="True" >
+                            <asp:DropDownList ID="ExteriorColor" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource6" DataTextField="ExteriorColor" DataValueField="ExteriorColor">
                             </asp:DropDownList>
+                            <asp:SqlDataSource runat="server" ID="SqlDataSource6" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [ExteriorColor] FROM [Cars]"></asp:SqlDataSource>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="InteriorColor" runat="server">Interior Color</asp:Label>
-                            <asp:DropDownList ID="InteriorColor" CssClass="form-control" runat="server" AutoPostBack="True" >
+                            <asp:DropDownList ID="InteriorColor" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource7" DataTextField="InteriorColor" DataValueField="InteriorColor">
                             </asp:DropDownList>
+                            <asp:SqlDataSource runat="server" ID="SqlDataSource7" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [InteriorColor] FROM [Cars]"></asp:SqlDataSource>
                         </div>
                     </div>
                     <div>
@@ -258,10 +272,13 @@
                                 </div>
 
                                 <div style="position: relative">
-                                    <asp:TextBox ID="Price" TextMode="Number" CssClass="form-control pl-4" runat="server">
+                                    <asp:TextBox ID="Price"  TextMode="Number" CssClass="form-control pl-4" runat="server">
                                     </asp:TextBox>
                                     <i class="fa fa-usd" aria-hidden="true" style="position: absolute; left: 2%; top: 50%; transform: translateY(-50%)"></i>
                                 </div>
+                                <asp:RequiredFieldValidator ErrorMessage="Enter a Price please" ForeColor="red" SetFocusOnError="True" runat="server" ControlToValidate="Price"></asp:RequiredFieldValidator>
+                                <br/>
+                                <asp:RegularExpressionValidator ValidationExpression="\d{3,6}" ErrorMessage="3-6 digits, please" runat="server" ForeColor="red" ControlToValidate="Price" ></asp:RegularExpressionValidator>
                             </div>
                             <div class="asp_checkbox my-3">
                                 <asp:CheckBox runat="server" ID="or_best_offer" Text="Or Best Offer" />
@@ -421,7 +438,7 @@
                         <div class="mt-3">
                             <div class="row text-center text-lg-left">
                                 <div class="col-lg-6 ">
-                                    <asp:Button runat="server" CssClass="btn btn-dark disabled" Text="Next Step" />
+                                    <asp:Button runat="server" OnClick="AddCar" CssClass="btn btn-dark" Text="Send" />
                                 </div>
                                 <div class="col-lg-6 mt-3 mt-lg-0">
                                     <span>No Photos? <a href="#">Save Listing For Later</a></span>

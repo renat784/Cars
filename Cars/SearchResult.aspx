@@ -179,6 +179,24 @@
                     </div>
                     <%--search results--%>
                     <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-7"></div>
+                            <div class="col-5">
+                                <div class="row">
+                                    <div class="col-3 text-right px-0">
+                                        <asp:Label CssClass="control-label bold pt-1" runat="server" AssociatedControlID="SortBy">Sort by:</asp:Label>
+                                    </div>
+                                    <div class="col-9">
+                                        <asp:DropDownList OnSelectedIndexChanged="SortBy_OnSelectedIndexChanged" CssClass="form-control" ID="SortBy" runat="server" AutoPostBack="True" >
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                        </div>
+                        
+                        
                         <asp:Repeater runat="server" ID="RepeaterCards">
 
                             <ItemTemplate>

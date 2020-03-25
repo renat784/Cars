@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -19,16 +20,17 @@ namespace Cars
        
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             //if (!User.Identity.IsAuthenticated) 
             //{
             //    Response.Redirect("~/account/Login.aspx");
             //}
-           
+
 
             // one time init
             //if (!Page.IsPostBack)
             //{
-                
+
 
             //    string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
             //    using (SqlConnection connection = new SqlConnection(connectionString))
@@ -198,10 +200,10 @@ namespace Cars
 
         public IEnumerable<string> YearsList()
         {
-            var MIN_YEAR = 1900;
+            var MIN_YEAR = 2000;
             var MAX_YEAR = DateTime.Now.Year + 1;
             var list = new List<string>();
-            list.Add("Select a Year");
+            
 
             // backward list
             for (int i = MAX_YEAR - 1; i >= MIN_YEAR; i--)
@@ -212,15 +214,118 @@ namespace Cars
             return list;
         }
 
-       
-
-       
-
-        
 
 
         
 
 
+        public List<string> StatesList()
+        {
+            var statesList = new List<string>
+            {
+                "Select a State",
+                "Alabama",
+                "Alaska",
+                "Arizona",
+                "Arkansas",
+                "California",
+                "Colorado",
+                "Connecticut",
+                "Delaware",
+                "Florida",
+                "Georgia",
+                "Hawaii",
+                "Idaho",
+                "Illinois",
+                "Indiana",
+                "Iowa",
+                "Kansas",
+                "Kentucky",
+                "Louisiana",
+                "Maine",
+                "Maryland",
+                "Massachusetts",
+                "Michigan",
+                "Minnesota",
+                "Mississippi",
+                "Missouri",
+                "Montana",
+                "Nebraska",
+                "Nevada",
+                "New Hampshire",
+                "New Jersey",
+                "New Mexico",
+                "New York",
+                "North Carolina",
+                "North Dakota",
+                "Ohio",
+                "Oklahoma",
+                "Oregon",
+                "Pennsylvania",
+                "Rhode Island",
+                "South Carolina",
+                "South Dakota",
+                "Tennessee",
+                "Texas",
+                "Utah",
+                "Vermont",
+                "Virginia",
+                "Washington",
+                "West Virginia",
+                "Wisconsin",
+                "Wyoming"
+
+            };
+            return statesList;
+        }
+
+        protected void AddCar(object sender, EventArgs e)
+        {
+            if (ModelState.IsValid)
+            {
+
+
+                string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    SqlCommand sqlCommand = new SqlCommand();
+                    sqlCommand.Parameters.AddWithValue("@Year", Year.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@Make", Make.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@Model", Model.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@Style", Style.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@BodyStyle", BodyStyle.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@Transmission", Transmission.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@Mileage", Mileage.Text);
+                    sqlCommand.Parameters.AddWithValue("@ExteriorColor", ExteriorColor.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@InteriorColor", InteriorColor.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@Price", Price.Text);
+
+                    
+                    string commandText = "insert into Cars values (@Make, @Model, @Year, @Style, @BodyStyle," +
+                                         " @Transmission, @Mileage, @ExteriorColor, @InteriorColor, @Price)";
+
+                    sqlCommand.Connection = connection;
+                    sqlCommand.CommandText = commandText;
+
+                    sqlCommand.ExecuteNonQuery();
+
+                    string query = "make=" + Make.SelectedValue + "&" +
+                                   "model=" + Model.SelectedValue + "&" +
+                                   "year=" + Year.SelectedValue + "&" +
+                                   "style=" + Style.SelectedValue + "&" +
+                                   "bodystyle=" + BodyStyle.SelectedValue + "&" +
+                                   "transmission=" + Transmission.SelectedValue + "&" +
+                                   "mileage=" + Mileage.Text + "&" +
+                                   "exteriorcolor=" + ExteriorColor.SelectedValue + "&" +
+                                   "interiorcolor=" + InteriorColor.SelectedValue + "&" +
+                                   "price=" + Price.Text;
+
+                    Response.Redirect("/caradded?" + query);
+                }
+
+            }
+        }
     }
 }

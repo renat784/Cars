@@ -16,14 +16,11 @@ namespace Cars
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-
             if (!Page.IsPostBack)
             {
                 if (Request.QueryString.Count > 0)
                 {
-                    
+                    OrderBySeeding();
 
                     SearchNow();
                    
@@ -54,72 +51,97 @@ namespace Cars
 
         }
 
-        private void SearchNow()
+        private void OrderBySeeding()
         {
-            
+            SortBy.Items.Clear();
+            SortBy.Items.Add("Not Sorted");
+            SortBy.Items.Add("Price: Lowest");
+            SortBy.Items.Add("Price: Highest");
+            SortBy.Items.Add("Mileage: Lowest");
+            SortBy.Items.Add("Mileage: Highest");
+            SortBy.Items.Add("Year: Newest");
+            SortBy.Items.Add("Year: Oldest");
+
+
+        }
+
+        public SqlCommand ParseUrl()
+        {
             string make = Request.QueryString["make"];
             string model = Request.QueryString["model"];
             string maxPrice = Request.QueryString["maxPrice"];
             string bodystyle = Request.QueryString["bodystyle"];
+            string year = Request.QueryString["year"];
 
-            Debug.WriteLine(maxPrice);
+            SqlCommand sqlCommand = new SqlCommand();
 
+            List<string> cmdList = new List<string>();
+
+            if (!string.IsNullOrEmpty(make))
+            {
+                sqlCommand.Parameters.AddWithValue("@Make", make);
+                cmdList.Add(" Make = @Make and ");
+            }
+            if (!string.IsNullOrEmpty(model))
+            {
+                sqlCommand.Parameters.AddWithValue("@Model", model);
+                cmdList.Add(" Model = @Model and ");
+            }
+            if (!string.IsNullOrEmpty(maxPrice))
+            {
+                sqlCommand.Parameters.AddWithValue("@MaxPrice", maxPrice);
+                cmdList.Add(" Price < @MaxPrice and ");
+            }
+            if (!string.IsNullOrEmpty(bodystyle))
+            {
+                sqlCommand.Parameters.AddWithValue("@BodyStyle", bodystyle);
+                cmdList.Add(" Bodystyle = @BodyStyle and ");
+            }
+            if (!string.IsNullOrEmpty(year))
+            {
+                sqlCommand.Parameters.AddWithValue("@Year", year);
+                cmdList.Add(" Year = @Year and ");
+            }
+
+
+            cmdList[cmdList.Count - 1] = cmdList[cmdList.Count - 1].Replace("and", ";");
+
+            string search = "";
+
+            cmdList.ForEach(i => search += i);
+
+            string commandText = " select * from Cars where " + search;
+
+
+           
+            sqlCommand.CommandText = commandText;
+            return sqlCommand;
+        }
+
+
+        private void SearchNow(string orderBy = "")
+        {
             string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                SqlCommand sqlCommand = new SqlCommand();
-                
-                
-                
+                SqlCommand sqlCommand = ParseUrl();
 
-                List<string> cmdList = new List<string>();
-
-                
-                if (!string.IsNullOrEmpty(make))
+                if (!string.IsNullOrEmpty(orderBy))
                 {
-                    sqlCommand.Parameters.AddWithValue("@Make", make);
-                    cmdList.Add(" Make = @Make and ");
-                }
-                if (!string.IsNullOrEmpty(model))
-                {
-                    sqlCommand.Parameters.AddWithValue("@Model", model);
-                    cmdList.Add(" Model = @Model and ");
-                }
-                if (!string.IsNullOrEmpty(maxPrice))
-                {
-                    sqlCommand.Parameters.AddWithValue("@MaxPrice", maxPrice);
-                    cmdList.Add(" Price < @MaxPrice and ");
-                }
-                if (!string.IsNullOrEmpty(bodystyle))
-                {
-                    sqlCommand.Parameters.AddWithValue("@BodyStyle", bodystyle);
-                    cmdList.Add(" Bodystyle = @BodyStyle and ");
+                    sqlCommand.CommandText = sqlCommand.CommandText.Replace(";", "");
+                    sqlCommand.CommandText += orderBy;
                 }
 
-
-                cmdList[cmdList.Count - 1] = cmdList[cmdList.Count - 1].Replace("and", ";");
-
-                string search = "";
-
-                cmdList.ForEach(i => search += i);
-
-                string commandText = " select * from Cars where " + search;
-                                    
+                Debug.WriteLine(sqlCommand.CommandText);
 
                 sqlCommand.Connection = connection;
-                sqlCommand.CommandText = commandText;
 
                 var reader = sqlCommand.ExecuteReader();
 
                 RepeaterCards.DataSource = reader;
                 RepeaterCards.DataBind();
-
-               
-               
             }
-
-
         }
 
 
@@ -150,10 +172,11 @@ namespace Cars
             {
                 connection.Open();
                 SqlCommand sqlCommand = new SqlCommand();
-                sqlCommand.Parameters.AddWithValue("@Make", Make.SelectedValue);
-                sqlCommand.Parameters.AddWithValue("@Model", Model.SelectedValue);
+
+                
+                
                 //sqlCommand.Parameters.AddWithValue("@Year", Year.SelectedValue);
-                sqlCommand.Parameters.AddWithValue("@Price", Price.SelectedValue);
+               
 
                 List<string> cmdList = new List<string>();
 
@@ -163,14 +186,17 @@ namespace Cars
                 //}
                 if (!Make.SelectedValue.Contains("Select"))
                 {
+                    sqlCommand.Parameters.AddWithValue("@Make", Make.SelectedValue);
                     cmdList.Add(" Make=@Make and ");
                 }
                 if (!Model.SelectedValue.Contains("Select"))
                 {
+                    sqlCommand.Parameters.AddWithValue("@Model", Model.SelectedValue);
                     cmdList.Add(" Model=@Model and ");
                 }
                 if (!Price.SelectedValue.Contains("Max"))
                 {
+                    sqlCommand.Parameters.AddWithValue("@Price", Price.SelectedValue);
                     cmdList.Add(" Price < @Price and ");
                 }
 
@@ -278,12 +304,54 @@ namespace Cars
             return str_list;
         }
 
+        
+
         public List<string> MaxYearList()
         {
             var list = YearsList();
             var str_list = new List<string>();
             list.ForEach(i => str_list.Add(i.ToString()));
             return str_list;
+        }
+
+        protected void SortBy_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            string value = SortBy.SelectedValue;
+            string text = " ";
+
+            if (value.Contains("Price") & value.Contains("Lowest"))
+            {
+                text += "order by Price asc";
+            }
+            if (value.Contains("Price") & value.Contains("Highest"))
+            {
+                text += "order by Price desc";
+            }
+            
+
+            if (value.Contains("Mileage") & value.Contains("Lowest"))
+            {
+                text += "order by Mileage asc";
+            }
+            if (value.Contains("Mileage") & value.Contains("Highest"))
+            {
+                text += "order by Mileage desc";
+            }
+
+
+            if (value.Contains("Year") & value.Contains("Oldest"))
+            {
+                text += "order by Year asc";
+            }
+            if (value.Contains("Year") & value.Contains("Newest"))
+            {
+                text += "order by Year desc";
+            }
+
+          
+
+            SearchNow(text);
+
         }
     }
 }
