@@ -4,7 +4,7 @@
         <h1>WooHoo</h1>
         <p class="my-2" style="color: green;font-size: 20px">Your car successfully added to our database!</p>
         <div class="mt-3">
-            <a href="<%=HttpContext.Current.Request.Url.PathAndQuery.Replace("caradded", "searchresult") %>">This is a link to your car</a>
+            <a href="<%=HttpContext.Current.Request.Url.PathAndQuery.Replace("caradded", "searchresult") %>">This is a link to all your cars</a>
         </div>
     </div>
 </asp:Content>

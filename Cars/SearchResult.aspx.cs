@@ -75,10 +75,17 @@ namespace Cars
             string year = Request.QueryString["year"];
             string minYear = Request.QueryString["minYear"];
             string maxYear = Request.QueryString["maxYear"];
+            string owner = Request.QueryString["owner"];
 
             SqlCommand sqlCommand = new SqlCommand();
 
             List<string> cmdList = new List<string>();
+
+            if (!string.IsNullOrEmpty(owner))
+            {
+                sqlCommand.Parameters.AddWithValue("@SellerId", owner);
+                cmdList.Add("  SellerId = @SellerId and ");
+            }
 
             if (!string.IsNullOrEmpty(minYear))
             {

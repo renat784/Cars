@@ -291,6 +291,7 @@ namespace Cars
                 {
                     connection.Open();
                     SqlCommand sqlCommand = new SqlCommand();
+                    // car:
                     sqlCommand.Parameters.AddWithValue("@Year", Year.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@Make", Make.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@Model", Model.SelectedValue);
@@ -301,26 +302,48 @@ namespace Cars
                     sqlCommand.Parameters.AddWithValue("@ExteriorColor", ExteriorColor.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@InteriorColor", InteriorColor.SelectedValue);
                     sqlCommand.Parameters.AddWithValue("@Price", Price.Text);
-
+                    // seller:
+                    sqlCommand.Parameters.AddWithValue("@FirstName", FirstName.Text);
+                    sqlCommand.Parameters.AddWithValue("@LastName", LastName.Text);
+                    sqlCommand.Parameters.AddWithValue("@EmailAdress", EmailAdress.Text);
+                    sqlCommand.Parameters.AddWithValue("@PhoneNumber", PhoneNumber.Text);
+                    sqlCommand.Parameters.AddWithValue("@DayTime", DayTime.SelectedValue);
+                    sqlCommand.Parameters.AddWithValue("@ZIP", ZIP.Text);
                     
-                    string commandText = "insert into Cars values (@Make, @Model, @Year, @Style, @BodyStyle," +
-                                         " @Transmission, @Mileage, @ExteriorColor, @InteriorColor, @Price)";
-
                     sqlCommand.Connection = connection;
-                    sqlCommand.CommandText = commandText;
+                    
 
+                    string addSeller = "insert into Sellers values(@FirstName, @LastName, @EmailAdress, @PhoneNumber," +
+                                       " @DayTime, @ZIP)";
+
+                    sqlCommand.CommandText = addSeller;
                     sqlCommand.ExecuteNonQuery();
 
-                    string query = "make=" + Make.SelectedValue + "&" +
-                                   "model=" + Model.SelectedValue + "&" +
-                                   "year=" + Year.SelectedValue + "&" +
-                                   "style=" + Style.SelectedValue + "&" +
-                                   "bodystyle=" + BodyStyle.SelectedValue + "&" +
-                                   "transmission=" + Transmission.SelectedValue + "&" +
-                                   "mileage=" + Mileage.Text + "&" +
-                                   "exteriorcolor=" + ExteriorColor.SelectedValue + "&" +
-                                   "interiorcolor=" + InteriorColor.SelectedValue + "&" +
-                                   "price=" + Price.Text;
+                    string getSellerId = "select SellerId from Sellers where FirstName = @FirstName and" +
+                                         " LastName = @LastName and PhoneNumber = @PhoneNumber";
+
+                    sqlCommand.CommandText = getSellerId;
+                    int sellerId = (int) sqlCommand.ExecuteScalar();
+
+                    sqlCommand.Parameters.AddWithValue("@SellerId", sellerId);
+
+                    string commandText = "insert into Cars values (@Make, @Model, @Year, @Style, @BodyStyle," +
+                                         " @Transmission, @Mileage, @ExteriorColor, @InteriorColor, @Price, @SellerId)";
+
+                    sqlCommand.CommandText = commandText;
+                    sqlCommand.ExecuteNonQuery();
+
+                    string query = "owner=" + sellerId;
+                    //string query = "make=" + Make.SelectedValue + "&" +
+                    //               "model=" + Model.SelectedValue + "&" +
+                    //               "year=" + Year.SelectedValue + "&" +
+                    //               "style=" + Style.SelectedValue + "&" +
+                    //               "bodystyle=" + BodyStyle.SelectedValue + "&" +
+                    //               "transmission=" + Transmission.SelectedValue + "&" +
+                    //               "mileage=" + Mileage.Text + "&" +
+                    //               "exteriorcolor=" + ExteriorColor.SelectedValue + "&" +
+                    //               "interiorcolor=" + InteriorColor.SelectedValue + "&" +
+                    //               "price=" + Price.Text;
 
                     Response.Redirect("/caradded?" + query);
                 }

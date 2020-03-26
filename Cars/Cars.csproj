@@ -586,6 +586,10 @@
     <Compile Include="Migrations\202003231049110_init.Designer.cs">
       <DependentUpon>202003231049110_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003260652087_seller_added.cs" />
+    <Compile Include="Migrations\202003260652087_seller_added.Designer.cs">
+      <DependentUpon>202003260652087_seller_added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\CarsGenerator.cs" />
     <Compile Include="Migrations\Carusel.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -606,6 +610,7 @@
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\NumberOfDoors.cs" />
     <Compile Include="Models\PhoneType.cs" />
+    <Compile Include="Models\Seller.cs" />
     <Compile Include="Models\SellerType.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Style.cs" />
@@ -731,6 +736,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202003231049110_init.resx">
       <DependentUpon>202003231049110_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003260652087_seller_added.resx">
+      <DependentUpon>202003260652087_seller_added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

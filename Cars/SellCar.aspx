@@ -13,15 +13,9 @@
         });
     </script>
 
-
     <asp:UpdatePanel ID="updpnlRefresh" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <section>
-            
-          
-            
-                
-
                 <div class="col-lg-6 offset-lg-2">
                     <h2 class="secondary text-center font-weight-bold">Your Listing</h2>
                     <hr />
@@ -316,24 +310,37 @@
                                     <asp:Label class="control-label" AssociatedControlID="FirstName" runat="server">First Name</asp:Label>
                                     <asp:TextBox ID="FirstName" CssClass="form-control" runat="server">
                                     </asp:TextBox>
+                                    <div>
+                                        <asp:RequiredFieldValidator ErrorMessage="Enter your First Name, please" ForeColor="red" SetFocusOnError="True"  ControlToValidate="FirstName" runat="server"></asp:RequiredFieldValidator>
+                                    </div>
                                 </div>
+
                                 <div class="form-group">
                                     <asp:Label class="control-label" AssociatedControlID="LastName" runat="server">Last Name</asp:Label>
                                     <asp:TextBox ID="LastName" CssClass="form-control" runat="server">
                                     </asp:TextBox>
+                                    <div>
+                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Last Name, please" ForeColor="red" SetFocusOnError="True"  ControlToValidate="LastName" runat="server"></asp:RequiredFieldValidator>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <asp:Label class="control-label" AssociatedControlID="EmailAdress" runat="server">Email Address</asp:Label>
                                     <asp:TextBox ID="EmailAdress" TextMode="Email" CssClass="form-control" runat="server">
                                     </asp:TextBox>
+                                    <div>
+                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Email Adress, please" ForeColor="red" SetFocusOnError="True"  ControlToValidate="EmailAdress" runat="server"></asp:RequiredFieldValidator>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <asp:Label class="control-label" AssociatedControlID="PhoneNumber" runat="server">Phone number</asp:Label>
                                     <asp:TextBox ID="PhoneNumber" TextMode="Phone" CssClass="form-control" runat="server">
                                     </asp:TextBox>
+                                    <div>
+                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Phone number, please" ForeColor="red" SetFocusOnError="True"  ControlToValidate="PhoneNumber" runat="server"></asp:RequiredFieldValidator>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <asp:DropDownList ID="phoneType" CssClass="form-control" runat="server" AutoPostBack="True">
+                                    <asp:DropDownList ID="DayTime"  CssClass="form-control" runat="server" AutoPostBack="True">
                                         <asp:ListItem>Daytime</asp:ListItem>
                                         <asp:ListItem>Evening</asp:ListItem>
                                         <asp:ListItem>Mobile</asp:ListItem>
@@ -342,7 +349,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-6">
-                                            <asp:Label class="control-label" AssociatedControlID="Zip" runat="server">ZIP</asp:Label>
+                                            <asp:Label class="control-label" AssociatedControlID="ZIP" runat="server">ZIP</asp:Label>
                                         </div>
                                         <div class="col-6 text-right">
                                             <a tabindex="0" role="button" data-toggle="popover"
@@ -354,8 +361,11 @@
                                         </div>
                                     </div>
 
-                                    <asp:TextBox ID="Zip" CssClass="form-control" runat="server">
+                                    <asp:TextBox ID="ZIP" TextMode="Number" CssClass="form-control" runat="server">
                                     </asp:TextBox>
+                                    <div>
+                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Zip Code, please" ForeColor="red" SetFocusOnError="True"  ControlToValidate="ZIP" runat="server"></asp:RequiredFieldValidator>
+                                    </div>
                                     <div class="text-center text-lg-left">
                                         <small>Vehicle location</small>
                                     </div>
@@ -438,7 +448,7 @@
                         <div class="mt-3">
                             <div class="row text-center text-lg-left">
                                 <div class="col-lg-6 ">
-                                    <asp:Button runat="server" OnClick="AddCar" CssClass="btn btn-dark" Text="Send" />
+                                    <asp:Button runat="server" OnClick="AddCar" CssClass="btn niceButton" Text="Send" />
                                 </div>
                                 <div class="col-lg-6 mt-3 mt-lg-0">
                                     <span>No Photos? <a href="#">Save Listing For Later</a></span>

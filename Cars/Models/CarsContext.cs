@@ -15,6 +15,6 @@ namespace Cars.Models
 
         
         public DbSet<Car> Cars { get; set; }
-        
+        public DbSet<Seller> Sellers { get; set; }
     }
 }

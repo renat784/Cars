@@ -348,22 +348,22 @@ namespace Cars
         protected global::System.Web.UI.WebControls.TextBox PhoneNumber;
 
         /// <summary>
-        /// phoneType control.
+        /// DayTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList phoneType;
+        protected global::System.Web.UI.WebControls.DropDownList DayTime;
 
         /// <summary>
-        /// Zip control.
+        /// ZIP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Zip;
+        protected global::System.Web.UI.WebControls.TextBox ZIP;
 
         /// <summary>
         /// car_Images control.

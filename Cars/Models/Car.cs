@@ -12,25 +12,24 @@ namespace Cars.Models
         public int CarId { get; set; }
 
         [Required]
-        public string Make { get; set; } //   Honda
+        public string Make { get; set; } 
 
         [Required]
-        public string Model { get; set; } //  Accord
+        public string Model { get; set; } 
 
         [Required]
         public int Year { get; set; }
 
         [Required]
-        public string Style { get; set; } // standard, luxe
+        public string Style { get; set; }
 
         [Required]
-        public string Bodystyle { get; set; } // sedan
-
+        public string Bodystyle { get; set; } 
         [Required]
         public string Transmission { get; set; }
 
         [Required]
-        public int Mileage { get; set; } // user can write it, only this field
+        public int Mileage { get; set; } 
 
         [Required]
         public string ExteriorColor { get; set; }
@@ -41,6 +40,7 @@ namespace Cars.Models
         [Required] 
         public int Price { get; set; }
 
+        public int SellerId { get; set; }
         
         //public string[] CarImage { get; set; }
 
