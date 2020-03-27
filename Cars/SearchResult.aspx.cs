@@ -16,57 +16,77 @@ namespace Cars
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+
             if (!Page.IsPostBack)
             {
-                if (Request.QueryString.Count > 0)
-                {
-                    OrderBySeeding();
+               
 
-                    SearchFromQuery();
-                   
+                if (Request.QueryString.Count > 0 && string.IsNullOrEmpty(Request.QueryString.Get("orderby")))
+                {
+                    Response.Redirect(HttpContext.Current.Request.Url.PathAndQuery + 
+                                      "&orderby=Price-asc&offset=0&next=10");
                     return;
                 }
 
-                //string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
-                //using (SqlConnection connection = new SqlConnection(connectionString))
-                //{
-                //    connection.Open();
-                //    SqlCommand sqlCommand = new SqlCommand();
+                if (Request.QueryString.Count > 0)
+                {
+                    SetFilterResultsSelectedValues();
 
-                //    string commandText = "select Make from Cars"; 
+                    
 
-                //    sqlCommand.Connection = connection;
-                //    sqlCommand.CommandText = commandText;
 
-                //    var reader = sqlCommand.ExecuteReader();
+                    SearchFromQuery();
 
-                //    SeedDropDownList("Make", Make, reader);
-                //}
+                    return;
+                }
 
-                //Model.Items.Clear();
-                //Model.Items.Add("Select a Make First");
 
-                
+
+
             }
 
         }
 
+        private void SetFilterResultsSelectedValues()
+        {
+            if (Request.QueryString["minYear"] != null)
+            {
+                MinYear.SelectedIndex = MinYearList().IndexOf(Request.QueryString["minYear"]);
+            }
+            if (Request.QueryString["maxYear"] != null)
+            {
+                MaxYear.SelectedIndex = MaxYearList().IndexOf(Request.QueryString["maxYear"]);
+            }
+
+            if (Request.QueryString["minPrice"] != null)
+            {
+                MinPrice_FilterResults.SelectedIndex = MinPrices().IndexOf(Request.QueryString["minPrice"]);
+            }
+            if (Request.QueryString["maxPrice"] != null)
+            {
+                MaxPrice_FilterResults.SelectedIndex = MaxPrices().IndexOf(Request.QueryString["maxPrice"]);
+            }
+
+        }
+
+
+        private void ChangeSortDropDownFromQuery()
+        {
+           
+        }
+
         private void OrderBySeeding()
         {
-            SortBy.Items.Clear();
-            SortBy.Items.Add("Not Sorted");
-            SortBy.Items.Add("Price: Lowest");
-            SortBy.Items.Add("Price: Highest");
-            SortBy.Items.Add("Mileage: Lowest");
-            SortBy.Items.Add("Mileage: Highest");
-            SortBy.Items.Add("Year: Newest");
-            SortBy.Items.Add("Year: Oldest");
+            
 
 
         }
 
         public SqlCommand ParseUrl()
         {
+            
+
             string make = Request.QueryString["make"];
             string model = Request.QueryString["model"];
             string minPrice = Request.QueryString["minPrice"];
@@ -76,10 +96,18 @@ namespace Cars
             string minYear = Request.QueryString["minYear"];
             string maxYear = Request.QueryString["maxYear"];
             string owner = Request.QueryString["owner"];
+            string orderby = Request.QueryString["orderby"];
+            string offset = Request.QueryString["offset"];
+            string next = Request.QueryString["next"];
+
+            
+
 
             SqlCommand sqlCommand = new SqlCommand();
 
             List<string> cmdList = new List<string>();
+
+           
 
             if (!string.IsNullOrEmpty(owner))
             {
@@ -138,8 +166,24 @@ namespace Cars
                 cmdList.Add(" Year = @Year and ");
             }
 
+            
 
-            cmdList[cmdList.Count - 1] = cmdList[cmdList.Count - 1].Replace("and", ";");
+            cmdList[cmdList.Count - 1] = cmdList[cmdList.Count - 1].Replace("and", " ");
+
+            if (!string.IsNullOrEmpty(orderby))
+            {
+                string[] str = orderby.Split('-');
+               
+                cmdList.Add(" order by " + str[0] + " " + str[1]);
+            }
+            if (!string.IsNullOrEmpty(offset))
+            {
+                cmdList.Add(" offset " + offset + " rows ");
+            }
+            if (!string.IsNullOrEmpty(next))
+            {
+                cmdList.Add(" FETCH NEXT " + next + " ROWS only ");
+            }
 
             string search = "";
 
@@ -148,34 +192,71 @@ namespace Cars
             string commandText = " select * from Cars where " + search;
 
 
-           
-            sqlCommand.CommandText = commandText;
+
+            string cmd2Text = commandText;
+            cmd2Text = (cmd2Text.Remove(cmd2Text.IndexOf("order by"))).Replace("*", " COUNT(*) ");
+
+            
+
+
+
+            sqlCommand.CommandText = commandText + ";" + cmd2Text;
+          
             return sqlCommand;
         }
 
+        
 
-        private void SearchFromQuery(string orderBy = "")
+
+        private void SearchFromQuery()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["CarsConnection"].ConnectionString;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand sqlCommand = ParseUrl();
-
-                if (!string.IsNullOrEmpty(orderBy))
-                {
-                    sqlCommand.CommandText = sqlCommand.CommandText.Replace(";", "");
-                    sqlCommand.CommandText += orderBy;
-                }
-
-                Debug.WriteLine(sqlCommand.CommandText);
-
                 sqlCommand.Connection = connection;
+
+
+
+
+
+
+
+
+
+                //string cmd2Text = ParseUrl().CommandText;
+                //cmd2Text = (cmd2Text.Remove(cmd2Text.IndexOf("order by"))).Replace("*", " COUNT(Make) as Total ");
+                
+                //sqlCommand.CommandText = ParseUrl().CommandText + ";" + cmd2Text;
+                
 
                 var reader = sqlCommand.ExecuteReader();
 
                 RepeaterCards.DataSource = reader;
                 RepeaterCards.DataBind();
+
+                reader.NextResult();
+
+
+                while (reader.Read())
+                {
+                    
+                }
+
+
+
+
+                //Debug.WriteLine("result=" + sqlCommand.CommandText);
+
+                //ResultCount.Text = sqlCommand.ExecuteScalar() as string;
+
+
+
+                //Debug.WriteLine(sqlCommand.CommandText);
+                //select* from Cars where  Make = @Make and Model = @Model 
+                //order by Price asc offset 0 rows FETCH NEXT 10 ROWS only
+
             }
         }
 
@@ -220,6 +301,8 @@ namespace Cars
 
             list[list.Count - 1] = list[list.Count - 1].Replace("&", "");
             list.ForEach(i => query += i);
+
+            query += "&orderby=Price-asc&offset=0&next=10";
 
             Response.Redirect("/searchresult?" + query);
 
@@ -319,8 +402,14 @@ namespace Cars
         public List<string> MinYearList()
         {
             var list = YearsList();
-            list.Sort();
+
             
+            
+            
+            list.Sort();
+
+            
+
             var str_list = new List<string>();
             list.ForEach(i => str_list.Add(i.ToString()));
             return str_list;
@@ -338,42 +427,92 @@ namespace Cars
 
         protected void SortBy_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            string value = SortBy.SelectedValue;
-            string text = " ";
+           
+            int index = SortBy.SelectedIndex;
+            
+          
 
-            if (value.Contains("Price") & value.Contains("Lowest"))
+            if (index == 1)
             {
-                text += "order by Price asc";
+                AddOrReplaceOrder("Price", "asc");
+               
+                //text += "order by Price asc";
             }
-            if (value.Contains("Price") & value.Contains("Highest"))
+            if (index == 2)
             {
-                text += "order by Price desc";
+                AddOrReplaceOrder("Price", "desc");
+                //Response.Redirect(HttpContext.Current.Request.Url.PathAndQuery + "&orderby=Price-desc");
+                //text += "order by Price desc";
             }
             
 
-            if (value.Contains("Mileage") & value.Contains("Lowest"))
+            if (index == 3)
             {
-                text += "order by Mileage asc";
+                AddOrReplaceOrder("Mileage", "asc");
+                //Response.Redirect(HttpContext.Current.Request.Url.PathAndQuery + "&orderby=Mileage-asc");
+                //text += "order by Mileage asc";
             }
-            if (value.Contains("Mileage") & value.Contains("Highest"))
+            if (index == 4)
             {
-                text += "order by Mileage desc";
-            }
-
-
-            if (value.Contains("Year") & value.Contains("Oldest"))
-            {
-                text += "order by Year asc";
-            }
-            if (value.Contains("Year") & value.Contains("Newest"))
-            {
-                text += "order by Year desc";
+                AddOrReplaceOrder("Mileage", "desc");
+                //Response.Redirect(HttpContext.Current.Request.Url.PathAndQuery + "&orderby=Mileage-desc");
+                //text += "order by Mileage desc";
             }
 
-          
+            if (index == 5)
+            {
+                AddOrReplaceOrder("Year", "desc");
+                //Response.Redirect(HttpContext.Current.Request.Url.PathAndQuery + "&orderby=Year-desc");
+                //text += "order by Year desc";
+            }
 
-            SearchFromQuery(text);
+            if (index == 6)
+            {
+                AddOrReplaceOrder("Year", "asc");
+                //Response.Redirect(HttpContext.Current.Request.Url.PathAndQuery + "&orderby=Year-asc");
+                //text += "order by Year asc";
+            }
+            
+            
 
+            Session["SearchResults_SortByIndex"] = index;
+           Debug.WriteLine("index=" + index);
+
+        }
+
+        private void AddOrReplaceOrder(string category, string order)
+        {
+            string url = HttpContext.Current.Request.Url.PathAndQuery;
+            if (!url.Contains("&orderby="))
+            {
+                
+                Response.Redirect(HttpContext.Current.Request.Url.PathAndQuery + "&orderby=" 
+                                                                               + category + "-" + order);
+            }
+            else
+            {
+                var array = url.Split('&');
+                for (int i = 0; i < array.Length; i++)
+                {
+                    if (array[i].Contains("asc") || array[i].Contains("desc"))
+                    {
+                        array[i] = "orderby=" + category + "-" + order;
+                    }
+                }
+
+                string newUrl = "";
+                array.ForEach(i => newUrl += (i + '&'));
+                newUrl = newUrl.Remove(newUrl.LastIndexOf('&'), 1); 
+                
+                    
+                
+
+               
+               
+                Response.Redirect(newUrl);
+            }
+
+            
         }
 
         protected void SearchFromFilterResults(object sender, EventArgs e)
@@ -393,13 +532,66 @@ namespace Cars
 
             list[list.Count - 1] = list[list.Count - 1].Replace("&", "");
             list.ForEach(i => query += i);
-
+            query += "&orderby=Price-asc&offset=0&next=10";
             Response.Redirect("/searchresult?" + query);
         }
 
-        protected void OnDataBound(object sender, EventArgs e)
+        protected void MakeRadioList_OnDataBound(object sender, EventArgs e)
         {
-            (sender as RadioButtonList).Items[0].Selected = true;
+            if (Request.QueryString["make"] != null)
+            {
+                var make = Request.QueryString["make"];
+
+                int index = Make_RadioList.Items.IndexOf(new ListItem(make));
+                Make_RadioList.SelectedIndex = index;
+            }
+            else
+            {
+                Make_RadioList.Items[0].Selected = true;
+            }
+            
+                
+            
+        }
+
+
+        protected void ResultsForPage(object sender, EventArgs e)
+        {
+            string url = HttpContext.Current.Request.Url.PathAndQuery;
+            url = url.Remove(url.IndexOf("next")) + "next=" + ResultsPerPage.SelectedValue.Split(' ')[0];
+            Response.Redirect(url);
+        }
+
+
+        
+
+        public IEnumerable SortByList()
+        {
+            var list = new List<string>();
+            list.Add("Not Sorted");
+            list.Add("Price: Lowest");
+            list.Add("Price: Highest");
+            list.Add("Mileage: Lowest");
+            list.Add("Mileage: Highest");
+            list.Add("Year: Newest");
+            list.Add("Year: Oldest");
+
+            return list;
+        }
+
+        protected void Model_RadioList_OnDataBound(object sender, EventArgs e)
+        {
+            if (Request.QueryString["model"] != null)
+            {
+                var model = Request.QueryString["model"];
+
+                int index = Model_RadioList.Items.IndexOf(new ListItem(model));
+                Model_RadioList.SelectedIndex = index;
+            }
+            else
+            {
+                Model_RadioList.Items[0].Selected = true;
+            }
         }
     }
 }

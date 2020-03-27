@@ -5,7 +5,67 @@
 
 <asp:UpdatePanel ID="updpnlRefresh" runat="server" UpdateMode="Conditional">
 <ContentTemplate>
-    
+    <script>
+        // full page reload
+        $(() => {
+            ChangeTab();
+        })
+
+        // partial page reload (isPostBack)
+        function pageLoad(sender, args) {
+            if (args._isPartialLoad) {
+                ChangeTab();
+            }
+        }
+
+
+        function ChangeTab() {
+            if (localStorage["shopping_activeTabId"] !== null &&
+                localStorage["shopping_activeTabId"] !== undefined) {
+
+                ActiveTabSwitcher(localStorage["shopping_activeTabId"]);
+            } else {
+                ActiveTabSwitcher("home-tab");
+                
+                localStorage["shopping_activeTabId"] = "home-tab";
+            }
+        }
+
+        function ActiveTabSwitcher(id) {
+            switch (id) {
+                case "home-tab":
+                    if ($("#profile-tab").hasClass("active")) { $("#profile-tab").removeClass("active"); }
+                    if ($("#profile").hasClass("active")) { $("#profile").removeClass("active"); }
+                    if ($("#profile").hasClass("show")) { $("#profile").removeClass("show"); }
+
+                    if (!$("#home-tab").hasClass("active")) { $("#home-tab").addClass("active"); }
+                    if (!$("#home").hasClass("active")) { $("#home").addClass("active"); }
+                    if (!$("#home").hasClass("show")) { $("#home").addClass("show"); }
+                    break;
+
+                case "profile-tab":
+                    if ($("#home-tab").hasClass("active")) { $("#home-tab").removeClass("active"); }
+                    if ($("#home").hasClass("active")) { $("#home").removeClass("active"); }
+                    if ($("#home").hasClass("show")) { $("#home").removeClass("show"); }
+
+                    if (! $("#profile-tab").hasClass("active")) { $("#profile-tab").addClass("active"); }
+                    if (! $("#profile").hasClass("active")) { $("#profile").addClass("active"); }
+                    if (! $("#profile").hasClass("show")) { $("#profile").addClass("show"); }
+                    break;
+            }
+        }
+
+        function TabClicked(e) {
+
+            ActiveTabSwitcher(e.id);
+            localStorage["shopping_activeTabId"] = e.id;
+
+        }
+
+      
+
+
+    </script>
     <div class="bigImage" style="background-image: url(Images/mainImage2.png); position: relative">
         <div class="textOnImage">
             <h2 class="font-weight-bold">Shop Cars for Sale</h2>
@@ -38,14 +98,14 @@
 
 
             <div class="colorSecondary py-4  px-3 ">
-                <ul class="nav nav-tabs" style="border-bottom: none" id="myTab" role="tablist">
+                <ul class="nav nav-tabs"  style="border-bottom: none" id="myTab" role="tablist">
                     <li class="nav-item navTab">
-                        <a class="nav-link active py-1 px-2" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                        <a class="nav-link  py-1 px-2" onclick="TabClicked(this)" id="home-tab" data-toggle="tab" href="#home" role="tab"
                             aria-controls="home" aria-selected="true">Search By Make
                         </a>
                     </li>
                     <li class="nav-item navTab">
-                        <a class="nav-link py-1 px-2" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                        <a class="nav-link py-1 px-2"  onclick="TabClicked(this)" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
                             aria-controls="profile" aria-selected="false">Search By Body Style
                         </a>
                     </li>
@@ -54,7 +114,7 @@
                     </li>
                 </ul>
                 <div class="tab-content mt-4" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade "  id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="px-3">
                             <div class="row">
                                 <div class="col-lg-4 p-0">
@@ -63,7 +123,7 @@
                                     </asp:DropDownList>
                                 </div>
                                 <div class="col-lg-4 p-0">
-                                    <asp:DropDownList ID="Make" CssClass="form-control borderRad-0" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource" DataTextField="Make" DataValueField="Make">
+                                    <asp:DropDownList ID="Make" OnSelectedIndexChanged="OnSelectedIndexChanged" CssClass="form-control borderRad-0" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource" DataTextField="Make" DataValueField="Make">
                                     </asp:DropDownList>
 
                                     <asp:SqlDataSource runat="server" ID="SqlDataSource" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Make] FROM [Cars]"></asp:SqlDataSource>
@@ -71,7 +131,7 @@
                                 
 
                                 <div class="col-lg-4 p-0">
-                                    <asp:DropDownList ID="Model" CssClass="form-control borderRad-0" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Model" DataValueField="Model">
+                                    <asp:DropDownList ID="Model" OnSelectedIndexChanged="OnSelectedIndexChanged" OnDataBound="Model_OnDataBound" CssClass="form-control borderRad-0" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Model" DataValueField="Model">
                                     </asp:DropDownList>
                                     <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Model], [Make] FROM [Cars] WHERE ([Make] = @Make)">
                                         <SelectParameters>
@@ -83,7 +143,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4  p-0">
-                                    <asp:DropDownList ID="Price"   CssClass="form-control borderRad-0" runat="server"  AutoPostBack="True">
+                                    <asp:DropDownList ID="Price" OnSelectedIndexChanged="OnSelectedIndexChanged" SelectMethod="MaxPriceList"  CssClass="form-control borderRad-0" runat="server"  AutoPostBack="True">
                                         
                                     </asp:DropDownList>
                                 </div>
@@ -102,7 +162,7 @@
 
                                 <div class="col-lg-4 p-0">
                                     <asp:Button CssClass="btn btn-success greenButton borderRad-0"
-                                        runat="server" Text="Search" OnClick="SearchButtonClicked"/>
+                                        runat="server" Text="Search" OnClick="SearchByMake"/>
                                 </div>
                             </div>
                         </div>
@@ -116,13 +176,13 @@
                                 </asp:DropDownList>
                             </div>
                             <div class="col-lg-2 p-0">
-                                <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
-                                    <asp:ListItem>SUV</asp:ListItem>
+                                <asp:DropDownList ID="Bodystyle" OnSelectedIndexChanged="OnSelectedIndexChanged" CssClass="form-control borderRad-0" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="Bodystyle" DataValueField="Bodystyle">
                                 </asp:DropDownList>
+                                <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Bodystyle] FROM [Cars]"></asp:SqlDataSource>
                             </div>
                             <div class="col-lg-2 p-0">
-                                <asp:DropDownList CssClass="form-control borderRad-0" runat="server" AutoPostBack="True">
-                                    <asp:ListItem>No Max Price</asp:ListItem>
+                                <asp:DropDownList OnSelectedIndexChanged="OnSelectedIndexChanged" ID="Bodystyle_MaxPrice" CssClass="form-control borderRad-0" SelectMethod="MaxPriceList" runat="server" AutoPostBack="True">
+                                    
                                 </asp:DropDownList>
                             </div>
                             <div class="col-lg-2 p-0">
@@ -131,11 +191,11 @@
                                 </asp:DropDownList>
                             </div>
                             <div class="col-lg-2 p-0">
-                                <asp:TextBox CssClass="form-control borderRad-0" runat="server"></asp:TextBox>
+                                <asp:TextBox CssClass="form-control borderRad-0" Text="ZIP" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-lg-2 p-0">
                                 <asp:Button CssClass="btn btn-success greenButton borderRad-0"
-                                    runat="server" Text="Search" />
+                                    runat="server" Text="Search" OnClick="SearchByBodyStyle"/>
                             </div>
                         </div>
                     </div>
