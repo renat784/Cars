@@ -78,6 +78,24 @@ namespace Cars
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3;
 
         /// <summary>
+        /// Style_RadioList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList Style_RadioList;
+
+        /// <summary>
+        /// SqlDataSource4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
+
+        /// <summary>
         /// MinPrice_FilterResults control.
         /// </summary>
         /// <remarks>
@@ -94,6 +112,15 @@ namespace Cars
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList MaxPrice_FilterResults;
+
+        /// <summary>
+        /// Mileage_RadioList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList Mileage_RadioList;
 
         /// <summary>
         /// Make control.
@@ -157,6 +184,15 @@ namespace Cars
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList SortBy;
+
+        /// <summary>
+        /// NoResults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl NoResults;
 
         /// <summary>
         /// RepeaterCards control.

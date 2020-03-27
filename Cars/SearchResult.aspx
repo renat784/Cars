@@ -30,12 +30,19 @@
                 // full page reload
                 $(() => {
                     ChangeTab();
+
+
+                    
+
                 })
+
+                
 
                 // partial page reload (isPostBack)
                 function pageLoad(sender, args) {
                     if (args._isPartialLoad) {
                         ChangeTab();
+                        
                     }
                 }
 
@@ -92,7 +99,7 @@
 
             <div class="body-content my-5">
                 <hr />
-                <h4 class="text-center mb-3">Search results: </h4>
+                <h4 class="text-center mb-3">Search  </h4>
                 <div class="row colorGray">
                     <%--menu--%>
                     <div class="col-lg-4">
@@ -165,6 +172,11 @@
                                         </div>
                                         <hr />
                                         <div>
+                                            <asp:RadioButtonList OnDataBound="Style_RadioList_OnDataBound" ID="Style_RadioList" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="Style" DataValueField="Style" />
+                                            <asp:SqlDataSource runat="server" ID="SqlDataSource4" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Style] FROM [Cars]"></asp:SqlDataSource>
+                                        </div>
+                                        <hr/>
+                                        <div>
                                             <div class="mb-3">
                                                 <asp:Label CssClass="bold control-label" runat="server">Price</asp:Label>
                                             </div>
@@ -182,27 +194,11 @@
                                             </div>
                                         </div>
                                         <hr />
-                                        <%--<div>
-                                            <div>
-                                                <asp:Label CssClass="control-label bold" runat="server">Mileage</asp:Label>
-                                            </div>
-                                            <asp:Repeater runat="server" ID="Mileage_Repeater">
-                                                <ItemTemplate>
-                                                    <asp:RadioButton GroupName="group1" runat="server" ID="" Text="" />
-                                                </ItemTemplate>
-                                            </asp:Repeater>
-                                        </div>--%>
+                                        <div>
+                                            <asp:RadioButtonList OnDataBound="Mileage_RadioList_OnDataBound" ID="Mileage_RadioList" SelectMethod="Mileage_List" runat="server"/>
+                                        </div>
                                         <hr />
-                                        <%--<div>
-                                            <div>
-                                                <asp:Label CssClass="control-label bold" runat="server">Body Style</asp:Label>
-                                            </div>
-                                            <asp:Repeater runat="server" ID="BodyStyle_Repeater">
-                                                <ItemTemplate>
-                                                    <asp:CheckBox runat="server" ID="" Text="" />
-                                                </ItemTemplate>
-                                            </asp:Repeater>
-                                        </div>--%>
+                                      
                                         <hr />
                                         <div>
                                             <asp:Button runat="server" Text="Search" OnClick="SearchFromFilterResults" />
@@ -256,7 +252,7 @@
                                         <asp:Label CssClass="control-label bold pt-1" runat="server" AssociatedControlID="SortBy">Sort by:</asp:Label>
                                     </div>
                                     <div class="col-9">
-                                        <asp:DropDownList  SelectMethod="SortByList"  OnSelectedIndexChanged="SortBy_OnSelectedIndexChanged" CssClass="form-control" ID="SortBy" runat="server" AutoPostBack="True">
+                                        <asp:DropDownList  SelectMethod="SortByList" OnDataBound="SortBy_OnDataBound"  OnSelectedIndexChanged="SortBy_OnSelectedIndexChanged" CssClass="form-control" ID="SortBy" runat="server" AutoPostBack="True">
                                             
                                         </asp:DropDownList>
 
@@ -269,9 +265,16 @@
                             </div>
                         </div>
 
+                        <div id="NoResults" class="text-center" runat="server" style="background-color: gray; display: block;margin: 100px 0" >
+                           Ops, no items found !
+                            Try to start new search
+                            or
+                            change few filters in Filter Results
 
-                        <asp:Repeater runat="server" ID="RepeaterCards">
+                        </div>
 
+                        <asp:Repeater runat="server" ID="RepeaterCards" OnItemCreated="RepeaterCards_OnItemCreated">
+                           
                             <ItemTemplate>
                                 <div class="my-4" style="background-color: white">
                                     <div class="row">

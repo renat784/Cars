@@ -91,6 +91,8 @@ namespace Cars
             string model = Request.QueryString["model"];
             string minPrice = Request.QueryString["minPrice"];
             string maxPrice = Request.QueryString["maxPrice"];
+            
+            string maxMiles = Request.QueryString["maxMiles"];
             string bodystyle = Request.QueryString["bodystyle"];
             string year = Request.QueryString["year"];
             string minYear = Request.QueryString["minYear"];
@@ -115,16 +117,9 @@ namespace Cars
                 cmdList.Add("  SellerId = @SellerId and ");
             }
 
-            if (!string.IsNullOrEmpty(minYear))
-            {
-                sqlCommand.Parameters.AddWithValue("@MinYear", minYear);
-                cmdList.Add(" Year >= @MinYear and ");
-            }
-            if (!string.IsNullOrEmpty(maxYear))
-            {
-                sqlCommand.Parameters.AddWithValue("@MaxYear", maxYear);
-                cmdList.Add(" Year <= @MaxYear and ");
-            }
+           
+
+            
 
 
             if (!string.IsNullOrEmpty(make))
@@ -140,6 +135,22 @@ namespace Cars
                 cmdList.Add(" Model = @Model and ");
             }
 
+            if (!string.IsNullOrEmpty(minYear))
+            {
+                sqlCommand.Parameters.AddWithValue("@MinYear", minYear);
+                cmdList.Add(" Year >= @MinYear and ");
+            }
+            if (!string.IsNullOrEmpty(maxYear))
+            {
+                sqlCommand.Parameters.AddWithValue("@MaxYear", maxYear);
+                cmdList.Add(" Year <= @MaxYear and ");
+            }
+
+            if (!string.IsNullOrEmpty(maxMiles))
+            {
+                sqlCommand.Parameters.AddWithValue("@MaxMiles", maxMiles);
+                cmdList.Add(" Mileage <= @MaxMiles and ");
+            }
 
             if (!string.IsNullOrEmpty(minPrice))
             {
@@ -233,6 +244,11 @@ namespace Cars
 
                 var reader = sqlCommand.ExecuteReader();
 
+                // clear all items from last query
+                RepeaterCards.DataSource = null;
+                RepeaterCards.DataBind();
+
+                // set new items
                 RepeaterCards.DataSource = reader;
                 RepeaterCards.DataBind();
 
@@ -247,15 +263,7 @@ namespace Cars
 
 
 
-                //Debug.WriteLine("result=" + sqlCommand.CommandText);
-
-                //ResultCount.Text = sqlCommand.ExecuteScalar() as string;
-
-
-
-                //Debug.WriteLine(sqlCommand.CommandText);
-                //select* from Cars where  Make = @Make and Model = @Model 
-                //order by Price asc offset 0 rows FETCH NEXT 10 ROWS only
+                
 
             }
         }
@@ -476,7 +484,7 @@ namespace Cars
             
 
             Session["SearchResults_SortByIndex"] = index;
-           Debug.WriteLine("index=" + index);
+          
 
         }
 
@@ -524,10 +532,14 @@ namespace Cars
 
             list.Add("minYear=" + MinYear.SelectedValue + "&");
             list.Add("maxYear=" + MaxYear.SelectedValue + "&");
+            
             list.Add("make=" + Make_RadioList.SelectedValue + "&");
             list.Add("model=" + Model_RadioList.SelectedValue + "&");
+            list.Add("style=" + Style_RadioList.SelectedValue + "&");
             list.Add("minPrice=" + MinPrice_FilterResults.SelectedValue + "&");
             list.Add("maxPrice=" + MaxPrice_FilterResults.SelectedValue + "&");
+            
+            list.Add("maxMiles=" + Mileage_RadioList.SelectedValue.Split(' ')[0] + "&");
 
 
             list[list.Count - 1] = list[list.Count - 1].Replace("&", "");
@@ -592,6 +604,99 @@ namespace Cars
             {
                 Model_RadioList.Items[0].Selected = true;
             }
+        }
+
+        protected void Style_RadioList_OnDataBound(object sender, EventArgs e)
+        {
+            if (Request.QueryString["style"] != null)
+            {
+                var style = Request.QueryString["style"];
+
+                int index = Style_RadioList.Items.IndexOf(new ListItem(style));
+                Style_RadioList.SelectedIndex = index;
+            }
+            else
+            {
+                Style_RadioList.Items[0].Selected = true;
+            }
+        }
+
+        public List<string> Mileage_List()
+        {
+            var list = new List<string>();
+            for (int i = 10000; i <= 100000; i+= 10000)
+            {
+                list.Add(i + " or less");
+            }
+
+            list.Add("150000 or less");
+            list.Add("200000 or less");
+            list.Add("250000 or less");
+            list.Add("300000 or less");
+
+            return list;
+        }
+
+        protected void Mileage_RadioList_OnDataBound(object sender, EventArgs e)
+        {
+            if (Request.QueryString["maxMiles"] != null)
+            {
+                var miles = Request.QueryString["maxMiles"];
+
+                int index = Mileage_RadioList.Items.IndexOf(new ListItem(miles + " or less"));
+                Mileage_RadioList.SelectedIndex = index;
+            }
+            else
+            {
+                Mileage_RadioList.Items[0].Selected = true;
+            }
+        }
+
+        protected void SortBy_OnDataBound(object sender, EventArgs e)
+        {
+            int index = 0;
+            var str = Request.QueryString["orderby"];
+            if (str == null)
+            {
+                SortBy.SelectedIndex = index;
+                return;
+            }
+
+            switch (str)
+            {
+                case "Price-asc":
+                    index = 1;
+                    break;
+                case "Price-desc":
+                    index = 2;
+                    break;
+                case "Mileage-asc":
+                    index = 3;
+                    break;
+                case "Mileage-desc":
+                    index = 4;
+                    break;
+                case "Year-desc":
+                    index = 5;
+                    break;
+                case "Year-asc":
+                    index = 6;
+                    break;
+            }
+
+            SortBy.SelectedIndex = index;
+
+        }
+
+
+        protected void RepeaterCards_OnItemCreated(object sender, RepeaterItemEventArgs e)
+        {
+            if (NoResults.Visible)
+            {
+                NoResults.Visible = false;
+            }
+            
+           
         }
     }
 }
