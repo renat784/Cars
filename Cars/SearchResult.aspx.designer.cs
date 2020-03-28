@@ -24,15 +24,6 @@ namespace Cars
         protected global::System.Web.UI.UpdatePanel updpnlRefresh;
 
         /// <summary>
-        /// ResultCount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ResultCount;
-
-        /// <summary>
         /// MinYear control.
         /// </summary>
         /// <remarks>
@@ -175,6 +166,15 @@ namespace Cars
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SearchButton;
+
+        /// <summary>
+        /// TotalResultsRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater TotalResultsRepeater;
 
         /// <summary>
         /// SortBy control.

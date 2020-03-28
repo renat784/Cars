@@ -25,7 +25,7 @@ namespace Cars
                 if (Request.QueryString.Count > 0 && string.IsNullOrEmpty(Request.QueryString.Get("orderby")))
                 {
                     Response.Redirect(HttpContext.Current.Request.Url.PathAndQuery + 
-                                      "&orderby=Price-asc&offset=0&next=10");
+                                      "&orderby=Price-asc&offset=0&next=10" );
                     return;
                 }
 
@@ -205,13 +205,15 @@ namespace Cars
 
 
             string cmd2Text = commandText;
-            cmd2Text = (cmd2Text.Remove(cmd2Text.IndexOf("order by"))).Replace("*", " COUNT(*) ");
+            cmd2Text = (cmd2Text.Remove(cmd2Text.IndexOf("order by"))).Replace("*", " COUNT(*) as Total ");
 
             
 
 
 
             sqlCommand.CommandText = commandText + ";" + cmd2Text;
+
+            
           
             return sqlCommand;
         }
@@ -255,15 +257,13 @@ namespace Cars
                 reader.NextResult();
 
 
-                while (reader.Read())
-                {
-                    
-                }
+                TotalResultsRepeater.DataSource = reader;
+                TotalResultsRepeater.DataBind();
 
 
 
 
-                
+
 
             }
         }
@@ -310,7 +310,7 @@ namespace Cars
             list[list.Count - 1] = list[list.Count - 1].Replace("&", "");
             list.ForEach(i => query += i);
 
-            query += "&orderby=Price-asc&offset=0&next=10";
+            query += "&orderby=Price-asc&offset=0&next=" + ResultsPerPage.SelectedValue.Split(' ')[0];
 
             Response.Redirect("/searchresult?" + query);
 
@@ -544,7 +544,7 @@ namespace Cars
 
             list[list.Count - 1] = list[list.Count - 1].Replace("&", "");
             list.ForEach(i => query += i);
-            query += "&orderby=Price-asc&offset=0&next=10";
+            query += "&orderby=Price-asc&offset=0&next=" + ResultsPerPage.SelectedValue.Split(' ')[0];
             Response.Redirect("/searchresult?" + query);
         }
 
@@ -648,7 +648,10 @@ namespace Cars
             }
             else
             {
-                Mileage_RadioList.Items[0].Selected = true;
+                int index = Mileage_RadioList.Items.IndexOf(new ListItem("300000 or less"));
+                Mileage_RadioList.SelectedIndex = index;
+
+                
             }
         }
 
@@ -697,6 +700,37 @@ namespace Cars
             }
             
            
+        }
+
+        public IEnumerable SelectResultsPerPage()
+        {
+            var list = new List<string>();
+            list.Add("5 per page");
+            list.Add("10 per page");
+            list.Add("20 per page");
+            list.Add("30 per page");
+            list.Add("50 per page");
+            list.Add("100 per page");
+            return list;
+        }
+
+
+        protected void ResultsPerPage_OnDataBound(object sender, EventArgs e)
+        {
+            if (Request.QueryString["next"] != null)
+            {
+                var next = Request.QueryString["next"];
+
+                int index = ResultsPerPage.Items.IndexOf(new ListItem(next + " per page"));
+                ResultsPerPage.SelectedIndex = index;
+            }
+            else
+            {
+                int index = ResultsPerPage.Items.IndexOf(new ListItem("10 per page"));
+                ResultsPerPage.SelectedIndex = index;
+
+
+            }
         }
     }
 }

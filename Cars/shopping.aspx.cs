@@ -21,6 +21,7 @@ namespace Cars
 
             if (!Page.IsPostBack)
             {
+                // remember last checked options
                 Make.SelectedIndex = Session["MakeSelectedIndex"] == null ? 0 : (int)Session["MakeSelectedIndex"];
                 Price.SelectedIndex = Session["PriceSelectedIndex"] == null ? 0 : (int)Session["PriceSelectedIndex"];
                 Bodystyle.SelectedIndex = Session["BodystyleSelectedIndex"] == null ? 0 : (int)Session["BodystyleSelectedIndex"];

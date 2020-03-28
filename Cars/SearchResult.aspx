@@ -121,8 +121,7 @@
                                         <div class="mt-3">
                                             <div class="row">
                                                 <div class="col-6 text-center">
-                                                    <asp:Label CssClass="bold" ID="ResultCount" runat="server"></asp:Label>
-                                                    <span>results</span>
+                                                    
                                                 </div>
                                                 <div class="col-6 text-center">
                                                     <a href="#">Save Search</a>
@@ -245,7 +244,15 @@
                     <%--search results--%>
                     <div class="col-lg-8">
                         <div class="row">
-                            <div class="col-7"></div>
+                            <div class="col-7 pt-1" >
+                                <asp:Repeater ID="TotalResultsRepeater" runat="server">
+                                    <ItemTemplate>
+                                        <span  class="bold"><%#Eval("Total")%></span>
+                                        <span>results found</span>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                
+                            </div>
                             <div class="col-5">
                                 <div class="row">
                                     <div class="col-3 text-right px-0">
@@ -265,12 +272,13 @@
                             </div>
                         </div>
 
-                        <div id="NoResults" class="text-center" runat="server" style="background-color: gray; display: block;margin: 100px 0" >
-                           Ops, no items found !
-                            Try to start new search
-                            or
-                            change few filters in Filter Results
-
+                        <div id="NoResults" class="text-center my-5" runat="server">
+                            <hr />
+                            <h5 class="mb-3">Ops, no items found !</h5>
+                            <p>Try to start <strong>New Search</strong></p>
+                            <p>OR</p>
+                            <p>change few filters in <strong>Filter Results</strong></p>
+                            <hr />
                         </div>
 
                         <asp:Repeater runat="server" ID="RepeaterCards" OnItemCreated="RepeaterCards_OnItemCreated">
@@ -332,13 +340,8 @@
                             <asp:Button runat="server" CssClass="btn niceButton ml-3" Text="Next" />
                         </div>
                         <div class="my-3 row justify-content-center">
-                            <asp:DropDownList CssClass="form-control col-3" OnSelectedIndexChanged="ResultsForPage" runat="server" ID="ResultsPerPage" AutoPostBack="True">
-                                <asp:ListItem>5 per page</asp:ListItem>
-                                <asp:ListItem Selected="True">10 per page</asp:ListItem>
-                                <asp:ListItem>20 per page</asp:ListItem>
-                                <asp:ListItem>30 per page</asp:ListItem>
-                                <asp:ListItem>50 per page</asp:ListItem>
-                                <asp:ListItem>100 per page</asp:ListItem>
+                            <asp:DropDownList OnDataBound="ResultsPerPage_OnDataBound" SelectMethod="SelectResultsPerPage" CssClass="form-control col-3" OnSelectedIndexChanged="ResultsForPage" runat="server" ID="ResultsPerPage" AutoPostBack="True">
+                                
                             </asp:DropDownList>
                         </div>
                     </div>
