@@ -223,6 +223,7 @@
     <Content Include="Content\News\news-porche.png" />
     <Content Include="Content\News\news-safety.png" />
     <Content Include="Content\Site.css" />
+    <Content Include="Details.aspx" />
     <Content Include="ExpertTips\image1.jpg" />
     <Content Include="ExpertTips\image2.jpg" />
     <Content Include="ExpertTips\image3.jpg" />
@@ -571,6 +572,13 @@
     </Compile>
     <Compile Include="contact.aspx.designer.cs">
       <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -795,5 +795,11 @@ namespace Cars
 
             }
         }
+
+        protected void CheckAvailability(object sender, EventArgs e)
+        {
+            var button  = sender as Button;
+            
+        }
     }
 }
