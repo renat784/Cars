@@ -168,13 +168,13 @@ namespace Cars
         protected global::System.Web.UI.WebControls.Button SearchButton;
 
         /// <summary>
-        /// TotalResultsRepeater control.
+        /// TotalResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater TotalResultsRepeater;
+        protected global::System.Web.UI.WebControls.Label TotalResults;
 
         /// <summary>
         /// SortBy control.
@@ -202,6 +202,15 @@ namespace Cars
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater RepeaterCards;
+
+        /// <summary>
+        /// Pagination control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater Pagination;
 
         /// <summary>
         /// ResultsPerPage control.

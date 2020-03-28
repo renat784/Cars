@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Newtonsoft.Json.Linq;
 using WebGrease.Css.Extensions;
 
 namespace Cars
@@ -257,15 +258,75 @@ namespace Cars
                 reader.NextResult();
 
 
-                TotalResultsRepeater.DataSource = reader;
-                TotalResultsRepeater.DataBind();
+                var results = 0;
+                while (reader.Read())
+                {
+                    results = (int) reader[0];
+                }
 
-
-
+               
+                SetPagination(results);
 
 
 
             }
+        }
+
+        public class Paginator
+        {
+            public string Url { get; set; }
+            public int OrderId { get; set; }
+        }
+        private void SetPagination(int results)
+        {
+            int totalItems = results;
+
+            TotalResults.Text =   results + " results found";
+
+            int resultsPerPage = int.Parse(Request.QueryString["next"]);
+            int pages = 0;
+
+            if (totalItems % resultsPerPage == 0)
+            {
+                pages = totalItems / resultsPerPage;
+            }
+            else
+            {
+                pages = (totalItems / resultsPerPage) + 1;
+            }
+
+            List<Paginator> list = new List<Paginator>();
+
+           
+            for (int i = 1,  j = 0; i <= pages; i++, j+= resultsPerPage)
+            {
+                list.Add(new Paginator{OrderId = i, Url = SetOffset(j) });
+                
+            }
+
+            Pagination.DataSource = list;
+            Pagination.DataBind();
+        }
+
+        private string SetOffset(int value)
+        {
+            string url = HttpContext.Current.Request.Url.ToString();
+
+            var array = url.Split('&');
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i].Contains("offset"))
+                {
+                    array[i] = "offset=" + value;
+                }
+            }
+
+            string newUrl = "";
+            array.ForEach(i => newUrl += (i + '&'));
+            newUrl = newUrl.Remove(newUrl.LastIndexOf('&'), 1);
+
+
+            return newUrl;
         }
 
 
@@ -570,7 +631,9 @@ namespace Cars
         protected void ResultsForPage(object sender, EventArgs e)
         {
             string url = HttpContext.Current.Request.Url.PathAndQuery;
-            url = url.Remove(url.IndexOf("next")) + "next=" + ResultsPerPage.SelectedValue.Split(' ')[0];
+
+            //url = url.Remove(url.IndexOf("next")) + "next=" + ResultsPerPage.SelectedValue.Split(' ')[0];
+            url = url.Remove(url.IndexOf("offset")) + "offset=0&next=" + ResultsPerPage.SelectedValue.Split(' ')[0];
             Response.Redirect(url);
         }
 

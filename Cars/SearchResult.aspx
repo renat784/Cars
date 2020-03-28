@@ -23,6 +23,17 @@
                     width: 50%;
                     text-align: center;
                 }
+
+
+                .activePage {
+                    background-color: #532380;
+                    border-radius: 30%;
+                    
+                    color: white;
+                }
+                .activePage:hover {
+                    color: white;
+                }
             </style>
 
             <script>
@@ -31,11 +42,18 @@
                 $(() => {
                     ChangeTab();
 
+                    ActivePageLink();
 
-                    
 
                 })
 
+                function ActivePageLink() {
+                    var url = window.location;
+                    var active_Page = 'a[href="' + url + '"]';
+                    var page = $(active_Page);
+                    page.addClass("activePage");
+                    console.log(page);
+                }
                 
 
                 // partial page reload (isPostBack)
@@ -241,16 +259,21 @@
 
 
                     </div>
+                
+                
                     <%--search results--%>
                     <div class="col-lg-8">
                         <div class="row">
                             <div class="col-7 pt-1" >
-                                <asp:Repeater ID="TotalResultsRepeater" runat="server">
+                                <asp:Label ID="TotalResults" runat="server"></asp:Label>
+                               
+                               <%-- <asp:Repeater ID="TotalResultsRepeater" runat="server">
                                     <ItemTemplate>
-                                        <span  class="bold"><%#Eval("Total")%></span>
+                                        <span  class="bold"><%#Eval("Total") %></span>
+                                        <asp:Label ID="HiddenResults" Visible="False" runat="server"><%#Eval("Total")%></asp:Label>
                                         <span>results found</span>
                                     </ItemTemplate>
-                                </asp:Repeater>
+                                </asp:Repeater>--%>
                                 
                             </div>
                             <div class="col-5">
@@ -336,10 +359,21 @@
                         </asp:Repeater>
 
                         <div class="text-center my-5">
-                            <asp:Button runat="server" CssClass="btn niceButton" Text="Prev" />
-                            <asp:Button runat="server" CssClass="btn niceButton ml-3" Text="Next" />
+                            <asp:Repeater runat="server" ID="Pagination">
+                                <HeaderTemplate>
+                                    <ul>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                        <li  style="display: inline">
+                                            <a class="p-2  mx-2 " href="<%#Eval("Url") %>"><%#Eval("OrderId") %></a>
+                                        </li>
+                                </ItemTemplate>
+                                <FooterTemplate>
+                                    </ul>
+                                </FooterTemplate>
+                            </asp:Repeater>
                         </div>
-                        <div class="my-3 row justify-content-center">
+                        <div class="my-5 row justify-content-center">
                             <asp:DropDownList OnDataBound="ResultsPerPage_OnDataBound" SelectMethod="SelectResultsPerPage" CssClass="form-control col-3" OnSelectedIndexChanged="ResultsForPage" runat="server" ID="ResultsPerPage" AutoPostBack="True">
                                 
                             </asp:DropDownList>
