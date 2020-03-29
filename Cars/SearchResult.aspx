@@ -312,13 +312,13 @@
                                         <div class="col-6">
                                             <img src="Images/carImageExample.jpg" style="width: 100%" />
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6 pr-5">
                                             <div>
                                                 <%--<span  style="display: none"><%#Eval("CarId")%></span>--%>
                                                 
-                                                <span class="bold" style="font-size: 24px">$<%#Eval("Price") %></span>
+                                                <span class="bold" style="font-size: 24px"><%#Eval("Price", "{0:c0}") %></span>
                                                 <span class="gray mx-1 small">|</span>
-                                                <span class="gray small"><%#Eval("Mileage") %> miles</span>
+                                                <span class="gray small"><%#Eval("Mileage", "{0:n0}") %> miles</span>
                                             </div>
 
                                             <div class="bold">
@@ -349,8 +349,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="text-center mt-3">
-                                                <a  href="/Details.aspx?id=<%#Eval("CarId")%>"  class="btn niceButton2">Check Availability</a>
+                                            <div class="text-center mt-5">
+                                                <a  href="/Details.aspx?id=<%#Eval("CarId")%>" style="width: 100%;background-color: #a400b4"  class="btn niceButton2">Check Availability</a>
                                             </div>
                                         </div>
 

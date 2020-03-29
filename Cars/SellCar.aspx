@@ -5,6 +5,13 @@
 
     
     <script>
+        // partial page reload (isPostBack)
+        function pageLoad(sender, args) {
+            if (args._isPartialLoad) {
+                $('[data-toggle="popover"]').popover();
+            }
+        }
+
         $(function () {
             $('[data-toggle="popover"]').popover();
         });
@@ -333,11 +340,18 @@
                                 </div>
                                 <div class="form-group">
                                     <asp:Label class="control-label" AssociatedControlID="PhoneNumber" runat="server">Phone number</asp:Label>
-                                    <asp:TextBox ID="PhoneNumber" TextMode="Phone" CssClass="form-control" runat="server">
+                                    <asp:TextBox ID="PhoneNumber"  CssClass="form-control" runat="server">
                                     </asp:TextBox>
                                     <div>
-                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Phone number, please" ForeColor="red" SetFocusOnError="True"  ControlToValidate="PhoneNumber" runat="server"></asp:RequiredFieldValidator>
+                                        <small>Format: (555)123-5678</small>
                                     </div>
+                                    <div>
+                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Phone number, please" ForeColor="red" SetFocusOnError="True"  ControlToValidate="PhoneNumber" runat="server"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ValidationExpression="[(]{1}\d{3}[)]{1}\d{3}[-]{1}\d{4}" ErrorMessage="Wrong format" SetFocusOnError="True" ForeColor="red" ControlToValidate="PhoneNumber" runat="server"></asp:RegularExpressionValidator>
+                                    </div>
+                                   
+                                        
+                                    
                                 </div>
                                 <div class="form-group">
                                     <asp:DropDownList ID="DayTime"  CssClass="form-control" runat="server" AutoPostBack="True">
