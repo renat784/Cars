@@ -19,6 +19,18 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
     <script>
+
+
+        function ShowDashboardMenu() {
+            var status = $("#MyDashBoardMenu").css("display");
+            if (status == "block") status = "none";
+            else {
+                status = "block";
+            }
+            $("#MyDashBoardMenu").css("display", status);
+        }
+       
+
         $(function () {
             page = location.pathname.substring(1);
             if (page == 'shopping' || page == 'research' || page == 'news') {
@@ -103,6 +115,13 @@
             <div class="container">
                 <div class="navbar-collapse collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto ">
+                        <asp:LoginView runat="server" ViewStateMode="Disabled">
+                            <LoggedInTemplate>
+                                <li class="nav-item menuItemsSmallScreen" style="display: none;">
+                                    <a runat="server">Hi, <%: Context.User.Identity.GetUserName()  %> !</a>
+                                </li>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
                         <li class="nav-item">
                             <a runat="server" href="~/shopping" title="Shop for new, used, and certified cars and trucks">Cars for Sale</a>
                         </li>
@@ -121,25 +140,102 @@
                         <li class="nav-item">
                             <a runat="server" href="~/contact" title="Ask a question or submit feedback">Contact Us</a>
                         </li>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                    <AnonymousTemplate>
                         <li class="nav-item menuItemsSmallScreen" style="display: none">
                             <a runat="server" href="~/Account/Register">Sign Up</a>
                         </li>
                         <li class="nav-item menuItemsSmallScreen" style="display: none">
                             <a runat="server" href="~/Account/Login">My Dashboard</a>
                         </li>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <li class="nav-item menuItemsSmallScreen" style="display: none">
+                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Sign Out" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                            </li>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
 
                     </ul>
 
                     <div class="menuItemsBigScreen row pl-lg-3">
-                        <div class="col-8">
-                            <a class="btn btn-outline-light py-1 px-2" style="font-size: 12px" runat="server" href="~/Account/Register">Sign Up</a>
-                        </div>
-                        <div class="col-4">
-                            <a runat="server" href="~/Account/Login">
-                                <i class="fa fa-user-circle-o white" style="font-size: 25px;" title="My Dashboard" aria-hidden="true"></i>
-                            </a>
-                        </div>
+                        <asp:LoginView runat="server" ViewStateMode="Disabled">
+                            <AnonymousTemplate>
+                                <div class="col-8">
+                                    <a class="btn btn-outline-light py-1 px-2" style="font-size: 12px" runat="server"
+                                       href="~/Account/Register">Sign Up</a>
+                                </div>
+                                <div class="col-4">
+                                    <a runat="server">
+                                        <i class="fa fa-user-circle-o white" style="font-size: 25px;" title="My Dashboard"
+                                           aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                    <div class="ml-3">
+                                        <a runat="server" onclick="ShowDashboardMenu()">
+                                            <i class="fa fa-user-circle-o"  style="color: #A400B4;font-size: 25px;" 
+                                               title="My Dashboard" aria-hidden="true"></i> 
+                                        </a>
+                                    </div>
+                                
+                                    <div id="MyDashBoardMenu">
+                                        <div class="white_triangle"></div>
+                                        <ul>
+                                            <li>
+                                                <span runat="server">Hi, <%: Context.User.Identity.GetUserName()  %> !</span>
+                                                <hr />
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-user-circle-o"   aria-hidden="true"></i>
+                                                    <span>My Dashboard</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-list-alt"   aria-hidden="true"></i>
+                                                    <span>My Saved Research</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-car"   aria-hidden="true"></i>
+                                                    <span>My Saved Cars</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-search"  aria-hidden="true"></i>
+                                                    <span>My Saved Searches</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="fa fa-tag"   aria-hidden="true"></i>
+                                                    <span>My Listings</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" >
+                                                    <i class="fa fa-cog"   aria-hidden="true"></i>
+                                                    <span>Settings</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr />
+                                                <asp:LoginStatus runat="server" CssClass="bold" LogoutAction="Redirect" LogoutText="Sign Out" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
                     </div>
+                    
+                     
+                    
+                    
 
 
 
@@ -184,7 +280,7 @@
         <div>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
+            
         </div>
 
         <footer>

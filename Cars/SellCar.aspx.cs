@@ -20,11 +20,12 @@ namespace Cars
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            //if (!User.Identity.IsAuthenticated) 
-            //{
-            //    Response.Redirect("~/account/Login.aspx");
-            //}
+
+            if (!User.Identity.IsAuthenticated)
+            {
+                string returnUrl = Request.Url.PathAndQuery;
+                Response.Redirect("~/account/Login.aspx?returnUrl=" + returnUrl);
+            }
 
 
             // one time init

@@ -7,8 +7,8 @@
 
     <div class="body-content text-center mt-5">
         <div class="col-lg-4 offset-lg-4">
-            <a class="underlinedLink activ"  >Log In</a>
-            <a class="underlinedLink ml-2" runat="server" href="~/Account/Register">Sign Up</a>
+            <a class="underlinedLink activ">Log In</a>
+            <a class="underlinedLink ml-2" runat="server" href="~/Account/Register" >Sign Up</a> 
         </div>
     </div>
     <hr />

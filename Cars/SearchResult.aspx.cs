@@ -17,7 +17,17 @@ namespace Cars
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
+            if (Request.QueryString.Count == 0)
+            {
+                SortBy.Enabled = false;
+                ResultsPerPage.Enabled = false;
+            }
+            else
+            {
+                SortBy.Enabled = true;
+                ResultsPerPage.Enabled = true;
+            }
 
             if (!Page.IsPostBack)
             {

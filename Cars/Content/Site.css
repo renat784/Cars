@@ -517,16 +517,79 @@ div#feedBack {
         padding: 0;
     }
 
-/*contact.aspx*/
+
+
+
+
+#MyDashBoardMenu {
+    position: absolute; 
+    right: 0;
+    top: 100%;
+    z-index: 1;
+    display: none
+}
+
+    #MyDashBoardMenu div.white_triangle {
+        position: absolute;
+        top: -1%; 
+        right: 8%;
+        width: 15px; 
+        height: 15px;
+        background-color: white;
+        transform: rotate(45deg);
+    }
+    #MyDashBoardMenu ul {
+        margin: 0;
+        padding: 15px;
+        list-style-type: none;
+        background-color: white;
+        border: 1px solid #E4E0EA;
+    }
+
+        #MyDashBoardMenu ul li a {
+            color: black; 
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+            #MyDashBoardMenu ul li a i {
+                font-size: 25px;
+                padding-right: 20px;
+                padding-left: 0;
+                width: 25%;
+                text-align: center;
+            }
+            #MyDashBoardMenu ul li a span {
+                padding-left: 0;
+                width: 70%;
+                font-size: 14px;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
 /*news.aspx*/
-
-
-
 .latestStories img {
     margin-bottom: 10px;
     width: 100%

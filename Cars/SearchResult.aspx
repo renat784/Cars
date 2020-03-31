@@ -2,9 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-
     <asp:UpdatePanel ID="updpnlRefresh" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
+
             <style>
                 li.custom.nav-item a {
                     color: white;
@@ -24,27 +24,34 @@
                     text-align: center;
                 }
 
+                a.pageLink {
+                    color: #5c707c;
+                }
 
-                .activePage {
-                    background-color: #532380;
-                    border-radius: 30%;
+                    a.pageLink:hover {
+                        color: #5c707c;
+                    }
+                a.pageLink.activePage {
+                    font-weight: bold;
+                }
+
+                button.pageLink {
+                   
+                }
+
                     
-                    color: white;
-                }
-                .activePage:hover {
-                    color: white;
-                }
             </style>
 
             <script>
 
                 // full page reload
                 $(() => {
+                    localStorage["searchresult_activeTabId"] = "home-tab";
                     ChangeTab();
-
                     ActivePageLink();
 
 
+                   
                 })
 
                 function ActivePageLink() {
@@ -54,25 +61,20 @@
                     page.addClass("activePage");
                     console.log(page);
                 }
-                
 
                 // partial page reload (isPostBack)
                 function pageLoad(sender, args) {
                     if (args._isPartialLoad) {
                         ChangeTab();
-                        
                     }
                 }
-
 
                 function ChangeTab() {
                     if (localStorage["searchresult_activeTabId"] !== null &&
                         localStorage["searchresult_activeTabId"] !== undefined) {
-
                         ActiveTabSwitcher(localStorage["searchresult_activeTabId"]);
                     } else {
                         ActiveTabSwitcher("home-tab");
-
                         localStorage["searchresult_activeTabId"] = "home-tab";
                     }
                 }
@@ -102,22 +104,20 @@
                 }
 
                 function TabClicked(e) {
-
                     ActiveTabSwitcher(e.id);
                     localStorage["searchresult_activeTabId"] = e.id;
-
                 }
 
 
-
-
+               
+                    
+                
 
             </script>
 
-
-            <div class="body-content my-5">
+            <div class="body-content mt-5">
                 <hr />
-                <h4 class="text-center mb-3">Search  </h4>
+                <h4 class="text-center mb-3">Search</h4>
                 <div class="row colorGray">
                     <%--menu--%>
                     <div class="col-lg-4">
@@ -128,7 +128,7 @@
                                         aria-controls="filter_result" aria-selected="true">Filter Results</a>
                                 </li>
                                 <li class="nav-item custom">
-                                    <a class="nav-link " id="profile-tab" onclick="TabClicked(this)" data-toggle="tab" href="#new_search" role="tab"
+                                    <a class="nav-link" id="profile-tab" onclick="TabClicked(this)" data-toggle="tab" href="#new_search" role="tab"
                                         aria-controls="new_search" aria-selected="false">New Search</a>
                                 </li>
                             </ul>
@@ -139,7 +139,6 @@
                                         <div class="mt-3">
                                             <div class="row">
                                                 <div class="col-6 text-center">
-                                                    
                                                 </div>
                                                 <div class="col-6 text-center">
                                                     <a href="#">Save Search</a>
@@ -169,10 +168,8 @@
                                             <div>
                                                 <asp:Label CssClass="control-label bold" runat="server">Make</asp:Label>
                                             </div>
-
                                             <asp:RadioButtonList ID="Make_RadioList" runat="server" OnDataBound="MakeRadioList_OnDataBound" AutoPostBack="True" DataSourceID="SqlDataSource1"
                                                 DataTextField="Make" DataValueField="Make" />
-
                                         </div>
                                         <hr />
 
@@ -192,7 +189,7 @@
                                             <asp:RadioButtonList OnDataBound="Style_RadioList_OnDataBound" ID="Style_RadioList" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource4" DataTextField="Style" DataValueField="Style" />
                                             <asp:SqlDataSource runat="server" ID="SqlDataSource4" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Style] FROM [Cars]"></asp:SqlDataSource>
                                         </div>
-                                        <hr/>
+                                        <hr />
                                         <div>
                                             <div class="mb-3">
                                                 <asp:Label CssClass="bold control-label" runat="server">Price</asp:Label>
@@ -212,10 +209,8 @@
                                         </div>
                                         <hr />
                                         <div>
-                                            <asp:RadioButtonList OnDataBound="Mileage_RadioList_OnDataBound" ID="Mileage_RadioList" SelectMethod="Mileage_List" runat="server"/>
+                                            <asp:RadioButtonList OnDataBound="Mileage_RadioList_OnDataBound" ID="Mileage_RadioList" SelectMethod="Mileage_List" runat="server" />
                                         </div>
-                                        <hr />
-                                      
                                         <hr />
                                         <div>
                                             <asp:Button runat="server" Text="Search" OnClick="SearchFromFilterResults" />
@@ -254,27 +249,14 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
                     </div>
-                
-                
+
+
                     <%--search results--%>
                     <div class="col-lg-8">
-                        <div class="row">
-                            <div class="col-7 pt-1" >
+                        <div class="row my-4">
+                            <div class="col-7 pt-1">
                                 <asp:Label ID="TotalResults" runat="server"></asp:Label>
-                               
-                               <%-- <asp:Repeater ID="TotalResultsRepeater" runat="server">
-                                    <ItemTemplate>
-                                        <span  class="bold"><%#Eval("Total") %></span>
-                                        <asp:Label ID="HiddenResults" Visible="False" runat="server"><%#Eval("Total")%></asp:Label>
-                                        <span>results found</span>
-                                    </ItemTemplate>
-                                </asp:Repeater>--%>
-                                
                             </div>
                             <div class="col-5">
                                 <div class="row">
@@ -282,16 +264,10 @@
                                         <asp:Label CssClass="control-label bold pt-1" runat="server" AssociatedControlID="SortBy">Sort by:</asp:Label>
                                     </div>
                                     <div class="col-9">
-                                        <asp:DropDownList  SelectMethod="SortByList" OnDataBound="SortBy_OnDataBound"  OnSelectedIndexChanged="SortBy_OnSelectedIndexChanged" CssClass="form-control" ID="SortBy" runat="server" AutoPostBack="True">
-                                            
+                                        <asp:DropDownList SelectMethod="SortByList" OnDataBound="SortBy_OnDataBound" OnSelectedIndexChanged="SortBy_OnSelectedIndexChanged" CssClass="form-control" ID="SortBy" runat="server" AutoPostBack="True">
                                         </asp:DropDownList>
-
-
-
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
 
@@ -305,7 +281,6 @@
                         </div>
 
                         <asp:Repeater runat="server" ID="RepeaterCards" OnItemCreated="RepeaterCards_OnItemCreated">
-                           
                             <ItemTemplate>
                                 <div class="my-4" style="background-color: white">
                                     <div class="row">
@@ -314,18 +289,14 @@
                                         </div>
                                         <div class="col-6 pr-5">
                                             <div>
-                                                <%--<span  style="display: none"><%#Eval("CarId")%></span>--%>
-                                                
                                                 <span class="bold" style="font-size: 24px"><%#Eval("Price", "{0:c0}") %></span>
                                                 <span class="gray mx-1 small">|</span>
                                                 <span class="gray small"><%#Eval("Mileage", "{0:n0}") %> miles</span>
                                             </div>
-
                                             <div class="bold">
                                                 <span><%#Eval("Year")%></span>
                                                 <span><%#Eval("Make")%></span>
                                                 <span><%#Eval("Model")%></span>
-
                                             </div>
                                             <div class="row small mt-1">
                                                 <div class="col-4">
@@ -350,24 +321,24 @@
                                                 </div>
                                             </div>
                                             <div class="text-center mt-5">
-                                                <a  href="/Details.aspx?id=<%#Eval("CarId")%>" style="width: 100%;background-color: #a400b4"  class="btn niceButton2">Check Availability</a>
+                                                <a href="/Details.aspx?id=<%#Eval("CarId")%>" style="width: 100%; background-color: #a400b4" class="btn niceButton2">Check Availability</a>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
-
                             </ItemTemplate>
                         </asp:Repeater>
 
                         <div class="text-center my-5">
                             <asp:Repeater runat="server" ID="Pagination">
                                 <HeaderTemplate>
-                                    <ul>
+                                   
+
+                                    <ul class="mt-4">
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                        <li  style="display: inline">
-                                            <a class="p-2  mx-2 " href="<%#Eval("Url") %>"><%#Eval("OrderId") %></a>
+                                        <li style="display: inline">
+                                            <a class="p-2  mx-2 pageLink" href="<%#Eval("Url") %>"><%#Eval("OrderId") %></a>
                                         </li>
                                 </ItemTemplate>
                                 <FooterTemplate>
@@ -377,16 +348,25 @@
                         </div>
                         <div class="my-5 row justify-content-center">
                             <asp:DropDownList OnDataBound="ResultsPerPage_OnDataBound" SelectMethod="SelectResultsPerPage" CssClass="form-control col-3" OnSelectedIndexChanged="ResultsForPage" runat="server" ID="ResultsPerPage" AutoPostBack="True">
-                                
                             </asp:DropDownList>
                         </div>
+                        <div class="small pb-5">
+                            <div>
+                                * Title, other fees, and incentives are not included in this calculation, which is an estimate only. Monthly payment estimates are for illustrative purposes only and do not represent a financing offer from the seller. Other taxes may apply.
+                            </div>
+                            <div>
+                                The information on vehicles provided in this service is supplied by the seller or other third parties; Cars.com is not responsible for the accuracy of such information. Cars.com provides this service and materials without representations or warranties of any kind, either expressed or implied.
+                                <a href="#">See our terms of service for more details.</a>
+                            </div>
+                            
+                        </div>
                     </div>
+                    
                 </div>
-
+                
             </div>
-
+            
         </ContentTemplate>
     </asp:UpdatePanel>
-
 
 </asp:Content>
