@@ -1,11 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="news.aspx.cs" Inherits="Cars.news" %>
 
 <%@ Register Src="~/Reusable/EmailSubscription.ascx" TagName="emailSubscription" TagPrefix="CustomControl" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-
     <div class="body-content">
-
         <div class="row pt-3">
             <div class="col-6">
                 <h1 style="font-weight: bold">News</h1>
@@ -14,7 +12,6 @@
                 <input type="search" id="searchForm" placeholder="Search" class="form-control" />
             </div>
         </div>
-
         <div class="my-4">
             <div class="horizMenu">
                 <a href="#">Expert Rewievs</a>
@@ -27,10 +24,8 @@
             </div>
             <hr style="margin-top: 0" />
         </div>
-
         <div class="row">
             <div class="col-lg-8">
-
                 <div class="row">
                     <div class="col-8">
                         <h3 class="font-weight-bold">Latest Stories</h3>
@@ -49,9 +44,6 @@
                         </div>
                     </div>
                 </a>
-
-
-                
                 <div class="row mt-4">
                     <div class="col-lg-3">
                         <a href="#" class="cardWithImage">
@@ -64,12 +56,6 @@
                                 </div>
                             </div>
                         </a>
-
-
-
-
-
-
                     </div>
                     <div class="col-lg-3">
                         <a href="#" class="cardWithImage">
@@ -82,12 +68,6 @@
                                 </div>
                             </div>
                         </a>
-
-
-
-
-
-
                     </div>
                     <div class="col-lg-3">
                         <a href="#" class="cardWithImage">
@@ -100,12 +80,6 @@
                                 </div>
                             </div>
                         </a>
-
-
-
-
-
-
                     </div>
                     <div class="col-lg-3">
                         <a href="#" class="cardWithImage">
@@ -121,15 +95,8 @@
                     </div>
                 </div>
             </div>
-            
-            
-            
-            
-            
-
             <div class="col-lg-4">
                 <h3 class="font-weight-bold">Featured Stories</h3>
-
                 <a href="#" class="cardWithImage">
                     <div class="card" style="border: none">
                         <img src="/Content/News/audi_s4.jpg" class="card-img-top">
@@ -140,7 +107,6 @@
                         </div>
                     </div>
                 </a>
-
                 <a href="#" class="cardWithImage">
                     <div class="card" style="border: none">
                         <div class="card-body pl-0">
@@ -150,7 +116,6 @@
                         </div>
                     </div>
                 </a>
-
                 <a href="#" class="cardWithImage">
                     <div class="card" style="border: none">
                         <div class="card-body pl-0">
@@ -160,7 +125,6 @@
                         </div>
                     </div>
                 </a>
-
                 <a href="#" class="cardWithImage">
                     <div class="card" style="border: none">
                         <div class="card-body pl-0">
@@ -170,7 +134,6 @@
                         </div>
                     </div>
                 </a>
-
                 <a href="#" class="cardWithImage">
                     <div class="card" style="border: none">
                         <div class="card-body pl-0">
@@ -180,7 +143,6 @@
                         </div>
                     </div>
                 </a>
-
                 <a href="#" class="cardWithImage">
                     <div class="card" style="border: none">
                         <div class="card-body pl-0">
@@ -190,21 +152,8 @@
                         </div>
                     </div>
                 </a>
-
-
-
-
-
-
-
-
-
             </div>
         </div>
-
-
-
-
 
         <CustomControl:emailSubscription runat="server"></CustomControl:emailSubscription>
 
@@ -217,7 +166,6 @@
                     <a href="#">See all</a>
                 </div>
             </div>
-           
             <div class="row mt-4">
                 <div class="col-lg-4">
                     <a href="#">
@@ -257,7 +205,6 @@
                 </div>
             </div>
         </section>
-
         <section>
             <div class="row">
                 <div class="col-8">
@@ -271,13 +218,10 @@
                 <div class="col-lg-4">
                     <a href="#">
                         <div class="card" style="border: none">
-
                             <div class="playVideoButton">
                                 <div class="triangle"></div>
                             </div>
                             <img src="Content/ImagesForVideo/imageVideo-1.png" class="card-img-top">
-
-
                             <div class="card-body pl-0">
                                 <h5 class="card-title black onHover">2020 Chevrolet Corvette Stingray Review — Cars.com</h5>
                                 <p class="gray small">
@@ -330,7 +274,6 @@
                 </div>
             </div>
         </section>
-
         <section>
             <div class="row">
                 <div class="col-8">
@@ -379,6 +322,5 @@
                 </div>
             </div>
         </section>
-
     </div>
 </asp:Content>

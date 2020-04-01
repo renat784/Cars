@@ -285,8 +285,9 @@
 
         <footer>
             <%--big footer--%>
-            <div id="bigFooter" class="colorSecondary py-4 row">
-                <div class="col-lg-3 col-sm-12 pl-lg-5 verticalList listCollapse white" ">
+            <div id="bigFooter" class="colorSecondary py-4 ">
+                <div class="row">
+                     <div class="col-lg-3 col-sm-12 pl-lg-5 verticalList listCollapse white" ">
                     <h6 class="font-weight-bold" onclick="expandList(this)">Our Company</h6>
                     <div>
                         <ul>
@@ -399,6 +400,8 @@
                         </li>
                     </ul>
                 </div>
+                </div>
+               
 
 
 
@@ -409,32 +412,34 @@
                
             </div>
             <%--little footer--%>
-            <div class="colorPrimary py-2 row px-3">
+            <div class="colorPrimary py-2  px-3">
 
 
-                <ul id="smallFooter" class="pl-lg-3 col-lg-8">
-                    <li>
-                        <a href="#">Terms of Service</a>
-                    </li>
-                    <li>
-                        <a href="#">Privacy Statement</a>
-                    </li>
-                    <li>
-                        <a href="#">California Privacy Notice</a>
-                    </li>
-                    <li>
-                        <a href="#">Ad Choices</a>
-                    </li>
-                    <li>
-                        <a href="#">[+] Feedback</a>
-                    </li>
+                <div class="row">
+                    <ul id="smallFooter" class="pl-lg-3 col-lg-8">
+                        <li>
+                            <a href="#">Terms of Service</a>
+                        </li>
+                        <li>
+                            <a href="#">Privacy Statement</a>
+                        </li>
+                        <li>
+                            <a href="#">California Privacy Notice</a>
+                        </li>
+                        <li>
+                            <a href="#">Ad Choices</a>
+                        </li>
+                        <li>
+                            <a href="#">[+] Feedback</a>
+                        </li>
 
 
 
-                </ul>
-                <div id="copyright" class="col-lg-4 text-right">
-                    <span class="small" style="color: rgba(255, 255, 255, .75);">&copy; <%: DateTime.Now.Year %> Cars.com. All rights reserved.
-                    </span>
+                    </ul>
+                    <div id="copyright" class="col-lg-4 text-right">
+                        <span class="small" style="color: rgba(255, 255, 255, .75);">&copy; <%: DateTime.Now.Year %> Cars.com. All rights reserved.
+                        </span>
+                    </div>
                 </div>
 
 

@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="advanced-search.aspx.cs" Inherits="Cars.advanced_search" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
     <section>
         <div class="col-lg-8 col-sm-12">
             <div class="row">
@@ -32,11 +31,8 @@
                     </div>
                 </div>
             </div>
-
             <div>
-
             </div>
-
             <div class="mt-3">
                 <label>Search By</label>
                 <div class="row">
@@ -49,13 +45,10 @@
                         <label for="input2">Body Style</label>
                     </div>
                 </div>
-
             </div>
-
             <div class="mt-3">
                 <h4 class="primary font-weight-bold">Additional Search Options</h4>
                 <div class="row">
-
                     <div class="col-lg-6 form-group">
                         <label class="control-label">Price Range</label>
                         <div class="row">
@@ -90,16 +83,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
                 </div>
                 <div class="row">
                     <div class="col-lg-6 form-group">
@@ -158,7 +141,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="mt-3">
                 <label>Fuel</label>
                 <div class="form-group">
@@ -190,7 +172,6 @@
                     <span>Unknown</span>
                 </div>
             </div>
-
             <div class="mt-5">
                 <label class="control-label">Additional Keywords</label>
                 <div class="row">
@@ -209,9 +190,6 @@
                     <asp:Button CssClass="btn btn-success greenButton col-sm-12 col-lg-2" runat="server" Text="Search" />
                 </div>
             </div>
-
-
         </div>
     </section>
-
 </asp:Content>

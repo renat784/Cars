@@ -18,8 +18,6 @@ namespace Cars
         protected void SearchTextChanged(object sender, EventArgs e)
         {
             var textbox = sender as TextBox;
-            
-            
         }
     }
 }

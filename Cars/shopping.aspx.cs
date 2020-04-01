@@ -17,8 +17,6 @@ namespace Cars
         
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-
             if (!Page.IsPostBack)
             {
                 // remember last checked options
@@ -27,32 +25,29 @@ namespace Cars
                 Bodystyle.SelectedIndex = Session["BodystyleSelectedIndex"] == null ? 0 : (int)Session["BodystyleSelectedIndex"];
                 Bodystyle_MaxPrice.SelectedIndex = Session["Bodystyle_MaxPriceSelectedIndex"] == null ? 0 : (int)Session["Bodystyle_MaxPriceSelectedIndex"];
             }
-            
         }
 
         protected void SearchByMake(object sender, EventArgs e)
         {
             Session["MakeSelectedIndex"] = Make.SelectedIndex;
-
             string url = "~/searchresult?";
-
             List<string> cmdList = new List<string>();
-
 
             if (!string.IsNullOrEmpty(Make.SelectedValue))
             {
                 cmdList.Add("make="+ Make.SelectedValue + "&");
             }
+
             if (!string.IsNullOrEmpty(Model.SelectedValue))
             {
                 cmdList.Add("model=" + Model.SelectedValue + "&");
             }
+
             if (!Price.SelectedValue.Contains("Max"))
             {
                 string maxPrice = Price.SelectedValue.Replace("under $", "");
                 cmdList.Add("maxPrice=" + maxPrice + "&");
             }
-
 
             cmdList[cmdList.Count - 1] = cmdList[cmdList.Count - 1].Replace("&", "");
 
@@ -63,11 +58,8 @@ namespace Cars
 
         protected void SearchByBodyStyle (object sender, EventArgs e)
         {
-
             string url = "~/searchresult?";
-
             List<string> cmdList = new List<string>();
-
 
             if (!string.IsNullOrEmpty(Bodystyle.SelectedValue))
             {
@@ -79,7 +71,6 @@ namespace Cars
                 string maxPrice = Bodystyle_MaxPrice.SelectedValue.Replace("under $", "");
                 cmdList.Add("maxPrice=" + maxPrice + "&");
             }
-
 
             cmdList[cmdList.Count - 1] = cmdList[cmdList.Count - 1].Replace("&", "");
 
@@ -99,7 +90,6 @@ namespace Cars
             {
                 list.Add("under $" + i);
             }
-            
 
             return list;
         }
@@ -108,7 +98,6 @@ namespace Cars
         protected void OnSelectedIndexChanged(object sender, EventArgs e)
         {
             var droplist = sender as DropDownList;
-
             switch (droplist.ID)
             {
                 case "Make":
@@ -132,7 +121,6 @@ namespace Cars
 
         protected void Model_OnDataBound(object sender, EventArgs e)
         {
-            
             Model.SelectedIndex = Session["ModelSelectedIndex"] == null ? 0 : (int)Session["ModelSelectedIndex"];
         }
     }

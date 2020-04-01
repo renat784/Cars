@@ -19,7 +19,6 @@ namespace Cars
                 // bad request without 'id'
                 Response.Redirect("shopping.aspx");
             }
-
             
         }
     }

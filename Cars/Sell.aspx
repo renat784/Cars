@@ -1,11 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="sell.aspx.cs" Inherits="Cars.Sell" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
     <div class="bigImage" style="background-image: url(Images/sellImage.jpg); position: relative">
-            <h2 class="textOnImage">Sell My Car</h2>
+        <h2 class="textOnImage">Sell My Car</h2>
     </div>
-
     <div class="row sellMenu" style="margin-top: -50px">
         <div class="col-lg-4 text-center">
             <div class="card h-100 customCard">
@@ -62,21 +60,15 @@
             </div>
         </div>
     </div>
-
-
-
-
     <section class="colorGray text-center py-4">
         <h3 class="font-weight-bold">My Listings</h3>
         <p>You are not currently logged in. Log in to view and edit your listings.</p>
         <div class="row">
             <div class="offset-sm-4 col-sm-4  offset-lg-5 col-lg-2">
-                <asp:Button CssClass="btn btn-outline-dark niceButton" style="width: 80%" runat="server" Text="Log In" />
+                <asp:Button CssClass="btn btn-outline-dark niceButton" Style="width: 80%" runat="server" Text="Log In" />
             </div>
-            
         </div>
     </section>
-
     <section class="body-content">
         <div class="row ">
             <div class="col-lg-4 form-group">
@@ -96,12 +88,6 @@
             </div>
         </div>
     </section>
-
-
-
-
-
-
     <section class="colorGray">
         <div class="body-content">
             <div class="carAdvice ">
@@ -132,7 +118,6 @@
             </div>
         </div>
     </section>
-
     <section class="body-content">
         <div class="row text-center">
             <div class="col-lg-6 form-group">
@@ -142,7 +127,6 @@
                         from dealerships online. 
                         <a href="#">Learn More</a>
                 </p>
-
             </div>
             <div class="col-lg-6 form-group">
                 <p>
@@ -151,12 +135,7 @@
                         to get your car appraised and pick the offer that works best for you.
                         <a href="#">Learn More</a>
                 </p>
-
             </div>
         </div>
     </section>
-
-
-
-
 </asp:Content>

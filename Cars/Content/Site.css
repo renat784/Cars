@@ -1,37 +1,17 @@
-﻿/* Move down content because we have a fixed navbar that is 50px tall */
-body {
-}
-
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
+﻿
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
-
-
 
 section {
     margin-top: 50px;
     margin-bottom: 50px;
 }
-/* Responsive: Portrait tablets and up */
-/*@media screen and (min-width: 768px) {
-    .jumbotron {
-        margin-top: 20px;
-    }
-
-    .body-content {
-        padding: 0;
-    }
-}*/
 
 
 /*media smartphone Portrait orientation*/
@@ -40,12 +20,6 @@ section {
     .carItem {
         padding: 10px 35px !important;
     }
-
-
-
-
-
-
 
     li.nav-item.navTab {
         width: 50%;
@@ -56,31 +30,12 @@ section {
         position: absolute;
         bottom: 5%;
         right: 10%;
-        
     }
+
     #myTabContent {
         padding-bottom: 30px;
     }
-    /*.sellMenu {
-        margin-top: 50px !important;
-    }
-    
 
-        .sellMenu .customCard {
-            width: 100%;
-            text-align: left;
-        }
-
-            .sellMenu .customCard .card-img-top {
-                display: inline-block;
-                width: 25%;
-            }
-
-            .sellMenu .customCard .card-body {
-                display: inline-block;
-                padding: 0;
-                width: 70%;
-            }*/
     .listCenter div ul {
         text-align: center;
         margin-bottom: 0;
@@ -95,7 +50,6 @@ section {
         text-align: center;
     }
 
-
     .blackBox {
         position: absolute;
         right: 0%;
@@ -108,7 +62,6 @@ section {
         margin: 15px auto;
     }
 
-
     .menuItemsBigScreen {
         display: none !important;
     }
@@ -116,7 +69,6 @@ section {
     .menuItemsSmallScreen {
         display: block !important;
     }
-
 
     #logoImg {
         margin-left: 15px !important;
@@ -126,8 +78,6 @@ section {
         height: 250px !important;
         background-size: auto !important;
     }
-
-
 
     #smallFooter li {
         display: block !important;
@@ -166,20 +116,14 @@ section {
         display: block !important;
     }
 
-    #dashBoard {
+    #dashBoard i {
+        display: none;
     }
 
-        #dashBoard i {
-            display: none;
-        }
-
-        #dashBoard a span {
-            display: inline !important;
-            color: white;
-        }
-
-
-
+    #dashBoard a span {
+        display: inline !important;
+        color: white;
+    }
 
     .divOnImage {
         margin-top: 0px !important;
@@ -193,7 +137,6 @@ section {
         font-size: 15px;
     }
 
-
     #copyright {
         text-align: center !important;
     }
@@ -205,13 +148,9 @@ section {
         border-bottom-width: 1px;
     }
 
-
-
-
     .listCollapse div:first-of-type {
         display: none;
     }
-
 
     div#searchResearch {
         margin-top: 15px !important;
@@ -225,15 +164,15 @@ section {
             margin-top: 50px !important;
         }
 }
-
-
-
 /*media ends*/
+
+
 
 div.checkboxList td input[type="checkbox"],
 div.asp_checkbox input[type="checkbox"] {
     transform: scale(1.5);
 }
+
 div.checkboxList td label,
 div.asp_checkbox label {
     margin-left: 10px;
@@ -249,19 +188,15 @@ a.underlinedLink {
         color: black;
         border-bottom: 4px solid #A400B4;
     }
+
     a.underlinedLink.activ {
         color: black;
         border-bottom: 4px solid #A400B4;
     }
 
-
-
-
-
 .repairBlock {
     margin-top: -220px;
 }
-
 
 .listRepairs div ul {
     list-style-type: none;
@@ -269,44 +204,38 @@ a.underlinedLink {
     position: relative;
 }
 
-.listRepairs div ul li a {
-    display: block;
-    padding: 5px 15px 5px 10px;
-    border-radius: 5px;
-}
+    .listRepairs div ul li a {
+        display: block;
+        padding: 5px 15px 5px 10px;
+        border-radius: 5px;
+    }
 
-.listRepairs div ul li:nth-child(odd) {
-    background-color: #f2f2f2;
-}
+    .listRepairs div ul li:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
 
-.listRepairs div ul li a span:first-of-type {
-    padding-left: 10px;
-}
-.listRepairs div ul li a span:last-of-type {
-    position: absolute;
-    right: 50px;
-}
+    .listRepairs div ul li a span:first-of-type {
+        padding-left: 10px;
+    }
 
-    
-
-
-
+    .listRepairs div ul li a span:last-of-type {
+        position: absolute;
+        right: 50px;
+    }
 
 .carMake ul {
     list-style-type: none;
     margin-top: 40px;
     padding-left: 0;
 }
-.carMake ul li {
-    padding: 10px 40px;
-}
 
-
+    .carMake ul li {
+        padding: 10px 40px;
+    }
 
 .cardWithImage:hover h5 {
     color: #004b83;
 }
-
 
 .onHover:hover {
     color: #004b83 !important;
@@ -348,7 +277,6 @@ a.underlinedLink {
         text-decoration: underline;
     }
 
-
 #logoImg {
     height: 35px;
     margin-left: 20px;
@@ -359,7 +287,6 @@ a.underlinedLink {
     padding-bottom: 0;
 }
 
-
 .nav-item a {
     display: block;
     padding: 15px 15px;
@@ -368,7 +295,6 @@ a.underlinedLink {
     .nav-item a:hover {
         background-color: #513979;
     }
-
 
 a:hover {
     text-decoration: none;
@@ -390,7 +316,6 @@ a:hover {
         color: white;
         text-decoration: none;
     }
-
 
 .verticalAlign {
     display: flex;
@@ -455,8 +380,6 @@ a:hover {
         padding: 5px;
         justify-content: center;
         align-items: center;
-        /*padding: 3px 0 6px 0;
-        text-align: center;*/
     }
 
         #quiz a span {
@@ -471,8 +394,6 @@ a:hover {
         margin-right: 5px;
         font-weight: normal;
     }
-
-
 
 div#feedBack {
     position: fixed;
@@ -502,9 +423,6 @@ div#feedBack {
         margin: 0 15px;
     }
 
-
-
-
 .verticalList ul {
     list-style-type: none;
     padding: 0;
@@ -517,12 +435,8 @@ div#feedBack {
         padding: 0;
     }
 
-
-
-
-
 #MyDashBoardMenu {
-    position: absolute; 
+    position: absolute;
     right: 0;
     top: 100%;
     z-index: 1;
@@ -531,13 +445,14 @@ div#feedBack {
 
     #MyDashBoardMenu div.white_triangle {
         position: absolute;
-        top: -1%; 
+        top: -1%;
         right: 8%;
-        width: 15px; 
+        width: 15px;
         height: 15px;
         background-color: white;
         transform: rotate(45deg);
     }
+
     #MyDashBoardMenu ul {
         margin: 0;
         padding: 15px;
@@ -547,7 +462,7 @@ div#feedBack {
     }
 
         #MyDashBoardMenu ul li a {
-            color: black; 
+            color: black;
             display: flex;
             margin-bottom: 10px;
         }
@@ -559,34 +474,12 @@ div#feedBack {
                 width: 25%;
                 text-align: center;
             }
+
             #MyDashBoardMenu ul li a span {
                 padding-left: 0;
                 width: 70%;
                 font-size: 14px;
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*news.aspx*/
@@ -615,7 +508,6 @@ div#feedBack {
         color: gray;
     }
 
-
 .horizMenu a {
     display: inline-block;
     margin-right: 15px;
@@ -631,6 +523,7 @@ div#feedBack {
         margin-right: 0;
     }
 
+
 /*Research page*/
 #searchResearch input[type="submit"] {
     background-color: #a400b4;
@@ -642,10 +535,6 @@ div#feedBack {
     #searchResearch input[type="submit"]:hover {
         background-color: #9400D3;
     }
-
-
-
-
 
 .carRow div a div img {
     display: block;
@@ -659,7 +548,6 @@ div#feedBack {
 .carRow div a:hover img {
     transform: scale(1.05);
 }
-
 
 .grayToolBox div {
 }
@@ -701,8 +589,8 @@ div#feedBack {
     color: black;
 }
 
-/*sell.aspx*/
 
+/*sell.aspx*/
 .customCard {
     border: none;
     background-color: transparent;
@@ -738,7 +626,6 @@ div#feedBack {
     font-weight: 600;
 }
 
-
 .niceButton {
     color: #9400d3;
     border-color: #9400d3;
@@ -763,7 +650,6 @@ div#feedBack {
     }
 
 .carAdvice {
-    
     padding: 25px 0;
 }
 
@@ -800,20 +686,6 @@ a.circleIcon {
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*advanced_search.aspx*/
 .greenButton {
     padding: 5px 25px;
@@ -828,16 +700,13 @@ a.circleIcon {
         border-color: #a2c71f;
     }
 
-
 .borderRad-0 {
     border-radius: 0;
 }
 
 
 /*shopping.aspx*/
-
-
-.blackBoxOnImage div{
+.blackBoxOnImage div {
     color: white;
     font-size: 14px;
 }
@@ -847,7 +716,7 @@ a.circleIcon {
     color: rgba(255, 255, 255, 0.8);
 }
 
-.blackBoxOnImage:hover span{
+.blackBoxOnImage:hover span {
     text-decoration: underline;
 }
 

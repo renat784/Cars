@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SearchResult.aspx.cs" Inherits="Cars.SearchResult" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
     <asp:UpdatePanel ID="updpnlRefresh" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
 
@@ -31,15 +30,15 @@
                     a.pageLink:hover {
                         color: #5c707c;
                     }
-                a.pageLink.activePage {
-                    font-weight: bold;
-                }
 
-                button.pageLink {
-                   
-                }
+                    a.pageLink.activePage {
+                        font-weight: bold;
+                    }
 
-                    
+
+                input[type="radio"] {
+                    margin-right: 10px;
+                }
             </style>
 
             <script>
@@ -49,9 +48,6 @@
                     localStorage["searchresult_activeTabId"] = "home-tab";
                     ChangeTab();
                     ActivePageLink();
-
-
-                   
                 })
 
                 function ActivePageLink() {
@@ -107,11 +103,6 @@
                     ActiveTabSwitcher(e.id);
                     localStorage["searchresult_activeTabId"] = e.id;
                 }
-
-
-               
-                    
-                
 
             </script>
 
@@ -212,11 +203,10 @@
                                             <asp:RadioButtonList OnDataBound="Mileage_RadioList_OnDataBound" ID="Mileage_RadioList" SelectMethod="Mileage_List" runat="server" />
                                         </div>
                                         <hr />
-                                        <div>
-                                            <asp:Button runat="server" Text="Search" OnClick="SearchFromFilterResults" />
+                                        <div class="col-12">
+                                            <asp:Button Style="width: 100%" CssClass="btn niceButton" runat="server" Text="Search" OnClick="SearchFromFilterResults" />
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="tb-pane fade " id="new_search" role="tabpanel" aria-labelledby="new_search-tab">
                                     <%--new search tab:--%>
@@ -250,27 +240,24 @@
                             </div>
                         </div>
                     </div>
-
-
                     <%--search results--%>
                     <div class="col-lg-8">
                         <div class="row my-4">
-                            <div class="col-7 pt-1">
+                            <div class="col-lg-7  pt-1">
                                 <asp:Label ID="TotalResults" runat="server"></asp:Label>
                             </div>
-                            <div class="col-5">
+                            <div class="col-lg-5 ">
                                 <div class="row">
-                                    <div class="col-3 text-right px-0">
+                                    <div class="col-lg-3 col-5 text-right px-0">
                                         <asp:Label CssClass="control-label bold pt-1" runat="server" AssociatedControlID="SortBy">Sort by:</asp:Label>
                                     </div>
-                                    <div class="col-9">
+                                    <div class="col-lg-9 col-7">
                                         <asp:DropDownList SelectMethod="SortByList" OnDataBound="SortBy_OnDataBound" OnSelectedIndexChanged="SortBy_OnSelectedIndexChanged" CssClass="form-control" ID="SortBy" runat="server" AutoPostBack="True">
                                         </asp:DropDownList>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <div id="NoResults" class="text-center my-5" runat="server">
                             <hr />
                             <h5 class="mb-3">Ops, no items found !</h5>
@@ -279,15 +266,14 @@
                             <p>change few filters in <strong>Filter Results</strong></p>
                             <hr />
                         </div>
-
                         <asp:Repeater runat="server" ID="RepeaterCards" OnItemCreated="RepeaterCards_OnItemCreated">
                             <ItemTemplate>
-                                <div class="my-4" style="background-color: white">
+                                <div class="my-4">
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-lg-6 p-0">
                                             <img src="Images/carImageExample.jpg" style="width: 100%" />
                                         </div>
-                                        <div class="col-6 pr-5">
+                                        <div class="col-lg-6 p-3" style="background-color: white">
                                             <div>
                                                 <span class="bold" style="font-size: 24px"><%#Eval("Price", "{0:c0}") %></span>
                                                 <span class="gray mx-1 small">|</span>
@@ -299,7 +285,7 @@
                                                 <span><%#Eval("Model")%></span>
                                             </div>
                                             <div class="row small mt-1">
-                                                <div class="col-4">
+                                                <div class="col-5">
                                                     <div>
                                                         <span class="bold">Ext.Color:</span>
                                                         <span><%#Eval("ExteriorColor")%></span>
@@ -309,7 +295,7 @@
                                                         <span><%#Eval("InteriorColor")%></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-8">
+                                                <div class="col-7">
                                                     <div>
                                                         <span class="bold">Transmission:</span>
                                                         <span><%#Eval("Transmission")%></span>
@@ -328,18 +314,15 @@
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>
-
                         <div class="text-center my-5">
                             <asp:Repeater runat="server" ID="Pagination">
                                 <HeaderTemplate>
-                                   
-
                                     <ul class="mt-4">
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                        <li style="display: inline">
-                                            <a class="p-2  mx-2 pageLink" href="<%#Eval("Url") %>"><%#Eval("OrderId") %></a>
-                                        </li>
+                                    <li style="display: inline">
+                                        <a class="p-2  mx-2 pageLink" href="<%#Eval("Url") %>"><%#Eval("OrderId") %></a>
+                                    </li>
                                 </ItemTemplate>
                                 <FooterTemplate>
                                     </ul>
@@ -347,7 +330,7 @@
                             </asp:Repeater>
                         </div>
                         <div class="my-5 row justify-content-center">
-                            <asp:DropDownList OnDataBound="ResultsPerPage_OnDataBound" SelectMethod="SelectResultsPerPage" CssClass="form-control col-3" OnSelectedIndexChanged="ResultsForPage" runat="server" ID="ResultsPerPage" AutoPostBack="True">
+                            <asp:DropDownList OnDataBound="ResultsPerPage_OnDataBound" SelectMethod="SelectResultsPerPage" CssClass="form-control col-lg-3 col-5" OnSelectedIndexChanged="ResultsForPage" runat="server" ID="ResultsPerPage" AutoPostBack="True">
                             </asp:DropDownList>
                         </div>
                         <div class="small pb-5">
@@ -358,15 +341,10 @@
                                 The information on vehicles provided in this service is supplied by the seller or other third parties; Cars.com is not responsible for the accuracy of such information. Cars.com provides this service and materials without representations or warranties of any kind, either expressed or implied.
                                 <a href="#">See our terms of service for more details.</a>
                             </div>
-                            
                         </div>
                     </div>
-                    
                 </div>
-                
             </div>
-            
         </ContentTemplate>
     </asp:UpdatePanel>
-
 </asp:Content>

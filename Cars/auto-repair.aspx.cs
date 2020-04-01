@@ -55,9 +55,9 @@ namespace Cars
                     ImageFileName = "Oxygen_Sensor.png"
                 }
             };
-
             this.list = _list;
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //show id from 1 to 5

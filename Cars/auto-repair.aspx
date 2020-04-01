@@ -2,7 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script>
         function changeText(e) {
             if (e.text == 'View More Makes') {
@@ -17,13 +16,12 @@
     </script>
 
     <div class="bigImage" style="background-image: url(Images/repairCar.jpg); position: relative">
-        <div class="textOnImage" style="left: 50%;transform: translateX(-50%)">
+        <div class="textOnImage" style="left: 50%; transform: translateX(-50%)">
             <h2 class="font-weight-bold">Vehicle Service and Repairs</h2>
         </div>
     </div>
-
     <div class="body-content">
-        <div class="col-lg-10 offset-lg-1 py-lg-4 px-lg-5 repairBlock" style="background-color: white; border-radius: 5px;position: relative">
+        <div class="col-lg-10 offset-lg-1 py-lg-4 px-lg-5 repairBlock" style="background-color: white; border-radius: 5px; position: relative">
             <div class="row">
                 <div class="col-lg-4 colorPrimary white p-4 text-center">
                     <h3 class="font-weight-bold">Auto Repair Services Near Me</h3>
@@ -73,8 +71,6 @@
                 </div>
             </div>
         </div>
-
-
         <section>
             <div class="col-lg-6 offset-lg-3 px-lg-5">
                 <div class="row form-group">
@@ -86,7 +82,7 @@
                         <asp:ListItem>Lexus</asp:ListItem>
                     </asp:DropDownList>
                     <div class="col-4 pl-lg-2 pr-0">
-                        <asp:TextBox CssClass="form-control" style="width: 100%" ToolTip="Zip code, for example 12345" runat="server"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" Style="width: 100%" ToolTip="Zip code, for example 12345" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <div class="row">
@@ -99,7 +95,6 @@
                 </div>
             </div>
         </section>
-
         <section>
             <h3 class="secondary">Recalls</h3>
             <p>Find out if there are any recalls on your car.</p>
@@ -115,10 +110,8 @@
                         <div class="col-6">
                             <img src="Images/hundai.png" style="width: 100%" />
                         </div>
-
                     </div>
                     <hr />
-
                     <div class="row">
                         <div class="col-6">
                             <h5 class="font-weight-bold mb-0">2016 Ford F-150</h5>
@@ -144,10 +137,8 @@
                         <div class="col-6">
                             <img src="Images/hundai22.png" style="width: 100%" />
                         </div>
-
                     </div>
                     <hr />
-
                     <div class="row">
                         <div class="col-6">
                             <h5 class="font-weight-bold mb-0">2014 Hyundai Sonata</h5>
@@ -158,23 +149,14 @@
                         <div class="col-6">
                             <img src="Images/hundai33333.png" style="width: 100%" />
                         </div>
-
                     </div>
                     <hr />
                 </div>
             </div>
-
             <div class="mt-4">
                 <a href="#" class="btn niceButton col-lg-4 offset-lg-4">Find Recalls for Your Car</a>
             </div>
-
         </section>
-
-
-
-
-
-
         <section>
             <h3 class="secondary">Do It Yourself Repairs</h3>
             <p>Learn how to make repairs on your car in your own garage.</p>
@@ -235,15 +217,6 @@
                 <a href="#" class="btn niceButton col-lg-4 offset-lg-4">See All DIY Repairs</a>
             </div>
         </section>
-
-
-
-
-
-
-
-
-
         <section>
             <h3 class="secondary">Expert Tips About Service</h3>
             <div class="row mt-4">
@@ -288,11 +261,9 @@
                             </div>
                         </div>
                     </a>
-
                 </div>
             </div>
         </section>
-
         <section>
             <h3 class="secondary">Service Term to Know</h3>
             <div style="background-color: #F2F2F2; margin: 15px 0"><%= CleanTitle(item.Title) %></div>
@@ -309,11 +280,6 @@
                 <a href="#">See More Auto Parts ></a>
             </div>
         </section>
-
-
-
-
-
         <section>
             <h3 class="secondary">Find Service by Make</h3>
             <div class="carMake">
@@ -325,7 +291,6 @@
                             </div>
                             <p class="gray">Acura</p>
                         </a>
-
                     </li>
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
@@ -368,7 +333,6 @@
                         </a>
                     </li>
                 </ul>
-
                 <ul id="hiddenList" class="row collapse">
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
@@ -393,7 +357,6 @@
                             </div>
                             <p class="gray">Fiat</p>
                         </a>
-
                     </li>
                     <li class="col-lg-2">
                         <a href="#" class="text-center">
@@ -420,8 +383,6 @@
                         </a>
                     </li>
                 </ul>
-
-
                 <div class="text-center">
                     <a href="#hiddenList" onclick="changeText(this)" data-toggle="collapse">View More Makes</a>
                     <i id="chevron" class="fa fa-chevron-down pl-2" aria-hidden="true"></i>
@@ -429,7 +390,5 @@
             </div>
         </section>
     </div>
-
-
 
 </asp:Content>

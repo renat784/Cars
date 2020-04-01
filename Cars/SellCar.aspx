@@ -2,8 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-
-    
     <script>
         // partial page reload (isPostBack)
         function pageLoad(sender, args) {
@@ -35,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="State" runat="server">State</asp:Label>
-                            <asp:DropDownList ID="State" SelectMethod="StatesList"  CssClass="form-control" runat="server" AutoPostBack="True" >
+                            <asp:DropDownList ID="State" SelectMethod="StatesList" CssClass="form-control" runat="server" AutoPostBack="True">
                             </asp:DropDownList>
                         </div>
                         <div class="form-group mt-4">
@@ -50,10 +48,10 @@
                             <asp:Label class="control-label" for="Year" runat="server">Year</asp:Label>
                             <asp:DropDownList ID="Year" CssClass="form-control" SelectMethod="YearsList" runat="server" AutoPostBack="True">
                             </asp:DropDownList>
-                            
+
                         </div>
                         <div class="form-group">
-                            <asp:Label class="control-label" AssociatedControlID="Make"  runat="server">Make</asp:Label>
+                            <asp:Label class="control-label" AssociatedControlID="Make" runat="server">Make</asp:Label>
                             <asp:DropDownList ID="Make" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Make" DataValueField="Make">
                             </asp:DropDownList>
                             <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Make] FROM [Cars]"></asp:SqlDataSource>
@@ -113,17 +111,16 @@
                                     </a>
                                 </div>
                             </div>
-
                             <asp:DropDownList ID="Transmission" CssClass="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource5" DataTextField="Transmission" DataValueField="Transmission">
                             </asp:DropDownList>
                             <asp:SqlDataSource runat="server" ID="SqlDataSource5" ConnectionString='<%$ ConnectionStrings:CarsConnection %>' SelectCommand="SELECT DISTINCT [Transmission] FROM [Cars]"></asp:SqlDataSource>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="Mileage" runat="server">Mileage</asp:Label>
-                            <asp:TextBox ID="Mileage"  TextMode="Number"  CssClass="form-control" runat="server">
+                            <asp:TextBox ID="Mileage" TextMode="Number" CssClass="form-control" runat="server">
                             </asp:TextBox>
                             <asp:RegularExpressionValidator SetFocusOnError="True" ValidationExpression="\d{3,6}" ForeColor="red" ErrorMessage="3-6 digits please" runat="server" ControlToValidate="Mileage"></asp:RegularExpressionValidator>
-                            <br/>
+                            <br />
                             <asp:RequiredFieldValidator SetFocusOnError="True" ErrorMessage="Add Mileage please" ForeColor="red" runat="server" ControlToValidate="Mileage"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group">
@@ -144,12 +141,12 @@
                         <hr />
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="NumberOfDoors" runat="server">Number of Doors</asp:Label>
-                            <asp:DropDownList ID="NumberOfDoors" CssClass="form-control" runat="server" AutoPostBack="True" >
+                            <asp:DropDownList ID="NumberOfDoors" CssClass="form-control" runat="server" AutoPostBack="True">
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="EngineCylinder" runat="server">Engine Cylinder</asp:Label>
-                            <asp:DropDownList ID="EngineCylinder" CssClass="form-control" runat="server" AutoPostBack="True" >
+                            <asp:DropDownList ID="EngineCylinder" CssClass="form-control" runat="server" AutoPostBack="True">
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
@@ -172,20 +169,18 @@
                                     </a>
                                 </div>
                             </div>
-
-                            <asp:DropDownList ID="DriveType" CssClass="form-control" runat="server" AutoPostBack="True" >
+                            <asp:DropDownList ID="DriveType" CssClass="form-control" runat="server" AutoPostBack="True">
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
                             <asp:Label class="control-label" AssociatedControlID="Fueltype" runat="server">Fuel Type</asp:Label>
-                            <asp:DropDownList ID="Fueltype" CssClass="form-control" runat="server" AutoPostBack="True" >
+                            <asp:DropDownList ID="Fueltype" CssClass="form-control" runat="server" AutoPostBack="True">
                             </asp:DropDownList>
                         </div>
                         <div class="text-center text-lg-left">
                             <a href="#">Save progress</a>
                         </div>
                         <hr />
-
                         <div>
                             <h6>Your Car's Features</h6>
                             <p>Check any that apply or select none.</p>
@@ -253,7 +248,6 @@
                             </div>
                             <hr />
                         </div>
-
                         <div class="mt-5">
                             <h6 class="mb-3">Price/Description</h6>
                             <div class="form-group">
@@ -271,15 +265,14 @@
                                         </a>
                                     </div>
                                 </div>
-
                                 <div style="position: relative">
-                                    <asp:TextBox ID="Price"  TextMode="Number" CssClass="form-control pl-4" runat="server">
+                                    <asp:TextBox ID="Price" TextMode="Number" CssClass="form-control pl-4" runat="server">
                                     </asp:TextBox>
                                     <i class="fa fa-usd" aria-hidden="true" style="position: absolute; left: 2%; top: 50%; transform: translateY(-50%)"></i>
                                 </div>
                                 <asp:RequiredFieldValidator ErrorMessage="Enter a Price please" ForeColor="red" SetFocusOnError="True" runat="server" ControlToValidate="Price"></asp:RequiredFieldValidator>
-                                <br/>
-                                <asp:RegularExpressionValidator ValidationExpression="\d{3,6}" ErrorMessage="3-6 digits, please" runat="server" ForeColor="red" ControlToValidate="Price" ></asp:RegularExpressionValidator>
+                                <br />
+                                <asp:RegularExpressionValidator ValidationExpression="\d{3,6}" ErrorMessage="3-6 digits, please" runat="server" ForeColor="red" ControlToValidate="Price"></asp:RegularExpressionValidator>
                             </div>
                             <div class="asp_checkbox my-3">
                                 <asp:CheckBox runat="server" ID="or_best_offer" Text="Or Best Offer" />
@@ -293,7 +286,6 @@
                                 <div class="text-center text-lg-left">
                                     <small>1000 Characters</small>
                                 </div>
-
                             </div>
                             <div class="text-center text-lg-left">
                                 <a href="#">Save progress</a>
@@ -308,7 +300,6 @@
 
                             </div>
                         </div>
-
                         <div>
                             <small>All fields required</small>
                             <hr />
@@ -318,16 +309,15 @@
                                     <asp:TextBox ID="FirstName" CssClass="form-control" runat="server">
                                     </asp:TextBox>
                                     <div>
-                                        <asp:RequiredFieldValidator ErrorMessage="Enter your First Name, please" ForeColor="red" SetFocusOnError="True"  ControlToValidate="FirstName" runat="server"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ErrorMessage="Enter your First Name, please" ForeColor="red" SetFocusOnError="True" ControlToValidate="FirstName" runat="server"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <asp:Label class="control-label" AssociatedControlID="LastName" runat="server">Last Name</asp:Label>
                                     <asp:TextBox ID="LastName" CssClass="form-control" runat="server">
                                     </asp:TextBox>
                                     <div>
-                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Last Name, please" ForeColor="red" SetFocusOnError="True"  ControlToValidate="LastName" runat="server"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Last Name, please" ForeColor="red" SetFocusOnError="True" ControlToValidate="LastName" runat="server"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -335,26 +325,23 @@
                                     <asp:TextBox ID="EmailAdress" TextMode="Email" CssClass="form-control" runat="server">
                                     </asp:TextBox>
                                     <div>
-                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Email Adress, please" ForeColor="red" SetFocusOnError="True"  ControlToValidate="EmailAdress" runat="server"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Email Adress, please" ForeColor="red" SetFocusOnError="True" ControlToValidate="EmailAdress" runat="server"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <asp:Label class="control-label" AssociatedControlID="PhoneNumber" runat="server">Phone number</asp:Label>
-                                    <asp:TextBox ID="PhoneNumber"  CssClass="form-control" runat="server">
+                                    <asp:TextBox ID="PhoneNumber" CssClass="form-control" runat="server">
                                     </asp:TextBox>
                                     <div>
                                         <small>Format: (555)123-5678</small>
                                     </div>
                                     <div>
-                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Phone number, please" ForeColor="red" SetFocusOnError="True"  ControlToValidate="PhoneNumber" runat="server"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Phone number, please" ForeColor="red" SetFocusOnError="True" ControlToValidate="PhoneNumber" runat="server"></asp:RequiredFieldValidator>
                                         <asp:RegularExpressionValidator ValidationExpression="[(]{1}\d{3}[)]{1}\d{3}[-]{1}\d{4}" ErrorMessage="Wrong format" SetFocusOnError="True" ForeColor="red" ControlToValidate="PhoneNumber" runat="server"></asp:RegularExpressionValidator>
                                     </div>
-                                   
-                                        
-                                    
                                 </div>
                                 <div class="form-group">
-                                    <asp:DropDownList ID="DayTime"  CssClass="form-control" runat="server" AutoPostBack="True">
+                                    <asp:DropDownList ID="DayTime" CssClass="form-control" runat="server" AutoPostBack="True">
                                         <asp:ListItem>Daytime</asp:ListItem>
                                         <asp:ListItem>Evening</asp:ListItem>
                                         <asp:ListItem>Mobile</asp:ListItem>
@@ -374,17 +361,15 @@
                                             </a>
                                         </div>
                                     </div>
-
                                     <asp:TextBox ID="ZIP" TextMode="Number" CssClass="form-control" runat="server">
                                     </asp:TextBox>
                                     <div>
-                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Zip Code, please" ForeColor="red" SetFocusOnError="True"  ControlToValidate="ZIP" runat="server"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ErrorMessage="Enter your Zip Code, please" ForeColor="red" SetFocusOnError="True" ControlToValidate="ZIP" runat="server"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="text-center text-lg-left">
                                         <small>Vehicle location</small>
                                     </div>
                                 </div>
-
                                 <div class="text-center text-lg-left">
                                     <a href="#">Save Progress</a>
                                 </div>
@@ -392,9 +377,7 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
                 <div class="col-lg-8 offset-lg-2">
                     <div class="mt-5">
                         <p>Now it's time to add some photos to your listing! Add at least 1 photo to continue.</p>
@@ -406,7 +389,6 @@
                             <h6>Photo Tips</h6>
                             <p>Sell your car faster by adding photos taken from multiple angles, like these:</p>
                         </div>
-
                         <div class="row">
                             <div class="col-lg-6 col-sm-12">
                                 <div class="row">
@@ -468,11 +450,7 @@
                                     <span>No Photos? <a href="#">Save Listing For Later</a></span>
                                 </div>
                             </div>
-
-
                         </div>
-
-
                         <hr />
                     </div>
                     <div class="mt-5 text-center text-lg-left">
@@ -480,19 +458,7 @@
                         <small>Having trouble Uploading? <a href="#">Click here To Chat with Live Support</a> or <a href="#">send us an email</a></small>
                     </div>
                 </div>
-
             </section>
         </ContentTemplate>
-    
     </asp:UpdatePanel>
-
-
-
-
-
-
-
-
-
-
 </asp:Content>
